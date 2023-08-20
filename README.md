@@ -46,7 +46,7 @@
 <img src = ""></h1>
 <br>
 
-### 🎯 Entregas
+<h2> :clipboard: 🎯 Entregas</h2>
 
 Sprint ID | Data | Tag-Front | Tag-Back | Backlog | Status
 ----------|------|-----|-----|---------|--------
