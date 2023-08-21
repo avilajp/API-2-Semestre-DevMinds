@@ -86,11 +86,11 @@ Documentação relacionada a parte de CI:
 | Função | Nome | GitHub | LinkedIn |
 | :---: | :---: | :---: | :---: |
 | PO | Samantha Nogueira | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/samrln)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/samrln/) |
-| SM | João Ávila | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/avilajp)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/joão-pedro-ávila-83a10a225/) |
+| SM | Letícia Castro | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/castroleticia)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />]() |
+| DT | João Ávila | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/avilajp)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/joão-pedro-ávila-83a10a225/) |
 | DT | André Wakugawa | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/AndreWakugawa)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/andr%C3%A9-wakugawa-b07527182/) |
 | DT | Ricardo Reis | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/RicardoReis5)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/ricardo-reis-78a0b7271/)
 | DT | Cauê Silva | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/CauevSilv)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/cau%C3%AA-vieira-ba62b4244/) |
-| DT | Letícia Castro | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/castroleticia)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />]() |
 | DT | Miguel Arcanjo | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/MiguelArc01)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/miguel-arcanjo-%C3%A1vila-872637230) |
 
 
