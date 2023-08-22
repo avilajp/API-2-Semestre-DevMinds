@@ -92,7 +92,7 @@ Documentação relacionada a parte de CI:
 | DT | Ricardo Reis | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/RicardoReis5)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/ricardo-reis-78a0b7271/)
 | DT | Cauê Silva | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/CauevSilv)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/cau%C3%AA-vieira-ba62b4244/) |
 | DT | Miguel Arcanjo | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/MiguelArc01)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/miguel-arcanjo-%C3%A1vila-872637230) |
-
+| DT | Gabriel Guska | [<img height="32" width="32" src="https://cdn.simpleicons.org/github"/>](https://github.com/GabrielBartolomeu1)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/gabiel-guska-5860a1271)|
 
 
 <br>
