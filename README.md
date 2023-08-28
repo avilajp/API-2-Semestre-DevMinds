@@ -12,6 +12,22 @@
     <a href="#equipe">Equipe DevMinds</a>
 </p>
 <br>
+<div id='equipe'>
+<h2> 🎓 Equipe DevMinds</h2>
+    
+
+| Função | Nome | GitHub | LinkedIn |
+| :---: | :---: | :---: | :---: |
+| PO | Samantha Nogueira | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/samrln)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/samrln/) |
+| SM | Letícia Castro | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/castroleticia)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />]() |
+| DT | João Ávila | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/avilajp)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/joão-pedro-ávila-83a10a225/) |
+| DT | André Wakugawa | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/AndreWakugawa)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/andr%C3%A9-wakugawa-b07527182/) |
+| DT | Ricardo Reis | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/RicardoReis5)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/ricardo-reis-78a0b7271/)
+| DT | Cauê Silva | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/CauevSilv)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/cau%C3%AA-vieira-ba62b4244/) |
+| DT | Miguel Arcanjo | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/MiguelArc01)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/miguel-arcanjo-%C3%A1vila-872637230) |
+| DT | Gabriel Guska | [<img height="32" width="32" src="https://cdn.simpleicons.org/github"/>](https://github.com/GabrielBartolomeu1)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/gabiel-guska-5860a1271)|
+
+<br>
 <h2 align="center"> Links Dos Repositórios </h2>
 	
 > ### :outbox_tray: Aqui entram nossos repositórios
@@ -77,24 +93,6 @@ Documentação relacionada a parte de CI:
     <img src="https://img.shields.io/badge/ClickUp-CED4DA?style=for-the-badge&logo=clickup&logoColor=0082FC"/>
     <br>
 </p>
-<br>
-
-<div id='equipe'>
-<h2> 🎓 Equipe DevMinds</h2>
-    
-
-| Função | Nome | GitHub | LinkedIn |
-| :---: | :---: | :---: | :---: |
-| PO | Samantha Nogueira | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/samrln)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/samrln/) |
-| SM | Letícia Castro | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/castroleticia)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />]() |
-| DT | João Ávila | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/avilajp)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/joão-pedro-ávila-83a10a225/) |
-| DT | André Wakugawa | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/AndreWakugawa)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/andr%C3%A9-wakugawa-b07527182/) |
-| DT | Ricardo Reis | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/RicardoReis5)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/ricardo-reis-78a0b7271/)
-| DT | Cauê Silva | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/CauevSilv)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/cau%C3%AA-vieira-ba62b4244/) |
-| DT | Miguel Arcanjo | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/MiguelArc01)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/miguel-arcanjo-%C3%A1vila-872637230) |
-| DT | Gabriel Guska | [<img height="32" width="32" src="https://cdn.simpleicons.org/github"/>](https://github.com/GabrielBartolomeu1)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/gabiel-guska-5860a1271)|
-
-
 <br>
 	
 <h2>:bulb: Metodologia Utilizada</h2>
