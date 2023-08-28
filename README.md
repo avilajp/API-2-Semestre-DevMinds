@@ -12,7 +12,7 @@
     <a href="#equipe">Equipe DevMinds</a>
 </p>
 <br>
-<div id='equipe'>
+<div id='equipe' align="center">
 <h2> 🎓 Equipe DevMinds</h2>
     
 
@@ -26,20 +26,20 @@
 | DT | Cauê Silva | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/CauevSilv)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/cau%C3%AA-vieira-ba62b4244/) |
 | DT | Miguel Arcanjo | [<img height="32" width="32" src="https://cdn.simpleicons.org/github" />](https://github.com/MiguelArc01)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/miguel-arcanjo-%C3%A1vila-872637230) |
 | DT | Gabriel Guska | [<img height="32" width="32" src="https://cdn.simpleicons.org/github"/>](https://github.com/GabrielBartolomeu1)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/gabiel-guska-5860a1271)|
-
+</div>
 <br>
 <h2 align="center"> Links Dos Repositórios </h2>
 	
 > ### :outbox_tray: Aqui entram nossos repositórios
 
 <br>
-<span id="Objetivo">
+<span id="Objetivo" align="center">
 <h2> :briefcase: Objetivo do Projeto </h2>
 <p>Objetivo</p>
 
 <br>
 
-<span id="backlog">
+<span id="backlog" align="center">
 <h2> :bookmark_tabs: Backlog do Produto </h2>
 
 --- | Backlog do Produto | Status |
@@ -56,7 +56,7 @@
 #1 | DadosAtor | Ações | DadosMotivacionais
 	
 	
-<span id="modelo">
+<span id="modelo" align="center">
 <h2> :clipboard: Modelo de Dados</h2>
 <h1 align="center">
   <p>Imagem da modelagem</p>
@@ -73,16 +73,17 @@ Sprint ID | Data | Tag-Front | Tag-Back | Backlog | Status
 #4 | 06/11 - 26/11 |:o:|:o:|:o:|:o:|
 <br>
 
-<span id="links">
+<span id="links" align="center">
 <h2>:card_file_box: Link para Documentação</h2>
-
+</span>
 Documentação relacionada a parte de CI:
 <br>
-> ### 📁 <a href="">/Documentação de CI</a>
+📁 <a href="">/Documentação de CI</a>
 
 <br>
-<span id="tecnologias">
+<span id="tecnologias" align="center">
   <h2>:wrench: Tecnologias Utilizadas</h2>
+</span>
 <p>
   <p> Comunicação <p>
     <img src="https://img.shields.io/badge/Discord-CED4DA?style=for-the-badge&logo=discord&logoColor=5865F2"/> 
