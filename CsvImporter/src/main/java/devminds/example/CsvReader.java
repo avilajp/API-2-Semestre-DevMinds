@@ -1,17 +1,15 @@
-package org.example;
+package devminds.example;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class CsvReader {
-    public void LeitorCSV() {
+    public void LeitorCSV(String filename) {
         try {
-            String filename = "src/main/Arquivo.csv";
             FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
             String line = "";
             String[] nextRecord;
-            //JsonMaker dadosJson = new JsonMaker();
             int indexFor = 0;
             while ((line = br.readLine()) != null) {
                 nextRecord = line.split(",");

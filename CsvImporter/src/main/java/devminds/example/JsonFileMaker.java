@@ -1,4 +1,4 @@
-package org.example;
+package devminds.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,7 +12,6 @@ public class JsonFileMaker {
         final File dir = new File("jsonFilesOutput");
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         FileWriter escritor = new FileWriter(new File(dir,object.getNomeCompleto() + ".json"));
-        //FileWriter escritor = new FileWriter(object.getNomeCompleto() + ".json");
         escritor.write(gson.toJson(object));
         escritor.close();
     }

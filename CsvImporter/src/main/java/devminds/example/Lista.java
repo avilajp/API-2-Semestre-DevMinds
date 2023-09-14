@@ -1,4 +1,4 @@
-package org.example;
+package devminds.example;
 
 import java.util.List;
 

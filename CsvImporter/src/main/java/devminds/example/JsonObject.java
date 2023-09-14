@@ -1,4 +1,4 @@
-package org.example;
+package devminds.example;
 
 public class JsonObject {
     private String timestamp;
