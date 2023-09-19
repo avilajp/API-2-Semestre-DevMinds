@@ -1,4 +1,4 @@
-package devminds.example;
+package devminds.example.csv;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;

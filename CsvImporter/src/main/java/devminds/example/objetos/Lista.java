@@ -1,4 +1,4 @@
-package devminds.example;
+package devminds.example.objetos;
 
 import java.util.List;
 
