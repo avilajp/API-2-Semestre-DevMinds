@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonFileMaker {
-    public void salvaJson(JsonObject object) throws IOException {
+    public void salvarJson(JsonObject object) throws IOException {
         final File dir = new File("jsonFilesOutput");
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String timestampTemp = object.getTimestamp();

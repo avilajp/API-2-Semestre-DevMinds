@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class CsvReader {
-    public void LeitorCSV(String filename) {
+    public void leitorCsv(String filename) {
         try {
             FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
@@ -51,7 +51,7 @@ public class CsvReader {
                     } catch (Exception e){}
                 }
                 JsonFileMaker fileMaker = new JsonFileMaker();
-                fileMaker.salvaJson(jsonOBJ);
+                fileMaker.salvarJson(jsonOBJ);
                 indexFor += 1;
 
 

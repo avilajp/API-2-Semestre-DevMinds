@@ -4,21 +4,21 @@ import java.util.List;
 
 public class Lista {
 
-    public String tododata;
+    public String allData;
 
 
     public Lista(List<String[]> valor){
-        this.tododata = "" + valor;
+        this.allData = "" + valor;
 
     }
 
-    public String getTododata() {
-        return tododata;
+    public String getAllData() {
+        return allData;
     }
 
     @Override
     public String toString(){
-        return this.tododata;
+        return this.allData;
     }
 
 

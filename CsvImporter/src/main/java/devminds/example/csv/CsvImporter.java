@@ -14,7 +14,7 @@ public class CsvImporter {
             if(returnVal == JFileChooser.APPROVE_OPTION) {
                 String nome = chooser.getSelectedFile().getAbsolutePath();
                 CsvReader csvReader = new CsvReader();
-                csvReader.LeitorCSV(nome);
+                csvReader.leitorCsv(nome);
             }
 
 

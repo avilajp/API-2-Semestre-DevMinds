@@ -1,4 +1,4 @@
-package com.example.seila;
+package com.example.csvscreen;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

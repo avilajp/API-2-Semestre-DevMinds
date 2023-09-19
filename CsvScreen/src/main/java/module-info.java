@@ -3,6 +3,6 @@ module com.example.seila {
     requires javafx.fxml;
 
 
-    opens com.example.seila to javafx.fxml;
-    exports com.example.seila;
+    opens com.example.csvscreen to javafx.fxml;
+    exports com.example.csvscreen;
 }
