@@ -28,14 +28,9 @@
 | DT | Gabriel Guska | [<img height="32" width="32" src="https://cdn.simpleicons.org/github"/>](https://github.com/GabrielBartolomeu1)| [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/gabiel-guska-5860a1271)|
 </div>
 <br>
-<h2 align="center"> Links Dos Repositórios </h2>
-	
-> ### :outbox_tray: Aqui entram nossos repositórios
-
-<br>
 <span id="Objetivo" align="center">
 <h2> :briefcase: Objetivo do Projeto </h2>
-<p>Objetivo</p>
+<p>Desenvolver uma ferramenta para visualização e organização das turmas de Trabalho de Graduação (TG)</p>
 
 <br>
 
@@ -44,16 +39,18 @@
 
 --- | Backlog do Produto | Status |
 ----|------------------- | ------
-#1 | Fluxo Do Projeto | Alto |
-🔗 | [Backlog por Sprint](https://google.com/) | 
-<br>
-
-<span id="userstories">
-<h2> :left_speech_bubble: User Stories </h2>
-
---- | Ator | Ação | Motivo
-----|------|------|--------
-#1 | DadosAtor | Ações | DadosMotivacionais
+#1 | Criar Github | Concluído |
+#2 | Esboço da idéia | Concluído |
+#3 | Modelagem inicial do banco de dados | Concluído |
+#4 | Adicionar o membros do time no GitHub | Concluído |
+#5 | Descrição do Objetivo de forma clara | Concluído |
+#6 | Configuração readme do GitHub | Concluído |
+#7 | Criar um importador de tabela | A fazer |
+#8 | Enviar dados vitais | A fazer |
+#9 | Salvar dados formatados de forma local | A fazer |
+#10 | Amadurecer a modelagem de banco de dados | A fazer |
+#11 | Criação banco de dados | A fazer |
+#12 | Importação de dados para o banco de dados | A fazer |
 	
 	
 <span id="modelo" align="center">
