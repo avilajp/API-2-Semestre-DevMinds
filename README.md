@@ -3,13 +3,11 @@
 <h1 align="center"> FATEC Profº Jessen Vidal, SJC - 2º Semestre BD - API DevMinds </h1>
 <br>
 <p align="center">
+    <a href="#equipe">Equipe DevMinds</a>  |
     <a href="#Objetivo">Objetivo</a>  |  
     <a href="#backlog">Backlog do Produto</a>  |
-    <a href="#userstories">User Stories</a>  |
     <a href="#modelo">Modelo de Dados</a>  |
-    <a href="#links">Documentação relacionada a parte de CI</a>  |  
-    <a href="#tecnologias">Tecnologias</a>  |  
-    <a href="#equipe">Equipe DevMinds</a>
+    <a href="#tecnologias">Tecnologias</a>
 </p>
 <br>
 <div id='equipe' align="center">
@@ -30,66 +28,62 @@
 <br>
 <span id="Objetivo" align="center">
 <h2> :briefcase: Objetivo do Projeto </h2>
-<p>Desenvolver uma ferramenta para visualização e organização das turmas de Trabalho de Graduação (TG)</p>
+<p> Desenvolver uma ferramenta para visualização e organização das turmas de Trabalho de Graduação (TG) </p>
 
 <br>
 
 <span id="backlog" align="center">
 <h2> :bookmark_tabs: Backlog do Produto </h2>
 
---- | Backlog do Produto | Status |
+Prioridade | Backlog do Produto | Status |
 ----|------------------- | ------
-#1 | Criar Github | Concluído |
-#2 | Esboço da idéia | Concluído |
-#3 | Modelagem inicial do banco de dados | Concluído |
-#4 | Adicionar o membros do time no GitHub | Concluído |
-#5 | Descrição do Objetivo de forma clara | Concluído |
-#6 | Configuração readme do GitHub | Concluído |
-#7 | Criar um importador de tabela | A fazer |
-#8 | Enviar dados vitais | A fazer |
-#9 | Salvar dados formatados de forma local | A fazer |
-#10 | Amadurecer a modelagem de banco de dados | A fazer |
-#11 | Criação banco de dados | A fazer |
-#12 | Importação de dados para o banco de dados | A fazer |
-	
-	
+#1 | Criar Github | Alto |
+#2 | Esboço da idéia | Alto |
+#3 | Criação wireframe de visualização | Alto |
+#4 | Modelagem inicial do banco de dados | Alto |
+#5 | Adicionar o membros do time no GitHub | Baixa |
+#6 | Descrição do Objetivo de forma clara | Média |
+#7 | Configuração readme do GitHub | Alta |
+#8 | Criar um importador de tabela | A fazer |
+#9 | Enviar dados vitais | A fazer |
+#10 | Salvar dados formatados de forma local | A fazer |
+#11 | Amadurecer a modelagem de banco de dados | A fazer |
+#12 | Criação banco de dados | A fazer |
+#13 | Importação de dados para o banco de dados | A fazer |
+🔗 | [Backlog por Sprint](https://docs.google.com/document/d/1-WbsinAlU2JVyuH2h__qMYZgRhSz0zLJrE_00sDiLTE/edit). | 
+<br>
+
 <span id="modelo" align="center">
 <h2> :clipboard: Modelo de Dados</h2>
 <h1 align="center">
   <p>Imagem da modelagem</p>
-<img src = ""></h1>
-<br>
+  <img src="TGEntityRelationship2.drawio.png">
+</h1>
 
 <h2> :clipboard: 🎯 Entregas</h2>
 
-Sprint ID | Data | Tag-Front | Tag-Back | Backlog | Status
-----------|------|-----|-----|---------|--------
-#1 | 04/09 - 24/09 |[Sprint 1](https://github.com/)|[Sprint 1](https://github.com/) | [Backlog 1](https://google.com) |:white_check_mark:|
-#2 | 25/09 - 15/10 |:o:|:o:|:o:|:o:|
-#3 | 16/10 - 05/11 |:o:|:o:|:o:|:o:|
-#4 | 06/11 - 26/11 |:o:|:o:|:o:|:o:|
-<br>
-
-<span id="links" align="center">
-<h2>:card_file_box: Link para Documentação</h2>
-</span>
-Documentação relacionada a parte de CI:
-<br>
-📁 <a href="">/Documentação de CI</a>
-
+Sprint ID | Período |
+----------|--------|
+#1 | 04/09 - 24/09 |
+#2 | 25/09 - 15/10 |
+#3 | 16/10 - 05/11 |
+#4 | 06/11 - 26/11 |
 <br>
 <span id="tecnologias" align="center">
-  <h2>:wrench: Tecnologias Utilizadas</h2>
+  <h2>:wrench: Ferramentas Utilizadas</h2>
 </span>
 <p>
-  <p> Comunicação <p>
-    <img src="https://img.shields.io/badge/Discord-CED4DA?style=for-the-badge&logo=discord&logoColor=5865F2"/> 
-    <img src="https://img.shields.io/badge/Trello-CED4DA?style=for-the-badge&logo=trello&logoColor=0052CC"/>
-  <p> Desenvolvimento <p>
-    <img src="https://img.shields.io/badge/Figma-CED4DA?style=for-the-badge&logo=figma&logoColor=F24E1E"/>
-    <img src="https://img.shields.io/badge/MySQL-CED4DA?style=for-the-badge&logo=mysql&logoColor=4479A1"/>
-    <img src="https://img.shields.io/badge/ClickUp-CED4DA?style=for-the-badge&logo=clickup&logoColor=0082FC"/>
-    <br>
+
+  ### Comunicação
+![Discord](https://img.shields.io/badge/Discord-CED4DA?style=for-the-badge&logo=discord&logoColor=5865F2)
+![GitHub](https://img.shields.io/badge/GitHub-CED4DA?style=for-the-badge&logo=github&logoColor=181717)
+
+  ### Tecnologia
+![Java](https://img.shields.io/badge/Java-CED4DA?style=for-the-badge&logo=java&logoColor=007396)
+![JavaFX](https://img.shields.io/badge/JavaFX-CED4DA?style=for-the-badge&logo=java&logoColor=007396)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-CED4DA?style=for-the-badge&logo=intellij-idea&logoColor=000000)
+![Draw.io](https://img.shields.io/badge/Draw.io-CED4DA?style=for-the-badge&logo=drawio&logoColor=F18E1E)
+<br>
 </p>
 <br>
 	
