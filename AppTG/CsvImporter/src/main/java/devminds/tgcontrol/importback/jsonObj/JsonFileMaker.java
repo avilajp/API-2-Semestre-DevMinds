@@ -9,9 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonFileMaker {
-    public void salvarJson(JsonObjectMaker object) throws IOException {
+    public void salvarJson(Trabalho object) throws IOException {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(JsonObjectMaker.class, new Adapter.ObjToJsonAdapter())
+                .registerTypeAdapter(Trabalho.class, new Adapter.ObjToJsonAdapter())
                 .setPrettyPrinting()
                 .create();
 

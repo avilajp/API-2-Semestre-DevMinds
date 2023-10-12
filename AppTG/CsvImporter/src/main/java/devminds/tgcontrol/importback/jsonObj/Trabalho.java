@@ -1,9 +1,10 @@
 package devminds.tgcontrol.importback.jsonObj;
 
 
-import devminds.tgcontrol.importback.objects.Aluno;
+import javafx.beans.property.StringProperty;
 
-public class JsonObjectMaker extends Aluno {
+
+public class Trabalho {
     private String timestamp;
     private String nomeCompletoOrientador;
     private String emailOrientador;
@@ -11,6 +12,20 @@ public class JsonObjectMaker extends Aluno {
     private String problema;
     private String empresa;
     private String disciplina;
+    private String emailFatec;
+
+    private String nomeCompleto;
+
+
+
+    public void setEmailFatec(String emailFatec) {
+        this.emailFatec = emailFatec;
+    }
+
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
     public String getNomeCompletoOrientador() {
         return nomeCompletoOrientador;
     }
@@ -64,5 +79,14 @@ public class JsonObjectMaker extends Aluno {
 
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
+    }
+
+
+    public String getEmailFatec() {
+        return emailFatec;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 }

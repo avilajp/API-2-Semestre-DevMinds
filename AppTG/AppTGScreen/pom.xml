@@ -4,16 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>devminds.tgcontrol</groupId>
-    <artifactId>AppTG</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-
   <groupId>devminds.tgcontrol</groupId>
-  <artifactId>CsvScreen</artifactId>
+  <artifactId>AppTGScreen</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>CsvScreen</name>
+  <name>AppTGScreen</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,11 +23,6 @@
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>20</version>
-    </dependency>
-    <dependency>
-      <groupId>devminds.tgcontrol</groupId>
-      <artifactId>CsvImporter</artifactId>
-      <version>1.0-SNAPSHOT</version>
     </dependency>
 
 <dependency>
@@ -75,7 +64,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>devminds.tgcontrol.csvscreen/devminds.tgcontrol.csvscreen.HelloApplication</mainClass>
+              <mainClass>devminds.tgcontrol.apptg/devminds.tgcontrol.apptg.SceneInitializer</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

@@ -7,9 +7,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 public class Adapter{
-    public static class ObjToJsonAdapter extends TypeAdapter<JsonObjectMaker> {
+    public static class ObjToJsonAdapter extends TypeAdapter<Trabalho> {
         @Override
-        public void write(JsonWriter out, JsonObjectMaker object) throws IOException {
+        public void write(JsonWriter out, Trabalho object) throws IOException {
             // Define como serializar um objeto Person em JSON
             out.beginObject();
             out.name("timestamp").value(object.getTimestamp());
@@ -25,9 +25,9 @@ public class Adapter{
         }
 
         @Override
-        public JsonObjectMaker read(JsonReader in) throws IOException {
+        public Trabalho read(JsonReader in) throws IOException {
             // Define como desserializar um objeto JSON em um objeto Person
-            JsonObjectMaker mainObj = new JsonObjectMaker();
+            Trabalho mainObj = new Trabalho();
             in.beginObject();
             String timestamp = null;
             String nomeCompletoOrientador = null;
