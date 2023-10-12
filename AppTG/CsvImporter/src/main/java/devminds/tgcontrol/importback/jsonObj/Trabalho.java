@@ -1,8 +1,7 @@
 package devminds.tgcontrol.importback.jsonObj;
 
 
-import javafx.beans.property.StringProperty;
-
+import javafx.beans.property.SimpleStringProperty;
 
 public class Trabalho {
     private String timestamp;
@@ -44,7 +43,7 @@ public class Trabalho {
         return disciplina;
     }
 
-    public String getTimestamp() {
+    public String getTimestamp(){
         return timestamp;
     }
 
@@ -54,6 +53,9 @@ public class Trabalho {
 
 
     public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+    public void setTimestampProperty(String timestamp){
         this.timestamp = timestamp;
     }
 

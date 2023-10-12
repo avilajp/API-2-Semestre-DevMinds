@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -60,16 +61,66 @@ public class TableViewController implements Initializable{
 
     }
     public ObservableList<Trabalho> getTrabalho(){
-        ObservableList<Trabalho> trabalho = FXCollections.observableArrayList();
         CsvReader csvReader = new CsvReader();
         Trabalho objTrabalho = csvReader.leitorCsv(filepath);
-        trabalho.add(objTrabalho);
-        return trabalho;
+
+    return csvReader.getListaDeObjetos();
     }
+    @FXML
+    public void changeTimestampCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setTimestamp(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeNomeOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setNomeCompletoOrientador(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeEmailOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setEmailOrientador(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeTipoTGCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setTipoTG(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeDisciplinaCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setDisciplina(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeNomeAlunoCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setNomeCompleto(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeEmailAlunoCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setEmailFatec(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    public void changeEmpresaCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setEmpresa(edittedCell.getNewValue().toString());
+    }
+
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        tableView.setEditable(true);
+        col1.setCellFactory(TextFieldTableCell.forTableColumn());
+        col2.setCellFactory(TextFieldTableCell.forTableColumn());
+        col3.setCellFactory(TextFieldTableCell.forTableColumn());
+        col4.setCellFactory(TextFieldTableCell.forTableColumn());
+        col5.setCellFactory(TextFieldTableCell.forTableColumn());
+        col6.setCellFactory(TextFieldTableCell.forTableColumn());
+        col7.setCellFactory(TextFieldTableCell.forTableColumn());
+        col8.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
 }

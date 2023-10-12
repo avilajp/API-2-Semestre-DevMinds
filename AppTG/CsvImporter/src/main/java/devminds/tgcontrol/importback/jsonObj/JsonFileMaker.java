@@ -10,18 +10,18 @@ import java.io.IOException;
 
 public class JsonFileMaker {
     public void salvarJson(Trabalho object) throws IOException {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Trabalho.class, new Adapter.ObjToJsonAdapter())
-                .setPrettyPrinting()
-                .create();
-
-        String json = gson.toJson(object);
-
-        final File dir = new File("jsonFilesOutput");
-        String timestampTemp = object.getTimestamp();
-        String aux = timestampTemp.replaceAll("[^a-zA-Z0-9]", "");
-        FileWriter escritor = new FileWriter(new File(dir,object.getNomeCompleto() + "_" + aux+ ".json"));
-        escritor.write(json);
-        escritor.close();
+//        Gson gson = new GsonBuilder()
+//                .registerTypeAdapter(Trabalho.class, new Adapter.ObjToJsonAdapter())
+//                .setPrettyPrinting()
+//                .create();
+//
+//        String json = gson.toJson(object);
+//
+//        final File dir = new File("jsonFilesOutput");
+//        String timestampTemp = object.getTimestamp();
+//        String aux = timestampTemp.replaceAll("[^a-zA-Z0-9]", "");
+//        FileWriter escritor = new FileWriter(new File(dir,object.getNomeCompleto() + "_" + aux+ ".json"));
+//        escritor.write(json);
+//        escritor.close();
     }
 }

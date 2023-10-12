@@ -3,11 +3,14 @@ package devminds.tgcontrol.importback.csvImport;
 
 
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class CsvReader {
+    private ObservableList<Trabalho> listaDeObjetos = FXCollections.observableArrayList();
     public Trabalho leitorCsv(String filename) {
         try {
             FileReader fileReader = new FileReader(filename);
@@ -54,7 +57,8 @@ public class CsvReader {
                 }
 //                JsonFileMaker fileMaker = new JsonFileMaker();
                 indexFor += 1;
-                    return javaObj;
+                    listaDeObjetos.add(javaObj);
+
 //                fileMaker.salvarJson(jsonOBJ);
 
 
@@ -62,9 +66,13 @@ public class CsvReader {
             }
             br.close();
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+    public ObservableList<Trabalho> getListaDeObjetos(){
+        return this.listaDeObjetos;
     }
 }
