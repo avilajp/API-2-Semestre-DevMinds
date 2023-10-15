@@ -95,7 +95,7 @@ ID | Ator | Ação | Motivo
 <h2> :clipboard: Modelo de Dados</h2>
 <h1 align="center">
   <p>Imagem da modelagem</p>
-  <img src="TGEntityRelationship2.drawio.png">
+  <img src="/Doc/db.png">
 </h1>
 
 <br/>
