@@ -44,8 +44,7 @@ Este projeto é a nossa contribuição para o aprimoramento contínuo da gestão
 
 <br>
 
-<span id="backlog" align="center">
-	
+<span id="backlog" align="center">	
 <h2> :bookmark_tabs: PRODUCT BACKLOG </h2>
 				
 ID | Função | PRIORIDADE | SPRINT | Status
@@ -70,32 +69,38 @@ ID | Função | PRIORIDADE | SPRINT | Status
 <span id="userstories">
 <h2> :left_speech_bubble: User Stories </h2>
 
-ID | Ator | Ação | Motivo
-----|------|------|--------
-#1 | Administrador | Importar CSV do Semestre | Gerar Dados
-#2 | Administrador | Visualizar Dados Importados | Facilitar Acompanhamento
-#3 | Administrador | Tratar Dados Importados | Garantir Qualidade
-#4 | Administrador | Criar Turmas do Semestre | Organizar Estudantes
-#5 | Administrador | Visualizar Turmas (Anteriores e Atual) | Acompanhar Histórico
-#6 | Administrador | Selecionar Número de Avaliações | Personalizar Avaliações
-#7 | Administrador | Inserir Descrições de Avaliações | Fornecer Informações
-#8 | Administrador | Definir Datas de Entrega de Avaliações | Estabelecer Prazos
-#9 | Administrador | Registrar Feedbacks em Avaliações | Orientar Estudantes
-#10 | Administrador | Inserir Notas em Avaliações | Avaliar Desempenho
-#11 | Administrador | Visualizar Notas e Feedback por Aluno | Acompanhar Progresso
-#12 | Administrador | Exportar Certificados Aptos | Reconhecimento Oficial
-#13 | Administrador | Registrar Dados Tratados | Manter Registro
-#14 | Administrador | Criar Novas Turmas (Semestres Futuros) | Planejar Futuro
+| ID   | FEATURE                                       | EU COMO...    | PRECISO...                            | PARA QUE... / PORQUE PRECISO...
+| ---- | -------------------------------------------- | ------------- | ------------------------------------- | ------------------------------
+| 1.1  | Importação do CSV do semestre                | Administrador | Pegar os dados da planilha do FORMS    | Porque preciso dos dados dos alunos que obtive pelo formulário
+| 1.3  | Tratamento AUTOMÁTICO da tabela CSV           | Administrador | Tratar os dados da planilha CSV        | Porque preciso que as informações dos alunos estejam organizadas
+| 1.2  | Visualização dos dados tratados em formato de tabela | Administrador | Uma tabela com os dados tratados | Para que eu tenha uma melhor visualização das informações
+| 1.4  | Preenchimento de turmas conforme dados importados | Administrador | Colocar os alunos da planilha em turmas | Porque preciso saber quem está em qual turma
+| 2.1  | Definição do número de avaliações para o semestre | Administrador | Definir o número de avaliações do semestre | Para que eu possa registrar minhas avaliações
+| 3.2  | Definição de data de entrega para avaliação | Administrador | Inserir a data de entrega das avaliações | Porque preciso lembrar o período das avaliações passadas
+| 3.4  | Inserção de notas em avaliações             | Administrador | Colocar a nota e feedbacks dos alunos | Para que eu possa registrar as notas e feedbacks para futuras análises
+| 4.1  | Visão geral de notas e feedback dos alunos | Administrador | Visualizar as notas de feedbacks que dei | Para que eu consiga visualizar rapidamente a situação dos alunos
+| 1.5  | Visão geral de turmas                        | Administrador | Visualizar a situação geral das turmas | Para que eu veja melhor o status da turma como um todo
+| 3.3  | Registro de feedbacks em avaliações          | Administrador | Registrar o feedback das avaliações | Porque preciso lembrar minhas considerações sobre a avaliação do aluno
+| 3.1  | Inserção de descrição de avaliação           | Administrador | Inserir a descrição da avaliação | Porque preciso saber do que se trata a avaliação
+| 4.3  | Exportação de cerfiticados aptos             | Administrador | Exportar certificados | Para que eu economize tempo na emissão destes certificados
+| 1.6  | Tratamento MANUAL da tabela CSV | Administrador | Revisar / confirmar o tratamento dos dados | Para que eu possa corrigir pequenos erros antes de importar o arquivo
 
-🔗 | [User Stories](https://docs.google.com/spreadsheets/d/1Sf-dv0VDEMqMP4_vOil0eHBE9fJGAf3v4pcSSt6CaFc/edit#gid=0). |
+🔗 | [User Stories](https://docs.google.com/spreadsheets/d/1cALKdZLzYZIW3qCXoXIsrNpLRe5B2mSxTC3egAvjLAQ/edit#gid=991358372). |
 <br/>
 
 <span id="modelo" align="center">
 <h2> :clipboard: Modelo de Dados</h2>
-<h1 align="center">
+<h3 align="center">
   <p>Imagem da modelagem</p>
   <img src="/Doc/db.png">
-</h1>
+</h3>
+
+<span id="modelo" align="center">
+<h2> :clipboard: BurnDown - Sprint - 2</h2>
+<h3 align="center">
+  <p>Imagem Burndown</p>
+  <img src="/Doc/db.png">
+</h3>
 
 <br/>
 
