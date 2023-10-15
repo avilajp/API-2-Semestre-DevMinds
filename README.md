@@ -51,19 +51,18 @@ Este projeto é a nossa contribuição para o aprimoramento contínuo da gestão
 ID | Função | PRIORIDADE | SPRINT | Status
 ----|---------- | ----------------|--------- | ------
 1.1 | Importação do CSV do semestre | 1 | 1,2 | Completo
-1.2 | Visualização dos dados tratados como tabela | 3 | 2 | Em andamento
-1.3 | Tratamento dos dados | 2 | 1,2 | Completo
-1.4 | Criação de turmas (semestre) | 5 | 4 | A fazer
-1.5 | Visualização de turmas já criadas (anteriores e atual) | 13 | 4 | A fazer
-2.1 | Seleção de # (quantidade) avaliações de nova matéria | 7 | 3 | A fazer
-3.1 | Inserção de descrição de avaliação | 8 | 3 | A fazer
-3.2 | Definição de data de entrega de avaliação | 9 | 3 | A fazer
-3.3 | Registro de Feedbacks em avaliações | 10 | 3 | A fazer
-3.4 | Inserção de notas em avaliações | 11 | 3 | A fazer
-4.1 | Visualização de notas e feedback por aluno | 12 | 3,4 | A fazer
-4.3 | Exportação de cerfiticados aptos | 14 | 3,4 | A fazer
-5.1 | Registro do CSV tratado | 4 | 2,3 | Em andamento
-5.2 | Registro de nova turma (semestre) | 6 | 3 | A fazer
+1.3 | Tratamento automático dos dados importados do CSV | 2 | 1,2 | Completo
+1.2 | Visualização dos dados tratados como tabela | 3 | 1,2 | Completo
+1.4 | Preenchimento de turmas com dados importados | 4 | 3,4 | A fazer
+2.1 | Definição de #(quantidade) avaliações para novo semestre | 5 | 3 | A fazer
+3.2 | Definição de data de entrega para avaliação | 6 | 3 | A fazer
+3.4 | Inserção de notas em avaliações | 7 | 3 | A fazer
+4.1 | Visualização de notas e feedback dos alunos | 8 | 4 | A fazer
+1.5 | Visualização de turmas| 9 | 4 | A fazer
+3.3 | Registro de Feedbacks em avaliações | 10 | 4 | A fazer
+3.1 | Inserção de descrição de avaliação | 11 | 3 | A fazer
+4.3 | Exportação de cerfiticados aptos | 12 | 4 | A fazer
+1.6 | Tratamento manual dos dados importados do CSV | 13 | 2 | Completo
 
 🔗 | [Backlog por Sprint](https://docs.google.com/spreadsheets/d/1cALKdZLzYZIW3qCXoXIsrNpLRe5B2mSxTC3egAvjLAQ/edit#gid=0). |
 <br/>
