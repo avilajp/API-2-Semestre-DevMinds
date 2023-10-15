@@ -8,7 +8,7 @@
     <a href="#backlog">Backlog do Produto</a>  |
     <a href="#userstories">User Stories</a> |
     <a href="#modelo">Modelo de Dados</a>  |
-    <a href="#burndown">Modelo de Dados</a>  |
+    <a href="#burndown">Burndown</a>  |
     <a href="#tecnologias">Tecnologias</a>
 </p>
 <br>
