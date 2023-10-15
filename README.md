@@ -96,7 +96,7 @@ ID | Função | PRIORIDADE | SPRINT | Status
   <img src="/Doc/db.png">
 </h3>
 
-<span id="modelo" align="center">
+<span id="burndown" align="center">
 <h2> :clipboard: BurnDown - Sprint - 2</h2>
 <h3 align="center">
   <p>Imagem Burndown</p>
