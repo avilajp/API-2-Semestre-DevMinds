@@ -88,7 +88,7 @@ ID | Ator | Ação | Motivo
 #13 | Administrador | Registrar Dados Tratados | Manter Registro
 #14 | Administrador | Criar Novas Turmas (Semestres Futuros) | Planejar Futuro
 
-🔗 | [User Stories]((https://docs.google.com/spreadsheets/d/1Sf-dv0VDEMqMP4_vOil0eHBE9fJGAf3v4pcSSt6CaFc/edit#gid=0)). |
+🔗 | [User Stories](https://docs.google.com/spreadsheets/d/1Sf-dv0VDEMqMP4_vOil0eHBE9fJGAf3v4pcSSt6CaFc/edit#gid=0). |
 <br/>
 
 <span id="modelo" align="center">
