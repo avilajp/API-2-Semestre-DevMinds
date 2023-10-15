@@ -1,0 +1,29 @@
+.button {
+    -fx-background-color: #144DA0;
+    -fx-background-radius: 30 30 30 30;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #390061;
+}
+
+.button:pressed {
+    -fx-background-color: #302437;
+}
+.anchor-pane {
+    -fx-background-color: #C0C0C0;
+}
+.table-view .filler{
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-row-cell: highlighted {
+    -fx-background-color: #81c483;
+    -fx-background-radius: 15px;
+}

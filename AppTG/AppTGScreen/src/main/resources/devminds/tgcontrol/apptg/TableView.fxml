@@ -4,10 +4,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
+<AnchorPane prefHeight="744.0" prefWidth="811.0" styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
    <children>
-      <TableView fx:id="tableView" layoutX="11.0" layoutY="93.0" prefHeight="746.0" prefWidth="879.0">
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="754.0" stylesheets="@ScreenDesign.css">
         <columns>
           <TableColumn fx:id="col1" onEditCommit="#changeTimestampCellEvent" prefWidth="75.0" text="Data" />
             <TableColumn fx:id="col2" onEditCommit="#changeNomeOrientadorCellEvent" prefWidth="126.0" text="Nome do Orientador" />
@@ -19,7 +20,13 @@
             <TableColumn fx:id="col5" minWidth="5.0" onEditCommit="#changeEmpresaCellEvent" prefWidth="56.0" text="Empresa" />
         </columns>
       </TableView>
-      <Button layoutX="779.0" layoutY="55.0" mnemonicParsing="false" onAction="#btnLoad" prefHeight="25.0" prefWidth="107.0" text="Carregar .csv" />
-      <Button layoutX="771.0" layoutY="852.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="107.0" text="Salvar no banco" />
+      <Button layoutX="677.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnLoad" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Carregar .csv" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>
