@@ -99,8 +99,10 @@ ID | Função | PRIORIDADE | SPRINT | Status
 <h2> :clipboard: BurnDown - Sprint - 2</h2>
 <h3 align="center">
   <p>Imagem Burndown</p>
-  <img src="/Doc/db.png">
+  <img src="/Doc/burndown.png">
 </h3>
+	
+| [Burndown](https://docs.google.com/spreadsheets/d/1NdOJTk9GvsfcQkRVv1c9gosSeJHUai55cbXs_Unmsn0/edit#gid=0).|
 
 <br/>
 
