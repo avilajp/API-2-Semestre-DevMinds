@@ -20,7 +20,7 @@ import java.io.IOException;
 public class SceneController {
 
     @FXML
-    private void stageChangeTableView(ActionEvent event) throws IOException {
+    private void stageToChangeTableView(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TableView.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
@@ -29,4 +29,5 @@ public class SceneController {
         window.show();
 
     }
+
 }

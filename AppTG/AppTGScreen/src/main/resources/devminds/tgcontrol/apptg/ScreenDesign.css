@@ -20,6 +20,14 @@
 .table-view .column-header-background .filler {
     -fx-background-color: transparent;
 }
+.table-view .window-icon {
+    -fx-graphic: url("icons/iconDevMinds.png");
+}
+.janela-com-icone .window-icon {
+    -fx-graphic: url("icons/iconDevMinds.png");
+}
+
+
 .table-view .corner {
     -fx-background-color: transparent;
 }

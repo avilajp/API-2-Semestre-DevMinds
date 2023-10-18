@@ -17,7 +17,7 @@
             <TableColumn fx:id="col6" onEditCommit="#changeDisciplinaCellEvent" text="Disciplina" />
             <TableColumn fx:id="col7" onEditCommit="#changeNomeAlunoCellEvent" prefWidth="103.0" text="Nome do Aluno" />
             <TableColumn fx:id="col8" onEditCommit="#changeEmailAlunoCellEvent" prefWidth="100.0" text="E-mail Aluno" />
-            <TableColumn fx:id="col5" minWidth="5.0" onEditCommit="#changeEmpresaCellEvent" prefWidth="56.0" text="Empresa" />
+            <TableColumn fx:id="col5" minWidth="5.0" onEditCommit="#changeEmpresaCellEvent" prefWidth="68.0" text="Empresa" />
         </columns>
       </TableView>
       <Button layoutX="677.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnLoad" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Carregar .csv" textFill="WHITE">
@@ -28,5 +28,6 @@
          <font>
             <Font size="13.0" />
          </font></Button>
+      <Button layoutX="37.0" layoutY="29.0" mnemonicParsing="false" onAction="#stageToMainScree" prefHeight="34.0" prefWidth="152.0" text="Voltar para a tela inicial" />
    </children>
 </AnchorPane>
