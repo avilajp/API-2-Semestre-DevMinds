@@ -1,4 +1,6 @@
-package devminds.tgcontrol;
+package devminds.tgcontrol.dao;
+
+import devminds.tgcontrol.SqlConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,6 +18,8 @@ public class SemestreDao {
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Erro ao criar um novo semestre!!", e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

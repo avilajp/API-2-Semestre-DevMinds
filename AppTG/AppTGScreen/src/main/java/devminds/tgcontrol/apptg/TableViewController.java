@@ -1,5 +1,7 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.dao.AtividadeDao;
+import devminds.tgcontrol.dao.SemestreDao;
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import javafx.collections.FXCollections;
@@ -22,6 +24,12 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class TableViewController implements Initializable{
@@ -55,12 +63,15 @@ public class TableViewController implements Initializable{
         col4.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("tipoTG"));
         col5.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("empresa"));
         col6.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("disciplina"));
-        col8.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailFatec"));
         col7.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("nomeCompleto"));
+        col8.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailFatec"));
+        col9.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("matriculadoEm"));
 
 
 
-            tableView.setItems(getTrabalho());
+        tableView.setItems(getTrabalho());
+
+
 
 
 
@@ -75,6 +86,7 @@ public class TableViewController implements Initializable{
     public void changeTimestampCellEvent(TableColumn.CellEditEvent edittedCell){
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setTimestamp(edittedCell.getNewValue().toString());
+
     }
     @FXML
     public void changeNomeOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
@@ -112,6 +124,11 @@ public class TableViewController implements Initializable{
         trabalhoSelecionado.setEmpresa(edittedCell.getNewValue().toString());
     }
     @FXML
+    public void changeMatriculadoEmCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setMatriculadoEm(edittedCell.getNewValue().toString());
+    }
+    @FXML
     private void stageToMainScree(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
@@ -121,6 +138,25 @@ public class TableViewController implements Initializable{
         window.show();
 
     }
+    public LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
+        return new java.sql.Timestamp(
+                dateToConvert.getTime()).toLocalDateTime();
+    }
+//    @FXML
+//    private void sendToDataBase(ActionEvent event) throws ParseException {
+//        SemestreDao semestreDao = new SemestreDao();
+//
+//        AtividadeDao atividadeDao = new AtividadeDao();
+//        DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//
+//       int aux  = getTrabalho().stream().toList().size();
+//       for (int i = 0; i <aux ; i++) {
+//                semestreDao.createSemestre(tableView.getItems().get(i).getNomeCompleto());
+//            LocalDateTime dateTime = convertToLocalDateTimeViaSqlTimestamp(formatter.parse(getTrabalho().get(i).getTimestamp()));
+//            atividadeDao.createAtividade(tableView.getItems().get(i).getTimestamp(),dateTime,tableView.getItems().get(i).getNomeCompleto());
+//        }
+//
+//    }
 
 
 
@@ -136,6 +172,7 @@ public class TableViewController implements Initializable{
         col6.setCellFactory(TextFieldTableCell.forTableColumn());
         col7.setCellFactory(TextFieldTableCell.forTableColumn());
         col8.setCellFactory(TextFieldTableCell.forTableColumn());
+        col9.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
 

@@ -12,6 +12,15 @@ public class Trabalho {
     private String empresa;
     private String disciplina;
     private String emailFatec;
+    private String matriculadoEm;
+
+    public String getMatriculadoEm() {
+        return matriculadoEm;
+    }
+
+    public void setMatriculadoEm(String matriculadoEm) {
+        this.matriculadoEm = matriculadoEm;
+    }
 
     private String nomeCompleto;
 

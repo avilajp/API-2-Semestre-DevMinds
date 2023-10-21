@@ -5,14 +5,21 @@ package devminds.tgcontrol.importback.csvImport;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
+import java.beans.JavaBean;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class CsvReader {
     private ObservableList<Trabalho> listaDeObjetos = FXCollections.observableArrayList();
     public Trabalho leitorCsv(String filename) {
         try {
+
             FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
             br.readLine();
@@ -40,7 +47,7 @@ public class CsvReader {
                         case 5:
                             javaObj.setEmailOrientador(nextRecord[5]);
                         case 6:
-
+                            javaObj.setMatriculadoEm(nextRecord[6]);
                         case 7:
                             javaObj.setTipoTG(nextRecord[7]);
                         case 8:
@@ -72,6 +79,7 @@ public class CsvReader {
         }
         return null;
     }
+
     public ObservableList<Trabalho> getListaDeObjetos(){
         return this.listaDeObjetos;
     }
