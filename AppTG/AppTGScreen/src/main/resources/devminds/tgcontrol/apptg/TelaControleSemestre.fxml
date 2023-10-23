@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
+   <children>
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="754.0" stylesheets="@ScreenDesign.css">
+        <columns>
+          <TableColumn fx:id="col1" onEditCommit="#changeTimestampCellEvent" prefWidth="75.0" text="Data" />
+            <TableColumn fx:id="col2" onEditCommit="#changeNomeOrientadorCellEvent" prefWidth="60.800025939941406" text="Nome do Orientador" />
+            <TableColumn fx:id="col3" minWidth="0.0" onEditCommit="#changeEmailOrientadorCellEvent" prefWidth="196.0" text="E-mail do Orientador" />
+            <TableColumn fx:id="col4" minWidth="0.0" onEditCommit="#changeTipoTGCellEvent" prefWidth="69.0" text="Tipo de TG" />
+            <TableColumn fx:id="col5" minWidth="5.0" onEditCommit="#changeEmpresaCellEvent" prefWidth="74.39990234375" text="Empresa" />
+            <TableColumn fx:id="col6" onEditCommit="#changeDisciplinaCellEvent" prefWidth="49.5999755859375" text="Disciplina" />
+            <TableColumn fx:id="col7" onEditCommit="#changeNomeAlunoCellEvent" prefWidth="70.39993286132812" text="Nome do Aluno" />
+            <TableColumn fx:id="col8" onEditCommit="#changeEmailAlunoCellEvent" prefWidth="52.79998779296875" text="E-mail Aluno" />
+            <TableColumn fx:id="col9" onEditCommit="#changeMatriculadoEmCellEvent" prefWidth="75.0" text="Matriculado" />
+        </columns>
+      </TableView>
+      <Button layoutX="677.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnLoad" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Carregar .csv" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="37.0" layoutY="29.0" mnemonicParsing="false" onAction="#stageToMainScree" prefHeight="34.0" prefWidth="152.0" text="Voltar para a tela inicial" />
+   </children>
+</AnchorPane>

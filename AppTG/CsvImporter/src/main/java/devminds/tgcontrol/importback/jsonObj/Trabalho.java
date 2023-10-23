@@ -1,17 +1,26 @@
 package devminds.tgcontrol.importback.jsonObj;
 
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Trabalho {
     private String timestamp;
     private String nomeCompletoOrientador;
     private String emailOrientador;
-
-    private String emailPessoal;
     private String tipoTG;
     private String problema;
     private String empresa;
     private String disciplina;
     private String emailFatec;
+    private String matriculadoEm;
+
+    public String getMatriculadoEm() {
+        return matriculadoEm;
+    }
+
+    public void setMatriculadoEm(String matriculadoEm) {
+        this.matriculadoEm = matriculadoEm;
+    }
 
     private String nomeCompleto;
 
@@ -78,14 +87,6 @@ public class Trabalho {
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
-    public String getEmailPessoal() {
-        return emailPessoal;
-    }
-
-    public void setEmailPessoal(String emailPessoal) {
-        this.emailPessoal = emailPessoal;
-    }
-
 
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;

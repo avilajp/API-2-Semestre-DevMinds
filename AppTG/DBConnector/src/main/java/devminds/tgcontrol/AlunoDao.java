@@ -1,6 +1,4 @@
-package devminds.tgcontrol.dao;
-
-import devminds.tgcontrol.SqlConnection;
+package devminds.tgcontrol;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +12,6 @@ public class AlunoDao {
             pst = con.prepareStatement(sql_update);
             pst.setString(1, aluno_email_fatec);
             pst.setString(2, nome_aluno);
-            pst.setString(3, aluno_email_fatec);
             int updatedRowCount = pst.executeUpdate();
 
             if (updatedRowCount == 0) {
@@ -25,7 +22,7 @@ public class AlunoDao {
                 pst2.setObject(2, nome_aluno);
                 pst2.executeUpdate();
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Erro ao gerar nova atividade!!");
         }
