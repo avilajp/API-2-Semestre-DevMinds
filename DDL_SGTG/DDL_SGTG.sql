@@ -16,6 +16,11 @@ aluno_email_pessoal varchar(128),
 nome varchar(128)
 );
 
+CREATE TABLE professor (
+email_professor varchar(128) PRIMARY KEY,
+nome_professor varchar(128)
+);
+
 CREATE TABLE materia_tg1 (
 tg1_id BIGINT auto_increment PRIMARY KEY,
 tipo varchar(32) NOT NULL,
@@ -25,12 +30,16 @@ disciplina varchar(64),
 aluno_email_fatec varchar(128),
 atividade_nome varchar(64),
 atividade_data_entrega datetime NOT NULL,
+email_professor varchar(128),
 
 CONSTRAINT fk_atividade_tg1 FOREIGN KEY (atividade_nome, atividade_data_entrega)
 	REFERENCES atividade (atividade_nome, atividade_data_entrega)
     ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_aluno_tg1 FOREIGN KEY (aluno_email_fatec)
 	REFERENCES aluno(aluno_email_fatec)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_professor_tg1 FOREIGN KEY (email_professor)
+    REFERENCES professor(email_professor)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -43,12 +52,16 @@ disciplina varchar(64),
 aluno_email_fatec varchar(128),
 atividade_nome varchar(64),
 atividade_data_entrega datetime NOT NULL,
+email_professor varchar(128),
 
 CONSTRAINT fk_atividade_tg2 FOREIGN KEY (atividade_nome, atividade_data_entrega)
 	REFERENCES atividade (atividade_nome, atividade_data_entrega)
     ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_aluno_tg2 FOREIGN KEY (aluno_email_fatec)
 	REFERENCES aluno(aluno_email_fatec)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_professor_tg2 FOREIGN KEY (email_professor)
+    REFERENCES professor(email_professor)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -64,9 +77,8 @@ CONSTRAINT fk_tg2 FOREIGN KEY(tg2_id)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-ALTER TABLE aluno
-ADD COLUMN atividade_nome varchar(64),
-ADD COLUMN atividade_data_entrega datetime NOT NULL,
-ADD CONSTRAINT fk_atividade FOREIGN KEY (atividade_nome, atividade_data_entrega)
-	REFERENCES atividade(atividade_nome, atividade_data_entrega)
+ALTER TABLE atividade
+ADD COLUMN aluno_email_fatec varchar(128),
+ADD CONSTRAINT fk_aluno FOREIGN KEY (aluno_email_fatec)
+	REFERENCES aluno(aluno_email_fatec)
     ON DELETE CASCADE ON UPDATE CASCADE;
