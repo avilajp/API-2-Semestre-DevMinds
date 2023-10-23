@@ -30,7 +30,7 @@ public class CsvReader {
                         case 0:
                             javaObj.setTimestamp(nextRecord[0]);
                         case 1:
-
+                            javaObj.setEmailPessoal(nextRecord[1]);
                         case 2:
                             javaObj.setEmailFatec(nextRecord[2]);
                         case 3:

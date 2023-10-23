@@ -6,9 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< Updated upstream:AppTG/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TableView.fxml
 <AnchorPane prefHeight="744.0" prefWidth="811.0" styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
+=======
+<AnchorPane styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaControleSemestre">
+>>>>>>> Stashed changes:AppTG/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaControleSemestre.fxml
    <children>
-      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="754.0" stylesheets="@ScreenDesign.css">
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="726.0" stylesheets="@ScreenDesign.css">
         <columns>
           <TableColumn fx:id="col1" onEditCommit="#changeTimestampCellEvent" prefWidth="75.0" text="Data" />
             <TableColumn fx:id="col2" onEditCommit="#changeNomeOrientadorCellEvent" prefWidth="126.0" text="Nome do Orientador" />
@@ -24,7 +28,7 @@
          <font>
             <Font size="13.0" />
          </font></Button>
-      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
+      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" onAction="#sendToDataBase" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font></Button>

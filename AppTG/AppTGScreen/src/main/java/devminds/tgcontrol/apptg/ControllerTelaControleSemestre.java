@@ -1,8 +1,11 @@
 package devminds.tgcontrol.apptg;
 
+<<<<<<< Updated upstream:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/TableViewController.java
+=======
+import devminds.tgcontrol.dao.AlunoDao;
+>>>>>>> Stashed changes:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaControleSemestre.java
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,9 +25,15 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+<<<<<<< Updated upstream:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/TableViewController.java
+=======
+import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.util.Date;
+>>>>>>> Stashed changes:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaControleSemestre.java
 import java.util.ResourceBundle;
 
-public class TableViewController implements Initializable{
+public class ControllerTelaControleSemestre implements Initializable{
     private String filepath;
 
     @FXML
@@ -121,6 +130,39 @@ public class TableViewController implements Initializable{
         window.show();
 
     }
+<<<<<<< Updated upstream:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/TableViewController.java
+=======
+    public LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
+        return new java.sql.Timestamp(
+                dateToConvert.getTime()).toLocalDateTime();
+    }
+    @FXML
+    private void sendToDataBase(ActionEvent event) {
+        AlunoDao alunoDao = new AlunoDao();
+
+
+//        SemestreDao semestreDao = new SemestreDao();
+//
+//        AtividadeDao atividadeDao = new AtividadeDao();
+//        DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//
+       int aux  = getTrabalho().stream().toList().size();
+      for (int i = 0; i <aux ; i++) {
+          if (tableView.getItems().get(i).getEmailFatec().isEmpty()){
+              alunoDao.registerAluno(tableView.getItems().get(i).getEmailPessoal(),tableView.getItems().get(i).getNomeCompleto());
+          } else {
+              alunoDao.registerAluno(tableView.getItems().get(i).getEmailFatec(),tableView.getItems().get(i).getNomeCompleto());
+          }
+
+
+
+//                semestreDao.createSemestre(tableView.getItems().get(i).getNomeCompleto());
+//            LocalDateTime dateTime = convertToLocalDateTimeViaSqlTimestamp(formatter.parse(getTrabalho().get(i).getTimestamp()));
+//            atividadeDao.createAtividade(tableView.getItems().get(i).getTimestamp(),dateTime,tableView.getItems().get(i).getNomeCompleto());
+       }
+
+    }
+>>>>>>> Stashed changes:AppTG/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaControleSemestre.java
 
 
 
