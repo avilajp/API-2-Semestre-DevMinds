@@ -12,6 +12,7 @@ PRIMARY KEY (atividade_nome, atividade_data_entrega)
 
 CREATE TABLE aluno (
 aluno_email_fatec varchar(128) PRIMARY KEY,
+aluno_email_pessoal varchar(128),
 nome varchar(128)
 );
 
