@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
+<AnchorPane styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaControleSemestre">
    <children>
-      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="754.0" stylesheets="@ScreenDesign.css">
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="738.0" stylesheets="@ScreenDesign.css">
         <columns>
-          <TableColumn fx:id="col1" onEditCommit="#changeTimestampCellEvent" prefWidth="75.0" text="Data" />
+          <TableColumn fx:id="col1" onEditCommit="#changeEmailAlunoPessoalCellEvent" prefWidth="75.0" text="Email Pessoal" />
             <TableColumn fx:id="col2" onEditCommit="#changeNomeOrientadorCellEvent" prefWidth="60.800025939941406" text="Nome do Orientador" />
             <TableColumn fx:id="col3" minWidth="0.0" onEditCommit="#changeEmailOrientadorCellEvent" prefWidth="196.0" text="E-mail do Orientador" />
             <TableColumn fx:id="col4" minWidth="0.0" onEditCommit="#changeTipoTGCellEvent" prefWidth="69.0" text="Tipo de TG" />
@@ -25,7 +25,7 @@
          <font>
             <Font size="13.0" />
          </font></Button>
-      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
+      <Button layoutX="677.0" layoutY="696.0" mnemonicParsing="false" onAction="#sendToDataBase" prefHeight="34.0" prefWidth="114.0" stylesheets="@ScreenDesign.css" text="Salvar no banco" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font></Button>

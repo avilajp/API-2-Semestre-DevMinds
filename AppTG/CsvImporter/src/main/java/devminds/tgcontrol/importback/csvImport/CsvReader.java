@@ -35,9 +35,9 @@ public class CsvReader {
                     try{
                     switch (indexFor) {
                         case 0:
-                            javaObj.setTimestamp(nextRecord[0]);
-                        case 1:
 
+                        case 1:
+                            javaObj.setEmailAlunoPessoal(nextRecord[1]);
                         case 2:
                             javaObj.setEmailFatec(nextRecord[2]);
                         case 3:
