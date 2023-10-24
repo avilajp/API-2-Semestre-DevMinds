@@ -79,6 +79,7 @@ id_avaliacao BIGINT auto_increment PRIMARY KEY,
 id_atividade BIGINT,
 aluno_email_pessoal varchar (128),
 nota DECIMAL(3,1),
+feedback varchar (256), -- não é NOT NULL para poder inicializar MAS É OBRIGATÓRIO O PREENCHIMENTO. !!! Aplicar lógica de acordo !!!
 
 CONSTRAINT fk_aluno FOREIGN KEY (aluno_email_pessoal)
 	REFERENCES aluno (aluno_email_pessoal)
