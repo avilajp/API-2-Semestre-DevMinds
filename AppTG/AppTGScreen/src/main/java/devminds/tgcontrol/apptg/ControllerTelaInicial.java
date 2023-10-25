@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,5 +43,13 @@ public class ControllerTelaInicial {
         window.show();
 
     }
+    @FXML
+    private Button btn_help;
+    @FXML
+    private Button btn_home;
+    @FXML
+    private Button btn_csv;
+    @FXML
+    private Button btn_search;
 
 }

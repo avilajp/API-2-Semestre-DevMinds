@@ -25,6 +25,8 @@ public class AlunoDao {
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Erro ao gerar nova atividade!!");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

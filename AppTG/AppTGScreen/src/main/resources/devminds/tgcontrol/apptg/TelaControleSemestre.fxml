@@ -8,7 +8,7 @@
 
 <AnchorPane styleClass="anchor-pane" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.TableViewController">
    <children>
-      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="591.0" prefWidth="754.0" stylesheets="@ScreenDesign.css">
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="89.0" prefHeight="576.0" prefWidth="1024.0" stylesheets="@ScreenDesign.css">
         <columns>
           <TableColumn fx:id="col1" onEditCommit="#changeTimestampCellEvent" prefWidth="75.0" text="Data" />
             <TableColumn fx:id="col2" onEditCommit="#changeNomeOrientadorCellEvent" prefWidth="60.800025939941406" text="Nome do Orientador" />
