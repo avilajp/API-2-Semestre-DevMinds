@@ -10,8 +10,8 @@ descricao varchar(128) NOT NULL
 );
 
 CREATE TABLE aluno (
-aluno_email_fatec varchar(128),
 aluno_email_pessoal varchar(128) PRIMARY KEY,
+aluno_email_fatec varchar(128),
 nome varchar(128)
 );
 
