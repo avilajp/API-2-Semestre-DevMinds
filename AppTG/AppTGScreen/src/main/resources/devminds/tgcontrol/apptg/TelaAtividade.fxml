@@ -5,8 +5,6 @@
 
 <AnchorPane prefHeight="275.0" prefWidth="600.0" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAtividade">
    <children>
-         <!-- Inclua o template homeScreen.fxml aqui -->
-         <fx:include source="homeScreen.fxml" />
       <Button layoutX="499.0" layoutY="339.0" mnemonicParsing="false" onAction="#stageToMainScree" text="Button" />
    </children>
 </AnchorPane>
