@@ -2,6 +2,7 @@ package devminds.tgcontrol.apptg;
 
 import devminds.tgcontrol.dao.AlunoDao;
 import devminds.tgcontrol.dao.MateriaDao;
+import devminds.tgcontrol.dao.ProfessorDao;
 import devminds.tgcontrol.dao.SemestreDao;
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
@@ -139,26 +140,37 @@ public class ControllerTelaControleSemestre implements Initializable{
         SemestreDao semestreDao = new SemestreDao();
         semestreDao.createSemestre(semestreInput.getText());
 
+        AlunoDao alunoDao = new AlunoDao();
+        MateriaDao materiaDao = new MateriaDao();
+        ProfessorDao professorDao = new ProfessorDao();
 
-       int aux  = getTrabalho().stream().toList().size();
-       for (int i = 0; i <aux ; i++) {
-           AlunoDao alunoDao = new AlunoDao();
-           alunoDao.registerAluno(tableView.getItems().get(i).getEmailFatec(),
-                   tableView.getItems().get(i).getEmailAlunoPessoal(),
-                   tableView.getItems().get(i).getNomeCompleto());
+        int aux  = getTrabalho().stream().toList().size();
+        for (int i = 0; i <aux ; i++) {
 
-           MateriaDao materiaDao = new MateriaDao();
-           materiaDao.registerMateria(semestreInput.getText(),
+            semestreDao.createSemestre(semestreInput.getText());
+
+            alunoDao.registerAluno(
+                    tableView.getItems().get(i).getEmailAlunoPessoal(),
+                    tableView.getItems().get(i).getEmailFatec(),
+                    tableView.getItems().get(i).getNomeCompleto()
+            );
+
+            professorDao.registerProfessor(
+                    tableView.getItems().get(i).getEmailOrientador(),
+                    tableView.getItems().get(i).getNomeCompletoOrientador()
+            );
+
+            materiaDao.registerMateria(
+                    tableView.getItems().get(i).getMatriculadoEm(),
+                    semestreInput.getText(),
                     tableView.getItems().get(i).getTipoTG(),
                     tableView.getItems().get(i).getProblema(),
                     tableView.getItems().get(i).getEmpresa(),
-                    tableView.getItems().get(i).getMatriculadoEm(),
+                    tableView.getItems().get(i).getDisciplina(),
                     tableView.getItems().get(i).getEmailAlunoPessoal(),
-                    tableView.getItems().get(i).getEmailOrientador());
-
-
+                    tableView.getItems().get(i).getEmailOrientador()
+            );
         }
-
     }
 
 
