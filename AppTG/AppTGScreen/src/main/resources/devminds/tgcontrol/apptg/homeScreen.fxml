@@ -5,60 +5,53 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="template" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-    <center>
-        <AnchorPane prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #C2BAE6;"
-                    BorderPane.alignment="CENTER">
-        </AnchorPane>
-    </center>
     <top>
-        <VBox prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: #424874;">
+        <VBox prefHeight="75.0" prefWidth="1024.0" style="-fx-background-color: #424874;">
             <ButtonBar prefHeight="75.0" prefWidth="1003.0">
                 <buttons>
                     <Button mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-55.0" translateY="1.0">
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@icons/casa.png"/>
+                                <Image url="@icons/casa.png" />
                             </ImageView>
                         </graphic>
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                     </Button>
                     <Button mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-41.0">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@icons/plus.png"/>
+                                <Image url="@icons/plus.png" />
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button fx:id="btn_search" mnemonicParsing="false" prefHeight="90.0" scaleX="1.1"
-                            translateX="-27.0">
+                    <Button fx:id="btn_search" mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-27.0">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@icons/search-interface-symbol.png"/>
+                                <Image url="@icons/search-interface-symbol.png" />
                             </ImageView>
                         </graphic>
                     </Button>
                     <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="232.0" scaleX="1.1" translateX="-13.0">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@icons/settings.png"/>
+                                    <Image url="@icons/settings.png" />
                                 </image>
                             </ImageView>
                         </graphic>
