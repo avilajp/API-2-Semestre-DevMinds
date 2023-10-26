@@ -7,10 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class MateriaDao {
-    String sql_table;
-    String sql_table2;
+    String sql_table = "";
+    String sql_table2 = "";
     public void registerMateria (String MatriculadoEm, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor){
         try (Connection con = SqlConnection.getConnection()) {
+            this.sql_table = "";
+            this.sql_table2 = "";
             tellApartMateria(MatriculadoEm);
 
             if (sql_table2.isEmpty()) {
@@ -39,13 +41,13 @@ public class MateriaDao {
     }
 
     private void updateOrInsertMateria (Connection con, String sql_table, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor) throws SQLException {
-        String sql_update = String.format("UPDATE sgtg.%s" +
-                "tipo = ?," +
-                "problema = ?," +
-                "empresa = ?," +
-                "disciplina = ?," +
-                "WHERE aluno_email_pessoal = (SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?)" +
-                ");", sql_table);
+        String sql_update = String.format("UPDATE sgtg.%s SET " +
+                "tipo = ?, " +
+                "problema = ?, " +
+                "empresa = ?, " +
+                "disciplina = ? " +
+                "WHERE aluno_email_pessoal = (SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?)",
+                sql_table);
 
         PreparedStatement pst;
         pst = con.prepareStatement(sql_update);
@@ -59,13 +61,13 @@ public class MateriaDao {
 
         if (updatedRowCount == 0) {
             String sql_insert = String.format(
-                    "INSERT INTO sgtg.%s (semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor)" +
-                            "VALUES (SELECT nome FROM semestre WHERE nome = ?)," +
-                            "?," +
-                            "?," +
-                            "?," +
-                            "?," +
-                            "(SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?)," +
+                    "INSERT INTO sgtg.%s (semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor) " +
+                            "VALUES ( (SELECT nome FROM semestre WHERE nome = ?), " +
+                            "?, " +
+                            "?, " +
+                            "?, " +
+                            "?, " +
+                            "(SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?), " +
                             "(SELECT email_professor FROM professor WHERE email_professor = ?)" +
                             ");", sql_table);
 

@@ -45,17 +45,17 @@ public class CsvReader {
                         case 4:
                             javaObj.setNomeCompletoOrientador(nextRecord[4]);
                         case 5:
-                            javaObj.setEmailOrientador(nextRecord[5]);
+                            javaObj.setEmailOrientador(nextRecord[5].trim());
                         case 6:
                             javaObj.setMatriculadoEm(nextRecord[6]);
                         case 7:
                             javaObj.setTipoTG(nextRecord[7]);
                         case 8:
-                            javaObj.setProblema(nextRecord[8]);
+                            javaObj.setProblema(nextRecord[8].trim());
                         case 9:
-                            javaObj.setEmpresa(nextRecord[9]);
+                            javaObj.setEmpresa(nextRecord[9].trim());
                         case 10:
-                            javaObj.setDisciplina(nextRecord[10]);
+                            javaObj.setDisciplina(nextRecord[10].trim());
                         default:
 
                     }
