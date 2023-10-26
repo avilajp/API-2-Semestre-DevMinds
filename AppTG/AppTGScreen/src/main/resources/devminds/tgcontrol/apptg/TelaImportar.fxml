@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <fx:include source="homeScreen.fxml" />
+      <TableView layoutX="117.0" layoutY="192.0" prefHeight="345.0" prefWidth="752.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C1" />
+        </columns>
+      </TableView>
+      <ButtonBar layoutX="34.0" layoutY="97.0" prefHeight="40.0" prefWidth="200.0">
+         <buttons>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a turma">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ChoiceBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #F1F2F4; -fx-background-radius: 10;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ChoiceBox>
+         </buttons>
+      </ButtonBar>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="844.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#stageToMainScree" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #000000; -fx-background-radius: 10;" text="Voltar" textAlignment="CENTER">
+         <font>
+            <Font name="Inter Regular" size="24.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
