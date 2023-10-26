@@ -1,6 +1,8 @@
 package devminds.tgcontrol.apptg;
 
 import devminds.tgcontrol.dao.AlunoDao;
+import devminds.tgcontrol.dao.MateriaDao;
+import devminds.tgcontrol.dao.SemestreDao;
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import javafx.collections.ObservableList;
@@ -11,9 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -29,9 +30,9 @@ import java.util.ResourceBundle;
 
 public class ControllerTelaControleSemestre implements Initializable{
     private String filepath;
+    @FXML private TextField semestreInput;
 
-    @FXML
-    private Label welcomeText;
+    @FXML private Label welcomeText;
     @FXML private TableView<Trabalho> tableView;
     @FXML private TableColumn<Trabalho, String> col1;
     @FXML private TableColumn<Trabalho, String> col2;
@@ -134,7 +135,10 @@ public class ControllerTelaControleSemestre implements Initializable{
 
     }
     @FXML
-    private void sendToDataBase(ActionEvent event) throws ParseException {
+    private void sendToDataBase(ActionEvent event) throws ParseException, SQLException, ClassNotFoundException {
+        SemestreDao semestreDao = new SemestreDao();
+        semestreDao.createSemestre(semestreInput.getText());
+
 
        int aux  = getTrabalho().stream().toList().size();
        for (int i = 0; i <aux ; i++) {
@@ -142,6 +146,16 @@ public class ControllerTelaControleSemestre implements Initializable{
            alunoDao.registerAluno(tableView.getItems().get(i).getEmailFatec(),
                    tableView.getItems().get(i).getEmailAlunoPessoal(),
                    tableView.getItems().get(i).getNomeCompleto());
+
+           MateriaDao materiaDao = new MateriaDao();
+           materiaDao.registerMateria(semestreInput.getText(),
+                    tableView.getItems().get(i).getTipoTG(),
+                    tableView.getItems().get(i).getProblema(),
+                    tableView.getItems().get(i).getEmpresa(),
+                    tableView.getItems().get(i).getMatriculadoEm(),
+                    tableView.getItems().get(i).getEmailAlunoPessoal(),
+                    tableView.getItems().get(i).getEmailOrientador());
+
 
         }
 
