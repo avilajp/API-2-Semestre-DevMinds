@@ -4,7 +4,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaInicial">
    <children>
-      <!-- Inclua o template homeScreen.fxml aqui -->
       <fx:include source="homeScreen.fxml" />
    </children>
 </AnchorPane>
