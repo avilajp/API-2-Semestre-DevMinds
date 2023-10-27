@@ -137,39 +137,46 @@ public class ControllerTelaControleSemestre implements Initializable{
     }
     @FXML
     private void sendToDataBase(ActionEvent event) throws ParseException, SQLException, ClassNotFoundException {
-        SemestreDao semestreDao = new SemestreDao();
-        semestreDao.createSemestre(semestreInput.getText());
+        SemestreDao.createSemestre(semestreInput.getText());
+        String exist = SemestreDao.createSemestre(semestreInput.getText());
+        if(exist.equals("nao")) {
+            AlunoDao alunoDao = new AlunoDao();
+            MateriaDao materiaDao = new MateriaDao();
+            ProfessorDao professorDao = new ProfessorDao();
 
-        AlunoDao alunoDao = new AlunoDao();
-        MateriaDao materiaDao = new MateriaDao();
-        ProfessorDao professorDao = new ProfessorDao();
+            int aux = getTrabalho().stream().toList().size();
 
-        int aux  = getTrabalho().stream().toList().size();
-        for (int i = 0; i <aux ; i++) {
+            for (int i = 0; i < aux; i++) {
+                String bufferEmail = null;
 
-            semestreDao.createSemestre(semestreInput.getText());
+                if (tableView.getItems().get(i).getEmailFatec().trim().isEmpty()) {
+                    bufferEmail = null;
+                } else
+                    bufferEmail = tableView.getItems().get(i).getEmailFatec().trim();
+                alunoDao.registerAluno(
+                        tableView.getItems().get(i).getEmailAlunoPessoal(),
+                        bufferEmail,
+                        tableView.getItems().get(i).getNomeCompleto()
+                );
 
-            alunoDao.registerAluno(
-                    tableView.getItems().get(i).getEmailAlunoPessoal(),
-                    tableView.getItems().get(i).getEmailFatec(),
-                    tableView.getItems().get(i).getNomeCompleto()
-            );
+                professorDao.registerProfessor(
+                        tableView.getItems().get(i).getEmailOrientador(),
+                        tableView.getItems().get(i).getNomeCompletoOrientador()
+                );
 
-            professorDao.registerProfessor(
-                    tableView.getItems().get(i).getEmailOrientador(),
-                    tableView.getItems().get(i).getNomeCompletoOrientador()
-            );
-
-            materiaDao.registerMateria(
-                    tableView.getItems().get(i).getMatriculadoEm(),
-                    semestreInput.getText(),
-                    tableView.getItems().get(i).getTipoTG(),
-                    tableView.getItems().get(i).getProblema(),
-                    tableView.getItems().get(i).getEmpresa(),
-                    tableView.getItems().get(i).getDisciplina(),
-                    tableView.getItems().get(i).getEmailAlunoPessoal(),
-                    tableView.getItems().get(i).getEmailOrientador()
-            );
+                materiaDao.registerMateria(
+                        tableView.getItems().get(i).getMatriculadoEm(),
+                        semestreInput.getText(),
+                        tableView.getItems().get(i).getTipoTG(),
+                        tableView.getItems().get(i).getProblema(),
+                        tableView.getItems().get(i).getEmpresa(),
+                        tableView.getItems().get(i).getDisciplina(),
+                        tableView.getItems().get(i).getEmailAlunoPessoal(),
+                        tableView.getItems().get(i).getEmailOrientador()
+                );
+            }
+        }else{
+            System.out.println("Esse semestre já está cadastrado!");
         }
     }
 
