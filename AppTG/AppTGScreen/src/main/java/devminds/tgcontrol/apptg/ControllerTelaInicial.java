@@ -33,6 +33,16 @@ public class ControllerTelaInicial {
 
     }
     @FXML
+    private void stageToMainScree(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+
+    }
+    @FXML
     private void stageToTelaAvaliacao(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);

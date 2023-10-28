@@ -1,15 +1,14 @@
 .button {
-    -fx-background-color: #144DA0;
-    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #424874;
     -fx-text-fill: white;
 }
 
 .button:hover {
-    -fx-background-color: #390061;
+    -fx-background-color: #C2BAE6;
 }
 
 .button:pressed {
-    -fx-background-color: #302437;
+    -fx-background-color: #C2BAE6;
 }
 .anchor-pane {
     -fx-background-color: #C0C0C0;
@@ -27,11 +26,3 @@
     -fx-graphic: url("icons/iconDevMinds.png");
 }
 
-
-.table-view .corner {
-    -fx-background-color: transparent;
-}
-.table-row-cell: highlighted {
-    -fx-background-color: #81c483;
-    -fx-background-radius: 15px;
-}

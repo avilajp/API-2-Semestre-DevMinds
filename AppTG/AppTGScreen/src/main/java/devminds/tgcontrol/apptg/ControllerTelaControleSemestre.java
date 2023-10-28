@@ -25,9 +25,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Objects;
 import java.util.ResourceBundle;
+
 
 public class ControllerTelaControleSemestre implements Initializable{
     private String filepath;
@@ -44,7 +44,6 @@ public class ControllerTelaControleSemestre implements Initializable{
     @FXML private TableColumn<Trabalho, String> col7;
     @FXML private TableColumn<Trabalho, String> col8;
     @FXML private TableColumn<Trabalho, String> col9;
-    @FXML private TableColumn<Trabalho, String> col10;
     @FXML
     public void btnLoad(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
@@ -63,15 +62,7 @@ public class ControllerTelaControleSemestre implements Initializable{
         col7.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("nomeCompleto"));
         col8.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailFatec"));
         col9.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("matriculadoEm"));
-
-
-
         tableView.setItems(getTrabalho());
-
-
-
-
-
     }
     public ObservableList<Trabalho> getTrabalho(){
         CsvReader csvReader = new CsvReader();
@@ -79,6 +70,7 @@ public class ControllerTelaControleSemestre implements Initializable{
 
     return csvReader.getListaDeObjetos();
     }
+
     @FXML
     public void changeEmailAlunoPessoalCellEvent(TableColumn.CellEditEvent edittedCell){
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
@@ -137,9 +129,9 @@ public class ControllerTelaControleSemestre implements Initializable{
     }
     @FXML
     private void sendToDataBase(ActionEvent event) throws ParseException, SQLException, ClassNotFoundException {
-        SemestreDao.createSemestre(semestreInput.getText());
-        String exist = SemestreDao.createSemestre(semestreInput.getText());
-        if(exist.equals("nao")) {
+        SemestreDao semestreDao = new SemestreDao();
+        String exist = semestreDao.existSemestre(semestreInput.getText());
+        if(!Objects.equals(exist, "sim")) {
             AlunoDao alunoDao = new AlunoDao();
             MateriaDao materiaDao = new MateriaDao();
             ProfessorDao professorDao = new ProfessorDao();
@@ -179,10 +171,6 @@ public class ControllerTelaControleSemestre implements Initializable{
             System.out.println("Esse semestre já está cadastrado!");
         }
     }
-
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableView.setEditable(true);

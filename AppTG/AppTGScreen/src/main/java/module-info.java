@@ -7,4 +7,5 @@ module devminds.tgcontrol.apptg {
 
     opens devminds.tgcontrol.apptg to javafx.fxml;
     exports devminds.tgcontrol.apptg;
+    exports devminds.tgcontrol.apptg.obj;
 }

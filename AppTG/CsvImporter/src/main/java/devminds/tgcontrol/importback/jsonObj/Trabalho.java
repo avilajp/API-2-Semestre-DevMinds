@@ -1,7 +1,6 @@
 package devminds.tgcontrol.importback.jsonObj;
 
 
-import javafx.beans.property.SimpleStringProperty;
 
 public class Trabalho {
     private String nomeCompletoOrientador;
@@ -12,7 +11,6 @@ public class Trabalho {
     private String disciplina;
     private String emailFatec;
     private String emailAlunoPessoal;
-
     private String matriculadoEm;
 
     public String getMatriculadoEm() {
@@ -96,4 +94,5 @@ public class Trabalho {
     public String getNomeCompleto() {
         return nomeCompleto;
     }
+
 }
