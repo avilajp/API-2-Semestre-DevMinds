@@ -1,16 +1,20 @@
 package devminds.tgcontrol.dao;
 
+import devminds.tgcontrol.ResultSetToArrayList;
 import devminds.tgcontrol.SqlConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MateriaDao {
-    String sql_table = "";
-    String sql_table2 = "";
+    private String sql_table = "";
+    private String sql_table2 = "";
+
     public void registerMateria (String MatriculadoEm, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor){
+
         try (Connection con = SqlConnection.getConnection()) {
+
             this.sql_table = "";
             this.sql_table2 = "";
             tellApartMateria(MatriculadoEm);
@@ -46,7 +50,7 @@ public class MateriaDao {
                 "problema = ?, " +
                 "empresa = ?, " +
                 "disciplina = ? " +
-                "WHERE aluno_email_pessoal = (SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?)",
+                "WHERE aluno_email_pessoal = (SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?) AND semestre = (SELECT semestre FROM semestre WHERE semestre = ?)",
                 sql_table);
 
         PreparedStatement pst;
@@ -56,6 +60,7 @@ public class MateriaDao {
         pst.setString(3, empresa);
         pst.setString(4, disciplina);
         pst.setString(5, aluno_email_pessoal);
+        pst.setString(6, semestre);
 
         int updatedRowCount = pst.executeUpdate();
 
@@ -81,6 +86,46 @@ public class MateriaDao {
             pst2.setObject(6, aluno_email_pessoal);
             pst2.setObject(7, email_professor);
             pst2.executeUpdate();
+        }
+    }
+
+    public List<String> getSemestreEMateria() throws SQLException, ClassNotFoundException {
+        try(Connection con = SqlConnection.getConnection()){
+            String materiaTG1 = "materia_tg1";
+            String materiaTG2 = "materia_tg2";
+            ArrayList<String> materias = new ArrayList<>();
+            materias.add(materiaTG1);
+            materias.add(materiaTG2);
+            String materiaDoSemestre;
+            ArrayList<String> semestreMateria = new ArrayList<>();
+
+            for (int i = 0; i < materias.size(); i++) {
+                String sql_select = String.format("SELECT semestre from %s", materias.get(i));
+                PreparedStatement pst;
+                pst = con.prepareStatement(sql_select);
+                //pst.setString(1, materias.get(i));
+
+                ResultSet rs;
+                rs = pst.executeQuery();
+
+                ResultSetToArrayList converter = new ResultSetToArrayList();
+                List listaSemestre = converter.convert(rs);
+
+
+                if (materias.get(i).equals("materia_tg1")) {
+                    materiaDoSemestre = "TG1";
+                } else {
+                    materiaDoSemestre = "TG2";
+                }
+
+                semestreMateria.add(String.format(listaSemestre.get(i) + " - %s", materiaDoSemestre));
+            }
+            return semestreMateria;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao buscar Semestre e Materia !!");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }
