@@ -1,5 +1,6 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AtividadeDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,21 +9,22 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ControllerTelaAtividade {
+    DTOSemestre data = DTOSemestre.getInstance();
+
     @FXML private TextField nome1;
     @FXML private TextField descricao1;
     @FXML private DatePicker dataEntrega1;
     @FXML private TextField nome2;
     @FXML private TextField descricao2;
     @FXML private DatePicker dataEntrega2;
+    @FXML private Label showSemestre;
 
     @FXML
     public void sendToDatabase(ActionEvent event){
@@ -38,7 +40,11 @@ public class ControllerTelaAtividade {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
+    }
 
+    @FXML
+    private void initialize(){
+        showSemestre.setText(data.getSemestre());
     }
 }
 

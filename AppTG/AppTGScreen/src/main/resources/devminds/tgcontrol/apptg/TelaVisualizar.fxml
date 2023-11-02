@@ -30,7 +30,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="selectlist" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #F1F2F4; -fx-background-radius: 10;">
+            <ChoiceBox fx:id="selectlist" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #F1F2F4; -fx-background-radius: 10;" onAction="#selecionaChoiceBox">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

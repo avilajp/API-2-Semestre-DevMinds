@@ -1,9 +1,8 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.MateriaDao;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,25 +18,27 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class ControllerTelaVisualizar {
+    private String semestreSelecionado;
+    private String materiaSelecionada;
     @FXML private ChoiceBox<String> selectlist;
-
+    @FXML
+    private void selecionaChoiceBox(ActionEvent event){
+        String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
+        this.semestreSelecionado = vetString[0];
+        if (vetString[1].trim().equals("TG1")) {
+            this.materiaSelecionada = "materia_tg1";
+        } else {
+            this.materiaSelecionada = "materia_tg2";
+        }
+    }
     public void setChoiceBox() throws SQLException, ClassNotFoundException,NullPointerException {
 
     }
-
-
+    DTOSemestre data = DTOSemestre.getInstance();
     @FXML
     private void stageToTelaAtividade(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
-        ControllerTelaVisualizar ctrl = new ControllerTelaVisualizar();
-        ctrl.setChoiceBox();
-
-
-
-
-
-
-
-
+        data.setSemestre(semestreSelecionado);
+        data.setMateria(materiaSelecionada);
 
 
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAtividade.fxml"));
