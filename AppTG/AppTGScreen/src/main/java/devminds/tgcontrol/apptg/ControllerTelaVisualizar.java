@@ -7,6 +7,7 @@ import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import devminds.tgcontrol.objects.Atividade;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,10 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -35,6 +33,7 @@ public class ControllerTelaVisualizar {
     @FXML private TableColumn<Atividade,String> col1;
     @FXML private TableColumn<Atividade, LocalDateTime> col2;
     @FXML private TableColumn<Atividade,String> col3;
+    @FXML private TableColumn<Atividade, Atividade> col4;
 
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -49,8 +48,29 @@ public class ControllerTelaVisualizar {
         col1.setCellValueFactory(new PropertyValueFactory<Atividade, String>("nomeAtividade"));
         col2.setCellValueFactory(new PropertyValueFactory<Atividade, LocalDateTime>("dataEntrega"));
         col3.setCellValueFactory(new PropertyValueFactory<Atividade, String>("descricaoAtividade"));
+        col4.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        col4.setCellFactory(param -> new TableCell<Atividade, Atividade>() {
+                    private final Button button = new Button("Ação");
+
+                    @Override
+                    protected void updateItem(Atividade item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(button);
+                            button.setOnAction(event -> handleButtonAction(item));
+                        }
+                    }
+                });
         atividadeTableView.setItems(getAtividade());
     }
+    private void handleButtonAction(Atividade data) {
+
+        System.out.println("Botão clicado para: " + data);
+    }
+
     public ObservableList<Atividade> getAtividade() throws SQLException, ClassNotFoundException {
         AtividadeDao atividadeDao = new AtividadeDao();
         ObservableList<Atividade> objAtividade = atividadeDao.getAtividades();
