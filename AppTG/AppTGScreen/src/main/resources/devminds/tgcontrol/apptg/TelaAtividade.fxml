@@ -30,7 +30,7 @@
       <Label fx:id="showSemestre" layoutX="275.0" layoutY="23.0" prefHeight="50.0" prefWidth="134.0" />
       <VBox layoutX="37.0" layoutY="83.0" prefHeight="410.0" prefWidth="952.0">
          <children>
-            <VBox prefHeight="156.0" prefWidth="952.0" VBox.vgrow="NEVER">
+            <VBox prefHeight="104.0" prefWidth="952.0" VBox.vgrow="NEVER">
                <children>
                   <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="951.0" spacing="10.0" VBox.vgrow="NEVER">
                      <children>
@@ -47,31 +47,83 @@
                         <DatePicker fx:id="dataEntrega1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="Entrega" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="91.0" prefWidth="952.0">
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="952.0">
                      <children>
-                        <TextArea prefHeight="91.0" prefWidth="418.0" style="-fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;" styleClass="text-area" />
+                        <TextArea fx:id="descricao1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="702.0" style="-fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;" styleClass="text-area" HBox.hgrow="NEVER" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="104.0" prefWidth="952.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nova atividade 2">
-                     <font>
-                        <Font name="Inter Regular" size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="nome2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Nome" style="-fx-alignment: center; -fx-background-radius: 10;">
-                     <font>
-                        <Font name="Inter Regular" size="18.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="descricao2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="Descrição" style="-fx-alignment: center; -fx-background-radius: 10;">
-                     <font>
-                        <Font name="Inter Regular" size="18.0" />
-                     </font>
-                  </TextField>
-                  <DatePicker fx:id="dataEntrega2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="50.0" promptText="Entrega" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" />
+                  <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="951.0" spacing="10.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nova atividade 2">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="nome2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="389.0" promptText="Nome" style="-fx-alignment: center; -fx-background-radius: 10;">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="dataEntrega2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="Entrega" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="952.0">
+                     <children>
+                        <TextArea fx:id="descricao2" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="702.0" style="-fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;" styleClass="text-area" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="104.0" prefWidth="952.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="951.0" spacing="10.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nova atividade 3">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="nome3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="389.0" promptText="Nome" style="-fx-alignment: center; -fx-background-radius: 10;">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="dataEntrega3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="Entrega" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="952.0">
+                     <children>
+                        <TextArea fx:id="descricao3" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="702.0" style="-fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;" styleClass="text-area" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="104.0" prefWidth="952.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="951.0" spacing="10.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nova atividade 4">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="nome4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="389.0" promptText="Nome" style="-fx-alignment: center; -fx-background-radius: 10;">
+                           <font>
+                              <Font name="Inter Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="dataEntrega4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0" promptText="Entrega" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="952.0">
+                     <children>
+                        <TextArea fx:id="descricao4" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="702.0" style="-fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;" styleClass="text-area" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

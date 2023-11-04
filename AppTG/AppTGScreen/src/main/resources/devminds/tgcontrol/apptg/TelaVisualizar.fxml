@@ -13,14 +13,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaVisualizar">
     <children>
         <fx:include source="homeScreen.fxml" />
-      <TableView layoutX="117.0" layoutY="192.0" prefHeight="345.0" prefWidth="752.0">
+      <TableView fx:id="atividadeTableView" layoutX="73.0" layoutY="157.0" prefHeight="380.0" prefWidth="853.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="col1" prefWidth="132.99999237060547" text="Nome da Atividade" />
+          <TableColumn fx:id="col2" prefWidth="102.0" text="Data de entrega" />
+            <TableColumn fx:id="col3" prefWidth="547.0000305175781" text="Descrição" />
         </columns>
       </TableView>
       <ButtonBar layoutX="34.0" layoutY="97.0" prefHeight="40.0" prefWidth="200.0">
@@ -30,7 +27,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="selectlist" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #F1F2F4; -fx-background-radius: 10;" onAction="#selecionaChoiceBox">
+            <ChoiceBox fx:id="selectlist" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#selecionaChoiceBox" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #F1F2F4; -fx-background-radius: 10;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
