@@ -1,6 +1,9 @@
 package devminds.tgcontrol;
 
+import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.objects.Atividade;
+import devminds.tgcontrol.objects.Avaliacao;
+import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -27,14 +30,12 @@ public class ResultSetToArrayList {
         }
         return lista;
     }
-    public static ObservableList<Atividade> convertAtividade(ResultSet resultSet) {
-        ObservableList<Atividade> obsList = FXCollections.observableArrayList();
+    public static ObservableList<ViewObjAtividadeXAvaliacao> convertAtividade(ResultSet resultSet) {
+        ObservableList<ViewObjAtividadeXAvaliacao> obsList = FXCollections.observableArrayList();
         try {
             while (resultSet.next()) {
-                Atividade objeto = new Atividade();
-                objeto.setNomeAtividade(resultSet.getString("atividade_nome"));
-                objeto.setDescricaoAtividade(resultSet.getString("descricao"));
-                objeto.setDataEntrega(resultSet.getObject("atividade_data_entrega", LocalDateTime.class));
+                ViewObjAtividadeXAvaliacao objeto = new ViewObjAtividadeXAvaliacao();
+                objeto.setId_atividade(resultSet.getInt("id_atividade"));
                 obsList.add(objeto);
             }
         } catch (Exception e) {
@@ -43,5 +44,24 @@ public class ResultSetToArrayList {
 
         return obsList;
     }
+    public static ObservableList<ViewObjAtividadeXAvaliacao> converterTelaVisualizar(ResultSet resultSet){
+        ObservableList<ViewObjAtividadeXAvaliacao> obsList = FXCollections.observableArrayList();
 
+        try{
+            while (resultSet.next()){
+                ViewObjAtividadeXAvaliacao obj = new ViewObjAtividadeXAvaliacao();
+                obj.setNome(resultSet.getString("nome_aluno"));
+                obj.setTipo(resultSet.getString("tipo"));
+                obj.setNota1(resultSet.getDouble("A1"));
+                obj.setNota2(resultSet.getDouble("A2"));
+                obj.setNota3(resultSet.getDouble("A3"));
+                obj.setNota4(resultSet.getDouble("A4"));
+                obsList.add(obj);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obsList;
+    }
 }

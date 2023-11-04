@@ -3,6 +3,7 @@ package devminds.tgcontrol.dao;
 import devminds.tgcontrol.ResultSetToArrayList;
 import devminds.tgcontrol.SqlConnection;
 import devminds.tgcontrol.objects.Atividade;
+import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,17 +30,14 @@ public class AtividadeDao {
             throw new RuntimeException("Erro ao gerar nova atividade!!");
         }
     }
-    public ObservableList<Atividade> getAtividades() throws SQLException, ClassNotFoundException {
-        ObservableList<Atividade> lista  = null;
+    public ResultSet getAtividades() throws SQLException, ClassNotFoundException {
+        ResultSet rs  = null;
         try(Connection con = SqlConnection.getConnection()){
-            String sql_select = "SELECT atividade_nome, atividade_data_entrega, descricao FROM atividade";
+            String sql_select = "SELECT id_atividade FROM atividade where semestre_tg1 = (select distinct  semestre FROM materia_tg1 where semestre = ?)";
             PreparedStatement pst;
             pst = con.prepareStatement(sql_select);
-            ResultSet rs = pst.executeQuery();
-            ResultSetToArrayList converter = new ResultSetToArrayList();
-            lista = converter.convertAtividade(rs);
+            rs = pst.executeQuery();
         }
-
-        return lista;
+        return rs;
     }
 }

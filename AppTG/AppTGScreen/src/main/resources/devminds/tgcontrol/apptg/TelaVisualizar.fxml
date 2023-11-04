@@ -13,12 +13,15 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaVisualizar">
     <children>
         <fx:include source="homeScreen.fxml" />
-      <TableView fx:id="atividadeTableView" layoutX="73.0" layoutY="157.0" prefHeight="380.0" prefWidth="853.0">
+      <TableView fx:id="atividadeTableView" layoutX="73.0" layoutY="157.0" prefHeight="380.0" prefWidth="876.5">
         <columns>
-          <TableColumn fx:id="col1" prefWidth="132.99999237060547" text="Nome da Atividade" />
-          <TableColumn fx:id="col2" prefWidth="102.0" text="Data de entrega" />
-            <TableColumn fx:id="col3" prefWidth="545.0000305175781" text="Descrição" />
-            <TableColumn fx:id="col4" prefWidth="78.0" text="Botão" />
+            <TableColumn fx:id="col1" prefWidth="40.0" />
+          <TableColumn fx:id="col2" prefWidth="300.0" text="Aluno(a)" />
+            <TableColumn fx:id="col3" prefWidth="313.5" text="Tipo TG" />
+          <TableColumn fx:id="col4" minWidth="4.0" prefWidth="55.75" text="A1" />
+            <TableColumn fx:id="col5" prefWidth="55.75" text="A2" />
+            <TableColumn fx:id="col6" minWidth="0.0" prefWidth="55.75" text="A3" />
+            <TableColumn fx:id="col7" prefWidth="55.75" text="A4" />
         </columns>
       </TableView>
       <ButtonBar layoutX="34.0" layoutY="97.0" prefHeight="40.0" prefWidth="200.0">

@@ -1,12 +1,12 @@
 package devminds.tgcontrol.apptg;
 
 
+import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
-import devminds.tgcontrol.dao.AtividadeDao;
+import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.dao.MateriaDao;
-import devminds.tgcontrol.importback.csvImport.CsvReader;
-import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import devminds.tgcontrol.objects.Atividade;
+import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,18 +22,23 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class ControllerTelaVisualizar {
     private String semestreSelecionado;
     private String materiaSelecionada;
     @FXML private ChoiceBox<String> selectlist;
-    @FXML private TableView<Atividade> atividadeTableView;
-    @FXML private TableColumn<Atividade,String> col1;
-    @FXML private TableColumn<Atividade, LocalDateTime> col2;
-    @FXML private TableColumn<Atividade,String> col3;
-    @FXML private TableColumn<Atividade, Atividade> col4;
+    @FXML private TableView<ViewObjAtividadeXAvaliacao> atividadeTableView;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao> col1;
+
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,String> col2;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao, String> col3;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col4;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col5;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col6;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col7;
+
+
 
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -45,37 +50,54 @@ public class ControllerTelaVisualizar {
             this.materiaSelecionada = "materia_tg2";
         }
 
-        col1.setCellValueFactory(new PropertyValueFactory<Atividade, String>("nomeAtividade"));
-        col2.setCellValueFactory(new PropertyValueFactory<Atividade, LocalDateTime>("dataEntrega"));
-        col3.setCellValueFactory(new PropertyValueFactory<Atividade, String>("descricaoAtividade"));
-        col4.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        col4.setCellFactory(param -> new TableCell<Atividade, Atividade>() {
-                    private final Button button = new Button("Ação");
+        col1.setCellFactory(param -> new TableCell<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao>() {
+            private final Button button = new Button("Ação");
 
-                    @Override
-                    protected void updateItem(Atividade item, boolean empty) {
-                        super.updateItem(item, empty);
+            @Override
+            protected void updateItem(ViewObjAtividadeXAvaliacao item, boolean empty) {
+                super.updateItem(item, empty);
 
-                        if (item == null || empty) {
-                            setGraphic(null);
-                        } else {
-                            setGraphic(button);
-                            button.setOnAction(event -> handleButtonAction(item));
+                if (item == null || empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                    button.setOnAction(event -> {
+                        try {
+                            handleButtonAction(event,item);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
                         }
-                    }
-                });
+                    });
+                }
+            }
+        });
+        col1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        col2.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("nome"));
+        col3.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("tipo"));
+        col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota1"));
+        col5.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota2"));
+        col6.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota3"));
+        col7.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota4"));
+
+
         atividadeTableView.setItems(getAtividade());
     }
-    private void handleButtonAction(Atividade data) {
+    @FXML
+    private void handleButtonAction(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
 
-        System.out.println("Botão clicado para: " + data);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+        DTOAvaliacao dto = new DTOAvaliacao();
+        dto.setNome_atividade(data.getNome());
     }
 
-    public ObservableList<Atividade> getAtividade() throws SQLException, ClassNotFoundException {
-        AtividadeDao atividadeDao = new AtividadeDao();
-        ObservableList<Atividade> objAtividade = atividadeDao.getAtividades();
+    public ObservableList<ViewObjAtividadeXAvaliacao> getAtividade() throws SQLException, ClassNotFoundException {
+        AvaliacaoXAtividadeDAO avaliacaoXAtividadeDAOiacaoDao = new AvaliacaoXAtividadeDAO();
 
-        return atividadeDao.getAtividades();
+        return avaliacaoXAtividadeDAOiacaoDao.getAvaliacaoXAtividade();
     }
     public void setChoiceBox() throws SQLException, ClassNotFoundException,NullPointerException {
 
