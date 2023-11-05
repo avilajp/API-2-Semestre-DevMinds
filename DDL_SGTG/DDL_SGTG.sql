@@ -65,7 +65,8 @@ CREATE TABLE atividade (
 id_atividade BIGINT auto_increment PRIMARY KEY,
 atividade_nome varchar(64) NOT NULL,
 atividade_data_entrega datetime NOT NULL,
-descricao varchar NOT NULL,
+descricao varchar(1024) NOT NULL,
+tipo varchar(128),
 semestre_tg1 varchar (12),
 semestre_tg2 varchar (12),
 

@@ -5,7 +5,6 @@ import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.dao.MateriaDao;
-import devminds.tgcontrol.objects.Atividade;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -43,12 +42,14 @@ public class ControllerTelaVisualizar {
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
         String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
-        this.semestreSelecionado = vetString[0];
+        this.semestreSelecionado = vetString[0].trim();
+
         if (vetString[1].trim().equals("TG1")) {
             this.materiaSelecionada = "materia_tg1";
         } else {
             this.materiaSelecionada = "materia_tg2";
         }
+        System.out.println(materiaSelecionada);
 
         col1.setCellFactory(param -> new TableCell<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao>() {
             private final Button button = new Button("Ação");
@@ -82,32 +83,29 @@ public class ControllerTelaVisualizar {
 
         atividadeTableView.setItems(getAtividade());
     }
+    DTOAvaliacao dtoAvaliacao = DTOAvaliacao.getInstance();
     @FXML
     private void handleButtonAction(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
+        dtoAvaliacao.setNome(data.getNome());
+        dtoAvaliacao.setNota1(data.getNota1());
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
-
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
-        DTOAvaliacao dto = new DTOAvaliacao();
-        dto.setNome_atividade(data.getNome());
     }
 
     public ObservableList<ViewObjAtividadeXAvaliacao> getAtividade() throws SQLException, ClassNotFoundException {
         AvaliacaoXAtividadeDAO avaliacaoXAtividadeDAOiacaoDao = new AvaliacaoXAtividadeDAO();
-
-        return avaliacaoXAtividadeDAOiacaoDao.getAvaliacaoXAtividade();
+        return avaliacaoXAtividadeDAOiacaoDao.getAlunosTG(this.materiaSelecionada,this.semestreSelecionado);
     }
     public void setChoiceBox() throws SQLException, ClassNotFoundException,NullPointerException {
-
     }
     DTOSemestre data = DTOSemestre.getInstance();
     @FXML
     private void stageToTelaAtividade(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         data.setSemestre(semestreSelecionado);
         data.setMateria(materiaSelecionada);
-
 
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAtividade.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);

@@ -17,7 +17,7 @@
         </columns>
       </TableView>
       <Button layoutX="559.0" layoutY="21.0" mnemonicParsing="false" onAction="#stageToTelaVisualizar" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black;" text="Voltar" />
-      <TextField layoutX="155.0" layoutY="28.0" prefHeight="25.0" prefWidth="335.0" />
+      <TextField fx:id="nomeAlunoExibicao" editable="false" layoutX="155.0" layoutY="28.0" prefHeight="25.0" prefWidth="335.0" />
       <Text layoutX="81.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome aluno:" wrappingWidth="91.0" AnchorPane.bottomAnchor="450.98828125" />
       <Button layoutX="566.0" layoutY="438.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Salvar" />
    </children>

@@ -5,4 +5,5 @@ module devminds.tgcontrol.dao{
 
     exports devminds.tgcontrol.objects;
  exports devminds.tgcontrol.dao;
+    exports devminds.tgcontrol;
 }

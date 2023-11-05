@@ -4,8 +4,9 @@ import devminds.tgcontrol.objects.Avaliacao;
 
 import java.time.LocalDateTime;
 
-public class DTOAvaliacao extends Avaliacao {
+public class DTOAvaliacao {
     private static final DTOAvaliacao instance = new DTOAvaliacao();
+    private int id_atividade;
     private String nome;
     private String feedback;
     private String tipo;
@@ -27,12 +28,10 @@ public class DTOAvaliacao extends Avaliacao {
         this.nome = nome;
     }
 
-    @Override
     public String getFeedback() {
         return feedback;
     }
 
-    @Override
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
@@ -45,43 +44,43 @@ public class DTOAvaliacao extends Avaliacao {
         this.tipo = tipo;
     }
 
-    @Override
     public double getNota1() {
         return nota1;
     }
 
-    @Override
     public void setNota1(double nota1) {
         this.nota1 = nota1;
     }
 
-    @Override
     public double getNota2() {
         return nota2;
     }
 
-    @Override
     public void setNota2(double nota2) {
         this.nota2 = nota2;
     }
 
-    @Override
     public double getNota3() {
         return nota3;
     }
 
-    @Override
     public void setNota3(double nota3) {
         this.nota3 = nota3;
     }
 
-    @Override
     public double getNota4() {
         return nota4;
     }
 
-    @Override
     public void setNota4(double nota4) {
         this.nota4 = nota4;
+    }
+
+    public int getId_atividade() {
+        return id_atividade;
+    }
+
+    public void setId_atividade(int id_atividade) {
+        this.id_atividade = id_atividade;
     }
 }
