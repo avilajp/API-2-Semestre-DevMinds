@@ -64,7 +64,7 @@ public class ControllerTelaAtividade {
         System.out.println(counter);
         AvaliacaoDao avaliacaoDao  = new AvaliacaoDao();
         AlunoDao alunoDao = new AlunoDao();
-        ObservableList<ViewObjAtividadeXAvaliacao> lista  =  alunoDao.getNomeAluno(data.getMateria(),data.getSemestre());
+        ObservableList<ViewObjAtividadeXAvaliacao> lista  =  alunoDao.getNomeAluno(data.getMateria(),data.getSemestre(),tipo1.getSelectionModel().getSelectedItem());
         while (counter !=-1){
             for (int j = 0; j < lista.size(); j++) {
                 avaliacaoDao.criarAvaliacaoDaAtividade(lista.get(j).getNome(),counter);
