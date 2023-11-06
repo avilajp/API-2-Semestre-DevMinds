@@ -63,7 +63,7 @@ public class ControllerTelaVisualizar {
                     setGraphic(button);
                     button.setOnAction(event -> {
                         try {
-                            handleButtonAction(event,item);
+                            createTelaAvaliacao(event,item);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -84,7 +84,7 @@ public class ControllerTelaVisualizar {
     }
     DTOAvaliacao dtoAvaliacao = DTOAvaliacao.getInstance();
     @FXML
-    private void handleButtonAction(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
+    private void createTelaAvaliacao(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
         dtoAvaliacao.setNome(data.getNome());
         dtoAvaliacao.setNota1(data.getNota1());
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
