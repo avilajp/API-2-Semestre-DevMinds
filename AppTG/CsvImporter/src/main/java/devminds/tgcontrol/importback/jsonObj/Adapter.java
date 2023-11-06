@@ -12,7 +12,7 @@ public class Adapter{
         public void write(JsonWriter out, Trabalho object) throws IOException {
             // Define como serializar um objeto Person em JSON
             out.beginObject();
-            out.name("timestamp").value(object.getTimestamp());
+            //out.name("timestamp").value(object.getTimestamp());
             out.name("emailFatec").value(object.getEmailFatec());
             out.name("nomeAluno").value(object.getNomeCompleto());
             out.name("nomeOrientador").value(object.getNomeCompletoOrientador());
@@ -42,9 +42,9 @@ public class Adapter{
             while (in.hasNext()) {
                 String fieldName = in.nextName();
                 switch (fieldName) {
-                    case "timestamp":
-                        timestamp = in.nextString();
-                        break;
+//                    case "timestamp":
+//                        timestamp = in.nextString();
+//                        break;
                     case "nomeCompletoOrientador":
                         nomeCompletoOrientador = in.nextString();
                         break;

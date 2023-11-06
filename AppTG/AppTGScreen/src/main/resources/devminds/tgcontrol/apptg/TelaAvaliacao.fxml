@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="500.0" minWidth="700.0" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAvaliacao">
+<AnchorPane minHeight="500.0" minWidth="700.0" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAvaliacao">
    <children>
-      <TableView layoutX="50.0" layoutY="88.0" prefHeight="325.0" prefWidth="600.0">
+      <TableView fx:id="avaliacaoTableView" layoutX="37.0" layoutY="88.0" prefHeight="325.0" prefWidth="613.0">
         <columns>
-          <TableColumn prefWidth="123.0" text="Atividades" />
-          <TableColumn prefWidth="365.0" text="Feedback" />
-            <TableColumn prefWidth="111.0" text="Nota" />
+          <TableColumn fx:id="col1" prefWidth="123.0" text="Atividades" />
+          <TableColumn fx:id="col2" onEditCommit="#setFeedBackCellEvent" prefWidth="365.0" text="Feedback" />
+            <TableColumn fx:id="col3" onEditCommit="#setNotaCellEvent" prefWidth="111.0" text="Nota" />
         </columns>
       </TableView>
-      <Button layoutX="559.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black;" text="Voltar" />
-      <TextField layoutX="155.0" layoutY="28.0" prefHeight="25.0" prefWidth="335.0" />
+      <Button layoutX="559.0" layoutY="21.0" mnemonicParsing="false" onAction="#stageToTelaVisualizar" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: black;" text="Voltar" />
+      <TextField fx:id="nomeAlunoExibicao" editable="false" layoutX="155.0" layoutY="28.0" prefHeight="25.0" prefWidth="335.0" />
       <Text layoutX="81.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome aluno:" wrappingWidth="91.0" AnchorPane.bottomAnchor="450.98828125" />
+      <Button layoutX="566.0" layoutY="438.0" mnemonicParsing="false" onAction="#sendToDatabase" prefHeight="33.0" prefWidth="77.0" text="Salvar" />
    </children>
 </AnchorPane>

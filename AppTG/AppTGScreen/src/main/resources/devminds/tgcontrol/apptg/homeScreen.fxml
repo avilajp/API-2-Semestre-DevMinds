@@ -8,13 +8,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="template" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-
+<BorderPane fx:id="template" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaInicial">
     <top>
         <VBox prefHeight="75.0" prefWidth="1024.0" style="-fx-background-color: #424874;">
             <ButtonBar prefHeight="75.0" prefWidth="1003.0">
                 <buttons>
-                    <Button mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-55.0" translateY="1.0">
+                    <Button mnemonicParsing="false" onAction="#stageToMainScree" prefHeight="90.0" scaleX="1.1" translateX="-55.0" translateY="1.0">
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@icons/casa.png" />
@@ -24,7 +23,7 @@
                             <Cursor fx:constant="HAND" />
                         </cursor>
                     </Button>
-                    <Button mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-41.0">
+                    <Button mnemonicParsing="false" onAction="#stageToChangeTableView" prefHeight="90.0" scaleX="1.1" translateX="-41.0">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>
@@ -34,7 +33,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button fx:id="btn_search" mnemonicParsing="false" prefHeight="90.0" scaleX="1.1" translateX="-27.0">
+                    <Button fx:id="btn_search" mnemonicParsing="false" onAction="#stageToTelaVisualizar" prefHeight="90.0" scaleX="1.1" translateX="-27.0">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>

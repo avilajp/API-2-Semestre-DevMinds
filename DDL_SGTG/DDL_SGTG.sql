@@ -2,87 +2,93 @@ CREATE SCHEMA sgtg;
 
 USE sgtg;
 
-CREATE TABLE atividade (
-id_atividade BIGINT auto_increment PRIMARY KEY,
-atividade_nome varchar(64),
-atividade_data_entrega datetime NOT NULL,
-descricao varchar(128) NOT NULL
-);
-
 CREATE TABLE aluno (
-aluno_email_fatec varchar(128) PRIMARY KEY,
+aluno_email_pessoal varchar(128) PRIMARY KEY,
+aluno_email_fatec varchar(128),
 nome varchar(128)
 );
 
 CREATE TABLE professor (
-professor_email_fatec varchar(128) PRIMARY KEY,
-nome varchar(128)
+email_professor varchar(128) PRIMARY KEY,
+nome_professor varchar(128)
 );
+
+CREATE TABLE semestre (
+nome varchar(12) primary key
+);
+
 
 CREATE TABLE materia_tg1 (
 id_tg1 BIGINT auto_increment PRIMARY KEY,
-tipo varchar(32) NOT NULL,
+semestre varchar(12) NOT NULL,
+tipo varchar(128) NOT NULL,
 problema varchar(128),
 empresa varchar(64),
 disciplina varchar(64),
-aluno_email_fatec varchar(128),
-professor_email_fatec varchar(128),
-id_atividade BIGINT,
+aluno_email_pessoal varchar(128),
+email_professor varchar(128),
 
-CONSTRAINT fk_atividade_tg1 FOREIGN KEY (id_atividade)
-	REFERENCES atividade (id_atividade)
+CONSTRAINT fk_aluno_tg1 FOREIGN KEY (aluno_email_pessoal)
+	REFERENCES aluno(aluno_email_pessoal)
     ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_aluno_tg1 FOREIGN KEY (aluno_email_fatec)
-	REFERENCES aluno(aluno_email_fatec)
+CONSTRAINT fk_professor_tg1 FOREIGN KEY (email_professor)
+    REFERENCES professor(email_professor)
     ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_professor_tg1 FOREIGN KEY (professor_email_fatec)
-	REFERENCES professor(professor_email_fatec)
+CONSTRAINT fk_semestre_tg1 FOREIGN KEY (semestre)
+	REFERENCES semestre(nome)
     ON DELETE CASCADE ON UPDATE CASCADE
+
 );
 
 CREATE TABLE materia_tg2 (
 id_tg2 BIGINT auto_increment PRIMARY KEY,
-tipo varchar(32) NOT NULL,
+semestre varchar(32) NOT NULL,
+tipo varchar(128) NOT NULL,
 problema varchar(128),
 empresa varchar(64),
 disciplina varchar(64),
-aluno_email_fatec varchar(128),
-professor_email_fatec varchar(128),
-id_atividade BIGINT,
+aluno_email_pessoal varchar(128),
+email_professor varchar(128),
 
-CONSTRAINT fk_atividade_tg2 FOREIGN KEY (id_atividade)
-	REFERENCES atividade (id_atividade)
+CONSTRAINT fk_aluno_tg2 FOREIGN KEY (aluno_email_pessoal)
+	REFERENCES aluno(aluno_email_pessoal)
     ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_aluno_tg2 FOREIGN KEY (aluno_email_fatec)
-	REFERENCES aluno(aluno_email_fatec)
+CONSTRAINT fk_professor_tg2 FOREIGN KEY (email_professor)
+    REFERENCES professor (email_professor)
     ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_professor_tg2 FOREIGN KEY (professor_email_fatec)
-	REFERENCES professor(professor_email_fatec)
+CONSTRAINT fk_semestre_tg2 FOREIGN KEY (semestre)
+	REFERENCES semestre(nome)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE semestre (
-nome_semestre varchar(12) primary key,
-id_tg1 BIGINT,
-id_tg2 BIGINT,
-CONSTRAINT fk_tg1 FOREIGN KEY (id_tg1)
-	REFERENCES materia_tg1(id_tg1)
+CREATE TABLE atividade (
+id_atividade BIGINT auto_increment PRIMARY KEY,
+atividade_nome varchar(64) NOT NULL,
+atividade_data_entrega datetime NOT NULL,
+descricao varchar(1024) NOT NULL,
+tipo varchar(128),
+semestre_tg1 varchar (12),
+semestre_tg2 varchar (12),
+
+CONSTRAINT fk_semestre_tg1_atividade FOREIGN KEY (semestre_tg1)
+    REFERENCES materia_tg1 (semestre)
     ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_tg2 FOREIGN KEY(id_tg2)
-	REFERENCES materia_tg2(id_tg2)
+CONSTRAINT fk_semestre_tg2_atividade FOREIGN KEY (semestre_tg2)
+    REFERENCES materia_tg2 (semestre)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE avaliacao (
-id_avaliacao BIGINT AUTO_INCREMENT PRIMARY KEY,
-aluno_email_fatec varchar(128),
+id_avaliacao BIGINT auto_increment PRIMARY KEY,
 id_atividade BIGINT,
-nota DECIMAL(4,2),
-feedback varchar(256),
-CONSTRAINT fk_aluno FOREIGN KEY(aluno_email_fatec)
-	REFERENCES aluno(aluno_email_fatec)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_atividade FOREIGN KEY(id_atividade)
-	REFERENCES atividade(id_atividade)
-    ON DELETE CASCADE ON UPDATE CASCADE
+aluno_email_pessoal varchar (128),
+nota DECIMAL(3,1),
+feedback varchar (256), -- não é NOT NULL para poder inicializar MAS É OBRIGATÓRIO O PREENCHIMENTO. !!! Aplicar lógica de acordo !!!
+
+CONSTRAINT fk_aluno FOREIGN KEY (aluno_email_pessoal)
+	REFERENCES aluno (aluno_email_pessoal)
+	ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_atividade FOREIGN KEY (id_atividade)
+	REFERENCES atividade (id_atividade)
+	ON DELETE CASCADE ON UPDATE CASCADE
 );

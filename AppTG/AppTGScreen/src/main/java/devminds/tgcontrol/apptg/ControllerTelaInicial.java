@@ -1,15 +1,19 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.dao.MateriaDao;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class ControllerTelaInicial {
 
@@ -24,7 +28,7 @@ public class ControllerTelaInicial {
 
     }
     @FXML
-    private void stageToTelaAtividade(ActionEvent event) throws IOException {
+    private void stageToTelaAtividade(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAtividade.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
@@ -34,8 +38,8 @@ public class ControllerTelaInicial {
 
     }
     @FXML
-    private void stageToTelaAvaliacao(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
+    private void stageToMainScree(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -44,12 +48,17 @@ public class ControllerTelaInicial {
 
     }
     @FXML
-    private Button btn_help;
-    @FXML
-    private Button btn_home;
-    @FXML
-    private Button btn_csv;
-    @FXML
-    private Button btn_search;
+    private void stageToTelaVisualizar(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaVisualizar.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        ControllerTelaVisualizar ctrl = new ControllerTelaVisualizar();
+        ctrl.setChoiceBox();
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+
+    }
 
 }
