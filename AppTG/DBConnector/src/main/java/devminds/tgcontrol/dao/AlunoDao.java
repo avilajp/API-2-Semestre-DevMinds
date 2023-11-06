@@ -1,9 +1,13 @@
 package devminds.tgcontrol.dao;
 
+import devminds.tgcontrol.ResultSetToArrayList;
 import devminds.tgcontrol.SqlConnection;
+import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AlunoDao {
@@ -34,5 +38,25 @@ public class AlunoDao {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+    public ObservableList<ViewObjAtividadeXAvaliacao> getNomeAluno(String materia,String semestre) throws SQLException, ClassNotFoundException {
+        ObservableList<ViewObjAtividadeXAvaliacao> lista  = null;
+        try (Connection con = SqlConnection.getConnection()){
+            String sql_select = String.format("SELECT DISTINCT REPLACE (aluno_email_pessoal, aluno_email_pessoal,(select nome from aluno where aluno_email_pessoal = %s.aluno_email_pessoal)) as nome_aluno FROM %s WHERE semestre = (SELECT nome FROM semestre WHERE nome = %s)", materia,materia,semestre);
+
+
+            PreparedStatement pst;
+            pst = con.prepareStatement(sql_select);
+            pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
+            ResultSetToArrayList converter = new ResultSetToArrayList();
+            lista = converter.converterTelaAtividade(rs);
+
+
+
+        }
+
+        return lista;
+
     }
 }

@@ -5,6 +5,7 @@ import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.PseudoColumnUsage;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -39,6 +40,19 @@ public class ResultSetToArrayList {
                 obj.setNota2(resultSet.getDouble("A2"));
                 obj.setNota3(resultSet.getDouble("A3"));
                 obj.setNota4(resultSet.getDouble("A4"));
+                obsList.add(obj);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obsList;
+    }
+    public static ObservableList<ViewObjAtividadeXAvaliacao> converterTelaAtividade(ResultSet resultSet){
+        ObservableList<ViewObjAtividadeXAvaliacao> obsList = FXCollections.observableArrayList();
+        try{
+            while (resultSet.next()){
+                ViewObjAtividadeXAvaliacao obj = new ViewObjAtividadeXAvaliacao();
+                obj.setNome(resultSet.getString("nome_aluno"));
                 obsList.add(obj);
             }
         } catch (SQLException e) {

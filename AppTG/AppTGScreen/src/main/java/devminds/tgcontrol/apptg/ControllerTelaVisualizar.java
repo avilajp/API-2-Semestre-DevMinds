@@ -49,7 +49,6 @@ public class ControllerTelaVisualizar {
         } else {
             this.materiaSelecionada = "materia_tg2";
         }
-        System.out.println(materiaSelecionada);
 
         col1.setCellFactory(param -> new TableCell<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao>() {
             private final Button button = new Button("Ação");
@@ -75,10 +74,10 @@ public class ControllerTelaVisualizar {
         col1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         col2.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("nome"));
         col3.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("tipo"));
-        col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota1"));
-        col5.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota2"));
-        col6.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota3"));
-        col7.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota4"));
+//        col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota1"));
+//        col5.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota2"));
+//        col6.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota3"));
+//        col7.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota4"));
 
 
         atividadeTableView.setItems(getAtividade());

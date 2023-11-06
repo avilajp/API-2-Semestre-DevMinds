@@ -1,8 +1,10 @@
 package devminds.tgcontrol.apptg;
 
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
+import devminds.tgcontrol.dao.AlunoDao;
 import devminds.tgcontrol.dao.AtividadeDao;
 import devminds.tgcontrol.dao.AvaliacaoDao;
+import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class ControllerTelaAtividade {
     DTOSemestre data = DTOSemestre.getInstance();
@@ -35,9 +38,9 @@ public class ControllerTelaAtividade {
     @FXML private DatePicker dataEntrega4;
 
     @FXML
-    public void sendToDatabase(ActionEvent event){
+    public void sendToDatabase(ActionEvent event) throws SQLException, ClassNotFoundException {
         AtividadeDao atividadeDao = new AtividadeDao();
-
+        int counter = -1;
         try {
             if (nome1.getText().isEmpty()){
                 System.out.println("O nome da atividade 1 precisa ser preenchido!");
@@ -45,19 +48,29 @@ public class ControllerTelaAtividade {
                 System.out.println("A descrição precisa conter texto");
             }else{
                 atividadeDao.createAtividade(nome1.getText(), dataEntrega1.getValue().atTime(23, 59, 59), descricao1.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
+                counter +=1;
             }
 
             atividadeDao.createAtividade(nome2.getText(), dataEntrega2.getValue().atTime(23, 59, 59), descricao2.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
+            counter +=1;
             atividadeDao.createAtividade(nome3.getText(), dataEntrega3.getValue().atTime(23, 59, 59), descricao3.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
+            counter +=1;
             atividadeDao.createAtividade(nome4.getText(), dataEntrega4.getValue().atTime(23, 59, 59), descricao4.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
+            counter +=1;
+
         }catch (NullPointerException e){
-            System.out.println("Atividades com campos em branco foram ignoradas...");
+            System.out.println("Atividades com campos em branco foram ignoradas..." + e);
         }
+        System.out.println(counter);
         AvaliacaoDao avaliacaoDao  = new AvaliacaoDao();
-//        avaliacaoDao.criarAvaliacaoDaAtividade(); PAROU AQUI
-
-
-
+        AlunoDao alunoDao = new AlunoDao();
+        ObservableList<ViewObjAtividadeXAvaliacao> lista  =  alunoDao.getNomeAluno(data.getMateria(),data.getSemestre());
+        while (counter !=-1){
+            for (int j = 0; j < lista.size(); j++) {
+                avaliacaoDao.criarAvaliacaoDaAtividade(lista.get(j).getNome(),counter);
+            }
+            counter -=1;
+        }
     }
     @FXML
     private void stageToTelaImportar(ActionEvent event) throws IOException {
@@ -77,6 +90,7 @@ public class ControllerTelaAtividade {
         listaChoiceBox.add("Relatório Técnico - Estágio (Somente para quem não pode participar de 6 APIs. Autorizado pela empresa)");
         listaChoiceBox.add("Relatório Técnico - Disciplina (Somente para quem não pode participar de 6 APIs)");
         this.tipo1.setItems(listaChoiceBox);
+
 
 
         showSemestre.setText(data.getSemestre());

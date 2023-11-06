@@ -15,13 +15,9 @@
         <fx:include source="homeScreen.fxml" />
       <TableView fx:id="atividadeTableView" layoutX="73.0" layoutY="157.0" prefHeight="380.0" prefWidth="876.5">
         <columns>
-            <TableColumn fx:id="col1" prefWidth="40.0" />
-          <TableColumn fx:id="col2" prefWidth="300.0" text="Aluno(a)" />
-            <TableColumn fx:id="col3" prefWidth="313.5" text="Tipo TG" />
-          <TableColumn fx:id="col4" minWidth="4.0" prefWidth="55.75" text="A1" />
-            <TableColumn fx:id="col5" prefWidth="55.75" text="A2" />
-            <TableColumn fx:id="col6" minWidth="0.0" prefWidth="55.75" text="A3" />
-            <TableColumn fx:id="col7" prefWidth="55.75" text="A4" />
+            <TableColumn fx:id="col1" prefWidth="65.99999237060547" />
+          <TableColumn fx:id="col2" prefWidth="274.0" text="Aluno(a)" />
+            <TableColumn fx:id="col3" prefWidth="534.0000305175781" text="Tipo TG" />
         </columns>
       </TableView>
       <ButtonBar layoutX="34.0" layoutY="97.0" prefHeight="40.0" prefWidth="200.0">

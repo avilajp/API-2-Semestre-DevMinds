@@ -3,7 +3,7 @@ package devminds.tgcontrol.objects;
 public class ViewObjAtividadeXAluno {
     private int id_avaliacao;
     private String nome_aluno;
-    private double nota;
+    private String nota;
     private String atividade_nome;
     private String feedback;
 
@@ -31,12 +31,12 @@ public class ViewObjAtividadeXAluno {
         this.nome_aluno = nome_aluno;
     }
 
-    public double getNota() {
+    public String getNota() {
         return nota;
     }
 
     public void setNota(double nota) {
-        this.nota = nota;
+        this.nota = String.valueOf(nota);
     }
 
     public String getAtividade_nome() {
