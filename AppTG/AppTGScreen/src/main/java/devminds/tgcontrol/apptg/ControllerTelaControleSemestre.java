@@ -1,29 +1,39 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.dao.AlunoDao;
+import devminds.tgcontrol.dao.MateriaDao;
+import devminds.tgcontrol.dao.ProfessorDao;
+import devminds.tgcontrol.dao.SemestreDao;
 import devminds.tgcontrol.importback.csvImport.CsvReader;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class TableViewController implements Initializable{
-    private String filepath;
 
-    @FXML
-    private Label welcomeText;
+public class ControllerTelaControleSemestre implements Initializable{
+    private String filepath;
+    @FXML private TextField semestreInput;
+
+    @FXML private Label welcomeText;
     @FXML private TableView<Trabalho> tableView;
     @FXML private TableColumn<Trabalho, String> col1;
     @FXML private TableColumn<Trabalho, String> col2;
@@ -34,7 +44,6 @@ public class TableViewController implements Initializable{
     @FXML private TableColumn<Trabalho, String> col7;
     @FXML private TableColumn<Trabalho, String> col8;
     @FXML private TableColumn<Trabalho, String> col9;
-    @FXML private TableColumn<Trabalho, String> col10;
     @FXML
     public void btnLoad(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
@@ -44,21 +53,16 @@ public class TableViewController implements Initializable{
             filepath = file.getAbsolutePath();
         }
         //Tabela
-        col1.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("timestamp"));
+        col1.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailAlunoPessoal"));
         col2.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("nomeCompletoOrientador"));
         col3.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailOrientador"));
         col4.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("tipoTG"));
         col5.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("empresa"));
         col6.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("disciplina"));
-        col8.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailFatec"));
         col7.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("nomeCompleto"));
-
-
-
-            tableView.setItems(getTrabalho());
-
-
-
+        col8.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailFatec"));
+        col9.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("matriculadoEm"));
+        tableView.setItems(getTrabalho());
     }
     public ObservableList<Trabalho> getTrabalho(){
         CsvReader csvReader = new CsvReader();
@@ -66,10 +70,12 @@ public class TableViewController implements Initializable{
 
     return csvReader.getListaDeObjetos();
     }
+
     @FXML
-    public void changeTimestampCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeEmailAlunoPessoalCellEvent(TableColumn.CellEditEvent edittedCell){
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
-        trabalhoSelecionado.setTimestamp(edittedCell.getNewValue().toString());
+        trabalhoSelecionado.setEmailAlunoPessoal(edittedCell.getNewValue().toString());
+
     }
     @FXML
     public void changeNomeOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
@@ -106,10 +112,63 @@ public class TableViewController implements Initializable{
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setEmpresa(edittedCell.getNewValue().toString());
     }
+    @FXML
+    public void changeMatriculadoEmCellEvent(TableColumn.CellEditEvent edittedCell){
+        Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        trabalhoSelecionado.setMatriculadoEm(edittedCell.getNewValue().toString());
+    }
+    @FXML
+    private void stageToMainScree(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
 
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    @FXML
+    private void sendToDataBase(ActionEvent event) throws ParseException, SQLException, ClassNotFoundException {
+        SemestreDao semestreDao = new SemestreDao();
+        String exist = semestreDao.existSemestre(semestreInput.getText());
+        if(!Objects.equals(exist, "sim")) {
+            AlunoDao alunoDao = new AlunoDao();
+            MateriaDao materiaDao = new MateriaDao();
+            ProfessorDao professorDao = new ProfessorDao();
+            int aux = getTrabalho().stream().toList().size();
 
+            for (int i = 0; i < aux; i++) {
+                String bufferEmail = null;
 
+                if (tableView.getItems().get(i).getEmailFatec().trim().isEmpty()) {
+                    bufferEmail = null;
+                } else
+                    bufferEmail = tableView.getItems().get(i).getEmailFatec().trim();
+                alunoDao.registerAluno(
+                        tableView.getItems().get(i).getEmailAlunoPessoal(),
+                        bufferEmail,
+                        tableView.getItems().get(i).getNomeCompleto()
+                );
 
+                professorDao.registerProfessor(
+                        tableView.getItems().get(i).getEmailOrientador(),
+                        tableView.getItems().get(i).getNomeCompletoOrientador()
+                );
+
+                materiaDao.registerMateria(
+                        tableView.getItems().get(i).getMatriculadoEm(),
+                        semestreInput.getText(),
+                        tableView.getItems().get(i).getTipoTG(),
+                        tableView.getItems().get(i).getProblema(),
+                        tableView.getItems().get(i).getEmpresa(),
+                        tableView.getItems().get(i).getDisciplina(),
+                        tableView.getItems().get(i).getEmailAlunoPessoal(),
+                        tableView.getItems().get(i).getEmailOrientador()
+                );
+            }
+        }else{
+            System.out.println("Esse semestre já está cadastrado!");
+        }
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableView.setEditable(true);
@@ -121,6 +180,8 @@ public class TableViewController implements Initializable{
         col6.setCellFactory(TextFieldTableCell.forTableColumn());
         col7.setCellFactory(TextFieldTableCell.forTableColumn());
         col8.setCellFactory(TextFieldTableCell.forTableColumn());
+        col9.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
+
 }

@@ -5,14 +5,21 @@ package devminds.tgcontrol.importback.csvImport;
 import devminds.tgcontrol.importback.jsonObj.Trabalho;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
+import java.beans.JavaBean;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class CsvReader {
     private ObservableList<Trabalho> listaDeObjetos = FXCollections.observableArrayList();
     public Trabalho leitorCsv(String filename) {
         try {
+
             FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
             br.readLine();
@@ -28,9 +35,9 @@ public class CsvReader {
                     try{
                     switch (indexFor) {
                         case 0:
-                            javaObj.setTimestamp(nextRecord[0]);
-                        case 1:
 
+                        case 1:
+                            javaObj.setEmailAlunoPessoal(nextRecord[1]);
                         case 2:
                             javaObj.setEmailFatec(nextRecord[2]);
                         case 3:
@@ -38,17 +45,17 @@ public class CsvReader {
                         case 4:
                             javaObj.setNomeCompletoOrientador(nextRecord[4]);
                         case 5:
-                            javaObj.setEmailOrientador(nextRecord[5]);
+                            javaObj.setEmailOrientador(nextRecord[5].trim());
                         case 6:
-
+                            javaObj.setMatriculadoEm(nextRecord[6]);
                         case 7:
                             javaObj.setTipoTG(nextRecord[7]);
                         case 8:
-                            javaObj.setProblema(nextRecord[8]);
+                            javaObj.setProblema(nextRecord[8].trim());
                         case 9:
-                            javaObj.setEmpresa(nextRecord[9]);
+                            javaObj.setEmpresa(nextRecord[9].trim());
                         case 10:
-                            javaObj.setDisciplina(nextRecord[10]);
+                            javaObj.setDisciplina(nextRecord[10].trim());
                         default:
 
                     }
@@ -72,6 +79,7 @@ public class CsvReader {
         }
         return null;
     }
+
     public ObservableList<Trabalho> getListaDeObjetos(){
         return this.listaDeObjetos;
     }
