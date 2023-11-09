@@ -1,20 +1,14 @@
-package devminds.tgcontrol.importback.csvImport;
+package devminds.tgcontrol.apptg.obj.csvimport;
 
 
 
-import devminds.tgcontrol.importback.jsonObj.Trabalho;
+import devminds.tgcontrol.apptg.obj.Trabalho;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
-import java.beans.JavaBean;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class CsvReader {
     private ObservableList<Trabalho> listaDeObjetos = FXCollections.observableArrayList();

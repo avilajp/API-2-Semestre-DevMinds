@@ -50,7 +50,7 @@ public class MateriaDao {
                         "problema = ?, " +
                         "empresa = ?, " +
                         "disciplina = ? " +
-                        "WHERE aluno_email_pessoal = (SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?) AND semestre = (SELECT semestre FROM semestre WHERE semestre = ?)",
+                        "WHERE aluno_email_pessoal = (SELECT distinct aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?) AND semestre = (SELECT distinct semestre FROM semestre WHERE semestre = ?)",
                 sql_table);
 
         PreparedStatement pst;

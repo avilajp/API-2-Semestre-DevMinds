@@ -1,8 +1,5 @@
 package devminds.tgcontrol.apptg;
 
-import devminds.tgcontrol.dao.MateriaDao;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +10,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 public class ControllerTelaInicial {
 

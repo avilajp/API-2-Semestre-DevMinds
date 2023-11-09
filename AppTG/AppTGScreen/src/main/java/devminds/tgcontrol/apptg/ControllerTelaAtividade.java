@@ -5,15 +5,10 @@ import devminds.tgcontrol.dao.AlunoDao;
 import devminds.tgcontrol.dao.AtividadeDao;
 import devminds.tgcontrol.dao.AvaliacaoDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 

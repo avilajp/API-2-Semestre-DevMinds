@@ -1,13 +1,8 @@
 package devminds.tgcontrol.apptg;
 
-import devminds.tgcontrol.ResultSetToArrayList;
 import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
-import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AtividadeDao;
 import devminds.tgcontrol.dao.AvaliacaoDao;
-import devminds.tgcontrol.dao.MateriaDao;
-import devminds.tgcontrol.importback.jsonObj.Trabalho;
-import devminds.tgcontrol.objects.Avaliacao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAluno;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +20,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
