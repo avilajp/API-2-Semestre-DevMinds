@@ -10,6 +10,7 @@ import javafx.util.converter.LocalDateTimeStringConverter;
 import java.beans.JavaBean;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -74,8 +75,8 @@ public class CsvReader {
             br.close();
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NullPointerException | IOException e) {
+            System.out.println("Parece que você se esqueceu de selecionar o CSV.");;
         }
         return null;
     }

@@ -2,6 +2,7 @@ package devminds.tgcontrol.apptg;
 
 
 import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
+import devminds.tgcontrol.apptg.obj.DTOInterTela;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.dao.MateriaDao;
@@ -26,6 +27,7 @@ import java.util.*;
 public class ControllerTelaVisualizar {
     private String semestreSelecionado;
     private String materiaSelecionada;
+    DTOInterTela dtoInterTela = DTOInterTela.getInstance();
     @FXML private ChoiceBox<String> selectlist;
     @FXML private TableView<ViewObjAtividadeXAvaliacao> atividadeTableView;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao> col1;
@@ -41,6 +43,7 @@ public class ControllerTelaVisualizar {
 
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
+        dtoInterTela.setTextoDaChoice(selectlist.getSelectionModel().getSelectedItem());
         String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
         this.semestreSelecionado = vetString[0].trim();
 
@@ -51,7 +54,7 @@ public class ControllerTelaVisualizar {
         }
 
         col1.setCellFactory(param -> new TableCell<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao>() {
-            private final Button button = new Button("Ação");
+            private final Button button = new Button("Avaliar");
 
             @Override
             protected void updateItem(ViewObjAtividadeXAvaliacao item, boolean empty) {
@@ -87,11 +90,12 @@ public class ControllerTelaVisualizar {
     private void createTelaAvaliacao(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
         dtoAvaliacao.setNome(data.getNome());
         dtoAvaliacao.setNota1(data.getNota1());
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaAvaliacao.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("ABC");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
 
     public ObservableList<ViewObjAtividadeXAvaliacao> getAtividade() throws SQLException, ClassNotFoundException {
@@ -106,18 +110,20 @@ public class ControllerTelaVisualizar {
         data.setSemestre(semestreSelecionado);
         data.setMateria(materiaSelecionada);
 
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAtividade.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaAtividade.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("ABC");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
+
         MateriaDao materiaDao  = new MateriaDao();
         List<String> lista = materiaDao.getSemestreEMateria();
         ObservableList<String> obsList = FXCollections.observableList(lista);
+
         selectlist.setItems(obsList);
     }
 }

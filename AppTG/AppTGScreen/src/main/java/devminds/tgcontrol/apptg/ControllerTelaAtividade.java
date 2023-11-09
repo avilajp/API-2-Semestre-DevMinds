@@ -5,6 +5,7 @@ import devminds.tgcontrol.dao.AlunoDao;
 import devminds.tgcontrol.dao.AtividadeDao;
 import devminds.tgcontrol.dao.AvaliacaoDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +23,8 @@ import java.sql.SQLException;
 public class ControllerTelaAtividade {
     DTOSemestre data = DTOSemestre.getInstance();
 
+
+    @FXML private Button btn_voltar;
     @FXML private TextField nome1;
     @FXML private TextArea descricao1;
     @FXML private DatePicker dataEntrega1;
@@ -74,12 +77,8 @@ public class ControllerTelaAtividade {
     }
     @FXML
     private void stageToTelaImportar(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaVisualizar.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+        Stage stage = (Stage) btn_voltar.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
