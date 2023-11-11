@@ -6,13 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class ControllerTelaInicial {
 
+    @FXML
+    private Button btnClose;
+
+    @FXML
+    private void handleCloseAction(ActionEvent event){
+        Stage stage = (Stage) btnClose.getScene().getWindow();
+        stage.close();
+    }
     @FXML
     private void stageToChangeTableView(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaControleSemestre.fxml"));

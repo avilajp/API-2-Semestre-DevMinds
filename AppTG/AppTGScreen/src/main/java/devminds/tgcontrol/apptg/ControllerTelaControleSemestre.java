@@ -51,6 +51,11 @@ public class ControllerTelaControleSemestre implements Initializable{
         File file = fileChooser.showOpenDialog(new Stage());
         if (file != null) {
             filepath = file.getAbsolutePath();
+        }else {Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aviso");
+        alert.setHeaderText(null);
+        alert.setContentText("Por favor, selecione um arquivo CSV.");
+        alert.showAndWait();
         }
         //Tabela
         col1.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailAlunoPessoal"));
@@ -64,6 +69,8 @@ public class ControllerTelaControleSemestre implements Initializable{
         col9.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("matriculadoEm"));
         tableView.setItems(getTrabalho());
     }
+
+
     public ObservableList<Trabalho> getTrabalho(){
         CsvReader csvReader = new CsvReader();
         Trabalho objTrabalho = csvReader.leitorCsv(filepath);

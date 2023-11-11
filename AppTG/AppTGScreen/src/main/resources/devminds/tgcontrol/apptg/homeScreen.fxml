@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="template" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: #424874;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaInicial">
-   <center>
+    <center>
         <VBox prefHeight="75.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
             <ButtonBar prefHeight="75.0" prefWidth="1003.0">
                 <buttons>
@@ -58,5 +58,5 @@
                 </buttons>
             </ButtonBar>
         </VBox>
-   </center>
+    </center>
 </BorderPane>
