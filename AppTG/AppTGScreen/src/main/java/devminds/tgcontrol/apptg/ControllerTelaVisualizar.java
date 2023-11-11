@@ -34,7 +34,7 @@ public class ControllerTelaVisualizar {
 
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,String> col2;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao, String> col3;
-    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col4;
+    @FXML private TableColumn<ViewObjAtividadeXAvaliacao,String> col4;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col5;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col6;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,Double> col7;
@@ -77,7 +77,7 @@ public class ControllerTelaVisualizar {
         col1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         col2.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("nome"));
         col3.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("tipo"));
-//        col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota1"));
+        col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("matriculado"));
 //        col5.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota2"));
 //        col6.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota3"));
 //        col7.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota4"));

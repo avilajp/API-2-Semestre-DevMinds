@@ -79,10 +79,10 @@ public class ControllerTelaAtividade {
     @FXML
     private void initialize(){
         ObservableList<String> listaChoiceBox = FXCollections.observableArrayList();
-        listaChoiceBox.add("Portfólio (Exige participação em todos os 6 APIs)");
+        listaChoiceBox.add("Portfólio");
         listaChoiceBox.add("Artigo Tecnológico ou Científico");
-        listaChoiceBox.add("Relatório Técnico - Estágio (Somente para quem não pode participar de 6 APIs. Autorizado pela empresa)");
-        listaChoiceBox.add("Relatório Técnico - Disciplina (Somente para quem não pode participar de 6 APIs)");
+        listaChoiceBox.add("Relatório Técnico - Estágio");
+        listaChoiceBox.add("Relatório Técnico - Disciplina");
         this.tipo1.setItems(listaChoiceBox);
         showSemestre.setText(data.getSemestre());
     }

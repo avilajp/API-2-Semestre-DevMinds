@@ -5,10 +5,20 @@ public class ViewObjAtividadeXAvaliacao {
     private String nome;
     private String feedback;
     private String tipo;
+    private String matriculado;
     private double nota1;
     private double nota2;
     private double nota3;
     private double nota4;
+
+    public String getMatriculado() {
+        return matriculado;
+    }
+
+    public void setMatriculado(String matriculado) {
+        this.matriculado = matriculado;
+    }
+
     public String getNome() {
         return nome;
     }

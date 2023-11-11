@@ -11,19 +11,19 @@ public class MateriaDao {
     private String sql_table = "";
     private String sql_table2 = "";
 
-    public void registerMateria(String MatriculadoEm, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor) {
+    public void registerMateria(String matriculadoEm, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor) {
 
         try (Connection con = SqlConnection.getConnection()) {
 
             this.sql_table = "";
             this.sql_table2 = "";
-            tellApartMateria(MatriculadoEm);
+            tellApartMateria(matriculadoEm);
 
             if (sql_table2.isEmpty()) {
-                updateOrInsertMateria(con, sql_table, semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
+                updateOrInsertMateria(con, sql_table,matriculadoEm , semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
             } else {
-                updateOrInsertMateria(con, sql_table, semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
-                updateOrInsertMateria(con, sql_table2, semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
+                updateOrInsertMateria(con, sql_table,matriculadoEm , semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
+                updateOrInsertMateria(con, sql_table2,matriculadoEm , semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,12 +44,13 @@ public class MateriaDao {
         }
     }
 
-    private void updateOrInsertMateria(Connection con, String sql_table, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor) throws SQLException {
+    private void updateOrInsertMateria(Connection con, String sql_table,String matriculadoEm, String semestre, String tipo, String problema, String empresa, String disciplina, String aluno_email_pessoal, String email_professor) throws SQLException {
         String sql_update = String.format("UPDATE sgtg.%s SET " +
                         "tipo = ?, " +
                         "problema = ?, " +
                         "empresa = ?, " +
-                        "disciplina = ? " +
+                        "disciplina = ?, " +
+                        "matriculado_em = ? " +
                         "WHERE aluno_email_pessoal = (SELECT distinct aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?) AND semestre = (SELECT distinct semestre FROM semestre WHERE semestre = ?)",
                 sql_table);
 
@@ -59,22 +60,23 @@ public class MateriaDao {
         pst.setString(2, problema);
         pst.setString(3, empresa);
         pst.setString(4, disciplina);
-        pst.setString(5, aluno_email_pessoal);
-        pst.setString(6, semestre);
+        pst.setString(5, matriculadoEm);
+        pst.setString(6, aluno_email_pessoal);
+        pst.setString(7, semestre);
 
         int updatedRowCount = pst.executeUpdate();
 
         if (updatedRowCount == 0) {
             String sql_insert = String.format(
-                    "INSERT INTO sgtg.%s (semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor) " +
+                    "INSERT INTO sgtg.%s (semestre, tipo, problema, empresa, disciplina, aluno_email_pessoal, email_professor, matriculado_em) " +
                             "VALUES ( (SELECT nome FROM semestre WHERE nome = ?), " +
                             "?, " +
                             "?, " +
                             "?, " +
                             "?, " +
                             "(SELECT aluno_email_pessoal FROM aluno WHERE aluno_email_pessoal = ?), " +
-                            "(SELECT email_professor FROM professor WHERE email_professor = ?)" +
-                            ");", sql_table);
+                            "(SELECT email_professor FROM professor WHERE email_professor = ?), " +
+                            "?);", sql_table);
 
             PreparedStatement pst2;
             pst2 = con.prepareStatement(sql_insert);
@@ -85,6 +87,7 @@ public class MateriaDao {
             pst2.setObject(5, disciplina);
             pst2.setObject(6, aluno_email_pessoal);
             pst2.setObject(7, email_professor);
+            pst2.setString(8, matriculadoEm);
             pst2.executeUpdate();
         }
     }

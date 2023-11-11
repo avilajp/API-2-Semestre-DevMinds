@@ -36,10 +36,7 @@ public class ResultSetToArrayList {
                 ViewObjAtividadeXAvaliacao obj = new ViewObjAtividadeXAvaliacao();
                 obj.setNome(resultSet.getString("nome_aluno"));
                 obj.setTipo(resultSet.getString("tipo"));
-                obj.setNota1(resultSet.getDouble("A1"));
-                obj.setNota2(resultSet.getDouble("A2"));
-                obj.setNota3(resultSet.getDouble("A3"));
-                obj.setNota4(resultSet.getDouble("A4"));
+                obj.setMatriculado(resultSet.getString("matriculado_em"));
                 obsList.add(obj);
             }
         } catch (SQLException e) {

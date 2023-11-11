@@ -26,7 +26,6 @@ public class CsvReader {
                 Trabalho javaObj = new Trabalho();
                 indexFor = 0;
                 for (String tempStr : nextRecord) {
-//                    System.out.println(indexFor + " " + tempStr + " ");
                     try{
                     switch (indexFor) {
                         case 0:
@@ -44,7 +43,7 @@ public class CsvReader {
                         case 6:
                             javaObj.setMatriculadoEm(nextRecord[6]);
                         case 7:
-                            javaObj.setTipoTG(nextRecord[7]);
+                            javaObj.setTipoTG(nextRecord[7].replaceAll("\\(.*?\\)","").trim());
                         case 8:
                             javaObj.setProblema(nextRecord[8].trim());
                         case 9:
