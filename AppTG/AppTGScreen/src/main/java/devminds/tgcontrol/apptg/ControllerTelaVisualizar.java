@@ -5,6 +5,7 @@ import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOInterTela;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
+import devminds.tgcontrol.dao.FechamentoDAO;
 import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -43,6 +44,8 @@ public class ControllerTelaVisualizar {
 
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
+        FechamentoDAO fechamentoDAO = new FechamentoDAO();
+        ObservableList<ViewObjAtividadeXAvaliacao> blablabla = fechamentoDAO.getAllSemestre();
         dtoInterTela.setTextoDaChoice(selectlist.getSelectionModel().getSelectedItem());
         String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
         this.semestreSelecionado = vetString[0].trim();
@@ -78,10 +81,6 @@ public class ControllerTelaVisualizar {
         col2.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("nome"));
         col3.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("tipo"));
         col4.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, String>("matriculado"));
-//        col5.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota2"));
-//        col6.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota3"));
-//        col7.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAvaliacao, Double>("nota4"));
-
 
         atividadeTableView.setItems(getAtividade());
     }
