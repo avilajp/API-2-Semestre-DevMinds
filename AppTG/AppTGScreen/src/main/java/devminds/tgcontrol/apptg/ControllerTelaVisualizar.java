@@ -90,6 +90,9 @@ public class ControllerTelaVisualizar {
     private void createTelaAvaliacao(ActionEvent event, ViewObjAtividadeXAvaliacao data) throws IOException {
         dtoAvaliacao.setNome(data.getNome());
         dtoAvaliacao.setNota1(data.getNota1());
+        dtoAvaliacao.setMateria(materiaSelecionada);
+        dtoAvaliacao.setSemestre(semestreSelecionado);
+        dtoAvaliacao.setTipo(data.getTipo());
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaAvaliacao.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
