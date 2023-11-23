@@ -28,7 +28,9 @@ import java.util.*;
 public class ControllerTelaVisualizar {
     private String semestreSelecionado;
     private String materiaSelecionada;
+
     DTOInterTela dtoInterTela = DTOInterTela.getInstance();
+    @FXML private Button btn_telaAtividade;
     @FXML private ChoiceBox<String> selectlist;
     @FXML private TableView<ViewObjAtividadeXAvaliacao> atividadeTableView;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao> col1;
@@ -48,8 +50,12 @@ public class ControllerTelaVisualizar {
         ObservableList<ViewObjAtividadeXAvaliacao> blablabla = fechamentoDAO.getAllSemestre();
         dtoInterTela.setTextoDaChoice(selectlist.getSelectionModel().getSelectedItem());
         String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
+        if (selectlist.getSelectionModel().isEmpty()) {
+            btn_telaAtividade.setDisable(true);
+        } else {
+            btn_telaAtividade.setDisable(false);
+        }
         this.semestreSelecionado = vetString[0].trim();
-
         if (vetString[1].trim().equals("TG1")) {
             this.materiaSelecionada = "materia_tg1";
         } else {
@@ -125,7 +131,7 @@ public class ControllerTelaVisualizar {
         MateriaDao materiaDao  = new MateriaDao();
         List<String> lista = materiaDao.getSemestreEMateria();
         ObservableList<String> obsList = FXCollections.observableList(lista);
-
+        btn_telaAtividade.setDisable(true);
         selectlist.setItems(obsList);
     }
 }

@@ -6,6 +6,6 @@ import java.sql.SQLException;
 
 public class SqlConnection {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/sgtg", "root", "root");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/sgtg", "root", "fatec");
     }
 }
