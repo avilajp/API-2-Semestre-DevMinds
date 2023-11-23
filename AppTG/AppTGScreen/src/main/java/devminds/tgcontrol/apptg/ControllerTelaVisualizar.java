@@ -5,7 +5,6 @@ import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOInterTela;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
-import devminds.tgcontrol.dao.FechamentoDAO;
 import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -14,7 +13,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -34,7 +32,6 @@ public class ControllerTelaVisualizar {
     @FXML private ChoiceBox<String> selectlist;
     @FXML private TableView<ViewObjAtividadeXAvaliacao> atividadeTableView;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao> col1;
-
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,String> col2;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao, String> col3;
     @FXML private TableColumn<ViewObjAtividadeXAvaliacao,String> col4;
@@ -46,8 +43,6 @@ public class ControllerTelaVisualizar {
 
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
-        FechamentoDAO fechamentoDAO = new FechamentoDAO();
-        ObservableList<ViewObjAtividadeXAvaliacao> blablabla = fechamentoDAO.getAllSemestre();
         dtoInterTela.setTextoDaChoice(selectlist.getSelectionModel().getSelectedItem());
         String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
         if (selectlist.getSelectionModel().isEmpty()) {
@@ -101,7 +96,7 @@ public class ControllerTelaVisualizar {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaAvaliacao.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setTitle("ABC");
+        stage.setTitle("Avaliação");
         stage.setScene(new Scene(root1));
         stage.show();
     }
@@ -121,7 +116,7 @@ public class ControllerTelaVisualizar {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaAtividade.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setTitle("ABC");
+        stage.setTitle("Criar atividades");
         stage.setScene(new Scene(root1));
         stage.show();
     }

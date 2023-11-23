@@ -101,6 +101,7 @@ public class ControllerTelaAvaliacao {
         col2.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAluno, String>("feedback"));
         col3.setCellValueFactory(new PropertyValueFactory<ViewObjAtividadeXAluno, String>("nota"));
 
+
         col2.setCellFactory(TextFieldTableCell.forTableColumn());
         col3.setCellFactory(TextFieldTableCell.forTableColumn());
 

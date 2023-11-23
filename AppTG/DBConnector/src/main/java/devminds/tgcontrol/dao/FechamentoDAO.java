@@ -2,7 +2,7 @@ package devminds.tgcontrol.dao;
 
 import devminds.tgcontrol.ResultSetToArrayList;
 import devminds.tgcontrol.SqlConnection;
-import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
+import devminds.tgcontrol.objects.DTOFechamento;
 import javafx.collections.ObservableList;
 
 import java.sql.Connection;
@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FechamentoDAO {
-    public ObservableList<ViewObjAtividadeXAvaliacao> getAllSemestre() throws SQLException, ClassNotFoundException {
-        ObservableList<ViewObjAtividadeXAvaliacao> lista  = null;
+    public ObservableList<DTOFechamento> getAllSemestre() throws SQLException, ClassNotFoundException {
+        ObservableList<DTOFechamento> lista  = null;
         try(Connection con = SqlConnection.getConnection()){
             String sql_select = String.format("SELECT distinct replace (aluno_email_pessoal, aluno_email_pessoal,(select nome from aluno where aluno_email_pessoal = materia_tg1.aluno_email_pessoal)) as nome_aluno,\n" +
                     "tipo,\n" +

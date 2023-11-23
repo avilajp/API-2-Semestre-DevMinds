@@ -1,5 +1,6 @@
 package devminds.tgcontrol;
 
+import devminds.tgcontrol.objects.DTOFechamento;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAluno;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
 import javafx.collections.FXCollections;
@@ -74,12 +75,12 @@ public class ResultSetToArrayList {
         }
         return obsList;
     }
-    public static ObservableList<ViewObjAtividadeXAvaliacao> converterTelaFechamento(ResultSet resultSet){
-        ObservableList<ViewObjAtividadeXAvaliacao> obsList = FXCollections.observableArrayList();
+    public static ObservableList<DTOFechamento> converterTelaFechamento(ResultSet resultSet){
+        ObservableList<DTOFechamento> obsList = FXCollections.observableArrayList();
         try{
             while (resultSet.next()){
-                ViewObjAtividadeXAvaliacao obj = new ViewObjAtividadeXAvaliacao();
-                obj.setNome(resultSet.getString("nome_aluno"));
+                DTOFechamento obj = new DTOFechamento();
+                obj.setNomeAluno(resultSet.getString("nome_aluno"));
                 obj.setTipo(resultSet.getString("tipo"));
                 obj.setNota1(resultSet.getDouble("a1"));
                 obj.setNota2(resultSet.getDouble("a2"));

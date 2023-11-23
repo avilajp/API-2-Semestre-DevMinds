@@ -35,6 +35,16 @@ public class ControllerTelaInicial {
 
     }
     @FXML
+    private void stageToFechamento(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaFechamentoSemestre.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+
+    }
+    @FXML
     private void stageToTelaAtividade(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaAtividade.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
