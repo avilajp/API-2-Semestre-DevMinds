@@ -35,8 +35,8 @@ public class ControllerTelaInicial {
 
     }
     @FXML
-    private void stageToFechamento(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaFechamentoSemestre.fxml"));
+    private void stageToRelatorio(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaRelatorio.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

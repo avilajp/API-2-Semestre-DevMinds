@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="576" prefWidth="1024" style="-fx-background-color: #C2BAE6;" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaRelatorio">
+    <children>
+        <fx:include source="homeScreen.fxml" />
+      <Button layoutX="106.0" layoutY="276.0" mnemonicParsing="false" text="b1" />
+      <Button layoutX="486.0" layoutY="289.0" mnemonicParsing="false" text="b2" />
+      <Button layoutX="878.0" layoutY="289.0" mnemonicParsing="false" text="b3" />
+      <ChoiceBox layoutX="210.0" layoutY="111.0" prefHeight="36.0" prefWidth="583.0" />
+    </children>
+</AnchorPane>
