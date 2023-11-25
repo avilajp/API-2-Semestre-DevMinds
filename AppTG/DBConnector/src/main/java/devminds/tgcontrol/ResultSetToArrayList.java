@@ -98,6 +98,19 @@ public class ResultSetToArrayList {
         }
         return obsList;
     }
+    public static ObservableList<String> convertSemestre(ResultSet resultSet){
+        ObservableList<String> obsList = FXCollections.observableArrayList();
+        try{
+            while (resultSet.next()){
+                String obj;
+                obj = resultSet.getString("nome");
+                obsList.add(obj);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obsList;
+    }
 
 
 }

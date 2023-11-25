@@ -50,7 +50,7 @@
                         <graphic>
                             <ImageView fitHeight="75.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@icons/settings.png" />
+                                    <Image url="@icons/relatorio.png" />
                                 </image>
                             </ImageView>
                         </graphic>

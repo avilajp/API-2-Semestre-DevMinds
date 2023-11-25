@@ -7,9 +7,9 @@
 <AnchorPane prefHeight="576" prefWidth="1024" style="-fx-background-color: #C2BAE6;" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaRelatorio">
     <children>
         <fx:include source="homeScreen.fxml" />
-      <Button layoutX="106.0" layoutY="276.0" mnemonicParsing="false" text="b1" />
-      <Button layoutX="486.0" layoutY="289.0" mnemonicParsing="false" text="b2" />
-      <Button layoutX="878.0" layoutY="289.0" mnemonicParsing="false" text="b3" />
-      <ChoiceBox layoutX="210.0" layoutY="111.0" prefHeight="36.0" prefWidth="583.0" />
+      <Button fx:id="btnFechamento" layoutX="41.0" layoutY="175.0" mnemonicParsing="false" onAction="#stageTelaFechamento" prefHeight="365.0" prefWidth="295.0" text="Relatório de Fechamento" />
+      <Button fx:id="btnAlunosApts" layoutX="368.0" layoutY="175.0" mnemonicParsing="false" prefHeight="365.0" prefWidth="295.0" text="Relatório de Alunos Aptos" />
+      <Button fx:id="btnTransporte" layoutX="695.0" layoutY="175.0" mnemonicParsing="false" prefHeight="365.0" prefWidth="295.0" text="b3" />
+      <ChoiceBox fx:id="choiceBox" layoutX="210.0" layoutY="111.0" prefHeight="36.0" prefWidth="583.0" />
     </children>
 </AnchorPane>

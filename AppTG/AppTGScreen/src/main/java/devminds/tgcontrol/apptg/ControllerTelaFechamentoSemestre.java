@@ -59,6 +59,7 @@ public class ControllerTelaFechamentoSemestre {
     }
 
     @FXML private void initialize(){
+        labelSemestreAtivo.setText(data.getSemestre());
         String texto = "Portfólio";
         String texto1 = "Texto2";
         List<String> lista = new ArrayList<>();
