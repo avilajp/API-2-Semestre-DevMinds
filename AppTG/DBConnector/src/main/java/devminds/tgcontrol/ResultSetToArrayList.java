@@ -1,9 +1,6 @@
 package devminds.tgcontrol;
 
-import devminds.tgcontrol.objects.DTOFechamento;
-import devminds.tgcontrol.objects.ViewObjAlunosAptos;
-import devminds.tgcontrol.objects.ViewObjAtividadeXAluno;
-import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
+import devminds.tgcontrol.objects.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -119,6 +116,29 @@ public class ResultSetToArrayList {
                 obj.setNomeAluno(resultSet.getString("nome_aluno"));
                 obj.setTipo(resultSet.getString("tipo"));
                 obj.setOrientador(resultSet.getString("orientador"));
+                obj.setNota1(resultSet.getDouble("a1"));
+                obj.setNota2(resultSet.getDouble("a2"));
+                obj.setNota3(resultSet.getDouble("a3"));
+                obj.setNota4(resultSet.getDouble("a4"));
+                obj.setNota5(resultSet.getDouble("a5"));
+                obj.setNota6(resultSet.getDouble("a6"));
+                obj.setNota7(resultSet.getDouble("a7"));
+                obj.setNota8(resultSet.getDouble("a8"));
+
+                obsList.add(obj);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obsList;
+    }
+    public static ObservableList<DTOTransporteNotas> converterTelaTransporte(ResultSet resultSet){
+        ObservableList<DTOTransporteNotas> obsList = FXCollections.observableArrayList();
+        try{
+            while (resultSet.next()){
+                DTOTransporteNotas obj = new DTOTransporteNotas();
+                obj.setNomeAluno(resultSet.getString("nome_aluno"));
+                obj.setTipo(resultSet.getString("tipo"));
                 obj.setNota1(resultSet.getDouble("a1"));
                 obj.setNota2(resultSet.getDouble("a2"));
                 obj.setNota3(resultSet.getDouble("a3"));

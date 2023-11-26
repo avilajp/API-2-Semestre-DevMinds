@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTransporteNotas">
+<AnchorPane prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTransporteNotas">
     <children>
         <AnchorPane prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #C2BAE6;">
             <children>
                 <TableView fx:id="tableTransporteNotas" layoutX="14.0" layoutY="52.0" prefHeight="509.0" prefWidth="996.0">
                     <columns>
-                        <TableColumn fx:id="colNomeAluno" prefWidth="344.0" text="Nome" />
-                        <TableColumn fx:id="colTipoTg" prefWidth="267.0" text="Tipo de TG" />
-                        <TableColumn fx:id="colA1" prefWidth="48.0" text="A1" />
-                        <TableColumn fx:id="colA2" prefWidth="48.0" text="A2" />
-                        <TableColumn fx:id="colA3" prefWidth="48.0" text="A3" />
-                        <TableColumn fx:id="colA4" prefWidth="48.0" text="A4" />
-                        <TableColumn fx:id="colA5" prefWidth="48.0" text="A5" />
-                        <TableColumn fx:id="colA6" prefWidth="48.0" text="A6" />
-                        <TableColumn fx:id="colA7" prefWidth="48.0" text="A7" />
-                        <TableColumn fx:id="colA8" prefWidth="48.0" text="A8" />
+                        <TableColumn fx:id="col1" prefWidth="344.0" text="Nome" />
+                        <TableColumn fx:id="col2" prefWidth="267.0" text="Tipo de TG" />
+                        <TableColumn fx:id="col3" prefWidth="48.0" text="A1" />
+                        <TableColumn fx:id="col4" prefWidth="48.0" text="A2" />
+                        <TableColumn fx:id="col5" prefWidth="48.0" text="A3" />
+                        <TableColumn fx:id="col6" prefWidth="48.0" text="A4" />
+                        <TableColumn fx:id="col7" prefWidth="48.0" text="A5" />
+                        <TableColumn fx:id="col8" prefWidth="48.0" text="A6" />
+                        <TableColumn fx:id="col9" prefWidth="48.0" text="A7" />
+                        <TableColumn fx:id="col10" prefWidth="48.0" text="A8" />
                     </columns>
                 </TableView>
-                <Text layoutX="88.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de TG">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Text>
                 <Button fx:id="btn_voltar" layoutX="908.0" layoutY="15.0" mnemonicParsing="false" onAction="#stageToTelaFechamento" prefHeight="25.0" prefWidth="92.0" text="Voltar" />
-                <ComboBox fx:id="comboTipoTg" layoutX="226.0" layoutY="10.0" onAction="#carregarNotas" prefHeight="25.0" prefWidth="168.0" />
                 <Text layoutX="27.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2023.1">
                     <font>
                         <Font size="16.0" />

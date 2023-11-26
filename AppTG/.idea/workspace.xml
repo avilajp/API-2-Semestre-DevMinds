@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AppTG:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4db51c86-40ab-412b-b553-32eae12671e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AppTG_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/API-2-Semestre-DevMinds.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTransporteNotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTransporteNotas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/obj/DTOTransporteNotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/objects/DTOTransporteNotas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TransporteNotas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TransporteNotas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/ResultSetToArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/ResultSetToArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/TransporteNotasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/TransporteNotasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/A...eves_8232023115949.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/A...iro _8172023211131.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/A...lva_8172023142840.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/A...osa_8192023152509.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/B...ias_8152023144242.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/C...osa_8242023105624.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/D...eão_8172023162900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/D...lva_8172023134132.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/E...cha_823202395016.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/E...ciel_822202395740.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/G...lva_8232023103126.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/G...ndo_821202373025.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/L...dre_8222023100056.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/L...lva_818202392919.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/L...uza_824202382617.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/M...lva_8162023132727.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/M...lva_8252023221352.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/R...art _8152023154652.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/R...eira_8252023182753.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/T...ber_8172023192538.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsonFilesOutput/V...ias_8212023211523.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2YjL8FMeETT5dHwoBmdR5vVeebu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "minor__fixies__spr4",
+    "last_opened_file_path": "C:/Users/caueh/Desktop/API/API-2-Semestre-DevMinds/AppTG/AppTGScreen/src",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SGTG" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="devminds.tgcontrol.apptg.App" />
+      <module name="AppTGScreen" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4db51c86-40ab-412b-b553-32eae12671e7" name="Changes" comment="" />
+      <created>1701033882767</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701033882767</updated>
+    </task>
+    <servers />
+  </component>
+</project>

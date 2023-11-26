@@ -82,12 +82,7 @@ public class ControllerTelaInicial {
     private void stageToTransporteNotas(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TransporteNotas.fxml"));
         Parent tableViewParent = loader.load();
-
-        ControllerTransporteNotas ctrl = loader.getController();
-        ctrl.carregarNotas(); // Você pode chamar o método para carregar as notas assim que a tela for carregada
-
         Scene tableViewScene = new Scene(tableViewParent);
-
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
