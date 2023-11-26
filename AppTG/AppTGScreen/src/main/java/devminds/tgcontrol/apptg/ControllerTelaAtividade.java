@@ -90,37 +90,29 @@ public class ControllerTelaAtividade {
         AvaliacaoDao avaliacaoDao = new AvaliacaoDao();
         AlunoDao alunoDao = new AlunoDao();
         int counter = 0;
+        boolean todasAtividadesValidas = true;
 
         try {
-            if (!nome1.getText().isEmpty() && validarAtividade(nome1.getText(),
-                    descricao1.getText(),
-                    tipo1.getValue()) && dataEntrega1.getValue() != null) {
-                atividadeDao.createAtividade(nome1.getText(), dataEntrega1.getValue().atTime(23, 59, 59), descricao1.getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
-                counter++;
+            TextField[] nomes = {nome1, nome2, nome3, nome4};
+            TextArea[] descricoes = {descricao1, descricao2, descricao3, descricao4};
+            DatePicker[] datasEntrega = {dataEntrega1, dataEntrega2, dataEntrega3, dataEntrega4};
+
+            for (int i = 0; i < nomes.length; i++) {
+                if (!nomes[i].getText().isEmpty()) {
+                    if (descricoes[i].getText().isEmpty() || !validarAtividade(nomes[i].getText(), descricoes[i].getText(), tipo1.getValue()) || datasEntrega[i].getValue() == null) {
+                        todasAtividadesValidas = false;
+                        int counterAtividade = i+1;
+                        showAlert("Atividade " + counterAtividade + " inválida");
+                        break; // Sai do loop se encontrar uma atividade inválida
+                    } else {
+                        // Se o nome está preenchido e outros campos são válidos, cria a atividade
+                        atividadeDao.createAtividade(nomes[i].getText(), datasEntrega[i].getValue().atTime(23, 59, 59), descricoes[i].getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
+                        counter++;
+                    }
+                }
             }
 
-            if (!nome2.getText().isEmpty() && validarAtividade(nome2.getText(),
-                    descricao2.getText(),
-                    tipo1.getValue()) && dataEntrega2.getValue() != null) {
-                atividadeDao.createAtividade(nome2.getText(), dataEntrega2.getValue().atTime(23, 59, 59), descricao2.getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
-                counter++;
-            }
-
-            if (!nome3.getText().isEmpty() && validarAtividade(nome3.getText(),
-                    descricao3.getText(),
-                    tipo1.getValue()) && dataEntrega3.getValue() != null) {
-                atividadeDao.createAtividade(nome3.getText(), dataEntrega3.getValue().atTime(23, 59, 59), descricao3.getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
-                counter++;
-            }
-
-            if (!nome4.getText().isEmpty() && validarAtividade(nome4.getText(),
-                    descricao4.getText(),
-                    tipo1.getValue()) && dataEntrega4.getValue() != null) {
-                atividadeDao.createAtividade(nome4.getText(), dataEntrega4.getValue().atTime(23, 59, 59), descricao4.getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
-                counter++;
-            }
-
-            if (counter > 0) {
+            if (todasAtividadesValidas && counter > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText(null);
@@ -128,9 +120,9 @@ public class ControllerTelaAtividade {
                 alert.showAndWait();
 
                 ObservableList<ViewObjAtividadeXAvaliacao> lista = alunoDao.getNomeAluno(data.getMateria(), data.getSemestre(), tipo1.getValue());
-                for (int j = 0; j < lista.size(); j++) {
+                for (ViewObjAtividadeXAvaliacao aluno : lista) {
                     for (int i = 0; i < counter; i++) {
-                        avaliacaoDao.criarAvaliacaoDaAtividade(lista.get(j).getNome(), i);
+                        avaliacaoDao.criarAvaliacaoDaAtividade(aluno.getNome(), i);
                     }
                 }
             } else {
@@ -141,6 +133,10 @@ public class ControllerTelaAtividade {
             System.out.println("Atividades com campos em branco foram ignoradas..." + e);
         }
         System.out.println(counter);
+    }
+    private boolean validarAtividadeIndividual(TextField nome, TextArea descricao, ChoiceBox<String> tipo, DatePicker dataEntrega) {
+        // Adicione suas verificações individuais aqui
+        return !nome.getText().isEmpty() && validarAtividade(nome.getText(), descricao.getText(), tipo.getValue()) && dataEntrega.getValue() != null;
     }
 
     @FXML
