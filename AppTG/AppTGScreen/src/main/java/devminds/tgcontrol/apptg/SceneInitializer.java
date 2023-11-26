@@ -18,7 +18,6 @@ public class SceneInitializer extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(SceneInitializer.class.getResource("TelaInicial.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("SGTG - DevMinds");
-        //stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
