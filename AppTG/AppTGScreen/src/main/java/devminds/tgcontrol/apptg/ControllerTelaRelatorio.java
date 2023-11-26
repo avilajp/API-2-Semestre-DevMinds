@@ -61,4 +61,14 @@ public class ControllerTelaRelatorio {
         SemestreDao semestreDao = new SemestreDao();
         choiceBox.setItems(semestreDao.getSemestre());
     }
+
+    public void stageTransporteNotas(ActionEvent actionEvent) throws IOException {
+        data.setSemestre(choiceBox.getSelectionModel().getSelectedItem());
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TransporteNotas.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Transporte de Notas.");
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
 }

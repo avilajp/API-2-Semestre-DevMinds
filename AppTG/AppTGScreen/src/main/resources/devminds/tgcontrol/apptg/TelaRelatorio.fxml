@@ -8,7 +8,7 @@
         <fx:include source="homeScreen.fxml" />
       <Button fx:id="btnFechamento" layoutX="41.0" layoutY="175.0" mnemonicParsing="false" onAction="#stageTelaFechamento" prefHeight="365.0" prefWidth="295.0" text="Relatório de Fechamento" />
       <Button fx:id="btnAlunosApts" layoutX="368.0" layoutY="175.0" mnemonicParsing="false" onAction="#stageTelaAptosDefesa" prefHeight="365.0" prefWidth="295.0" text="Relatório de Alunos Aptos" />
-      <Button fx:id="btnTransporte" layoutX="695.0" layoutY="175.0" mnemonicParsing="false" prefHeight="365.0" prefWidth="295.0" text="b3" />
+      <Button fx:id="btnTransporte" layoutX="695.0" layoutY="175.0" mnemonicParsing="false" onAction="#stageTransporteNotas" prefHeight="365.0" prefWidth="295.0" text="Transporte de Notas" />
       <ChoiceBox fx:id="choiceBox" layoutX="210.0" layoutY="111.0" prefHeight="36.0" prefWidth="583.0" />
     </children>
 </AnchorPane>
