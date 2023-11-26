@@ -58,8 +58,6 @@ public class ControllerTelaFechamentoSemestre {
     private void setTableItems(ObservableList<DTOFechamento> list){
        tableFechamento.setItems(list);
     }
-
-
     @FXML private void stageToTelaFechamento(ActionEvent event){
         Stage stage = (Stage) btn_voltar.getScene().getWindow();
         stage.close();
