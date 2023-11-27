@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff535385-8b94-4d61-8258-0e0f9b2a9d50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaAtividade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +41,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "main-minorFixes",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.39195403"

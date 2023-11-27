@@ -116,7 +116,7 @@ public class ControllerTelaAtividade {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText(null);
-                alert.setContentText("Feedback salvo com sucesso");
+                alert.setContentText("Atividade salva com sucesso");
                 alert.showAndWait();
 
                 ObservableList<ViewObjAtividadeXAvaliacao> lista = alunoDao.getNomeAluno(data.getMateria(), data.getSemestre(), tipo1.getValue());
