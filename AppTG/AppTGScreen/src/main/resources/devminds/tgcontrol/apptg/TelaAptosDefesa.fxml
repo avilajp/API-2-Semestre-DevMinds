@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAptosDefesa">
+    <children>
+        <Label fx:id="labelSemestreAtivo" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="200.0" />
+        <TableView fx:id="tableAptosDefesa" layoutX="14.0" layoutY="52.0" prefHeight="509.0" prefWidth="996.0">
+            <columns>
+                <TableColumn fx:id="col1" minWidth="0.0" prefWidth="226.0" text="Nome" />
+                <TableColumn fx:id="col2" minWidth="0.0" prefWidth="115.0" text="Tipo de TG" />
+                <TableColumn fx:id="col3" prefWidth="184.0" text="Orientador" />
+                <TableColumn fx:id="col4" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A1" />
+                <TableColumn fx:id="col5" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A2" />
+                <TableColumn fx:id="col6" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A3" />
+                <TableColumn fx:id="col7" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A4" />
+                <TableColumn fx:id="col8" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A5" />
+                <TableColumn fx:id="col9" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A6" />
+                <TableColumn fx:id="col10" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A7" />
+                <TableColumn fx:id="col11" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="60.0" text="A8" />
+            </columns>
+        </TableView>
+        <Button fx:id="btn_voltar" layoutX="908.0" layoutY="15.0" mnemonicParsing="false" onAction="#stageToTelaAptosDefesa" prefHeight="25.0" prefWidth="92.0" text="Voltar" />
+        <ChoiceBox fx:id="choiceMateria" layoutX="236.0" layoutY="15.0" onAction="#selecionaChoiceBox" prefHeight="25.0" prefWidth="168.0" />
+    </children>
+</AnchorPane>
