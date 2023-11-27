@@ -19,6 +19,7 @@ import java.sql.SQLException;
 
 public class ControllerTelaInicial {
     @FXML private Button btnClose;
+    @FXML private Label turmaAtual;
     @FXML private Label exibeSemestre;
     @FXML private Button btn_tg1;
     @FXML private Button btn_tg2;
@@ -49,10 +50,17 @@ public class ControllerTelaInicial {
     @FXML private void initialize() throws SQLException, ClassNotFoundException {
         SemestreDao semestreDao = new SemestreDao();
         String semestre = semestreDao.getSemestreAtual();
-        exibeSemestre.setText(semestre);
-        semestreAtual = semestre;
-        btn_tg1.setText(semestre.concat(" - TG1"));
-        btn_tg2.setText(semestre.concat(" - TG2"));
+        if (semestre != null) {
+            exibeSemestre.setText(semestre);
+            semestreAtual = semestre;
+            btn_tg1.setText(semestre.concat(" - TG1"));
+            btn_tg2.setText(semestre.concat(" - TG2"));
+        } else {
+            turmaAtual.setVisible(false);
+            exibeSemestre.setVisible(false);
+            btn_tg1.setVisible(false);
+            btn_tg2.setVisible(false);
+        }
     }
 
 
