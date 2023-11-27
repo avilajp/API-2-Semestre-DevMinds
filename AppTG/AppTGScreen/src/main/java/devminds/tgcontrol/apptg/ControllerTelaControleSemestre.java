@@ -32,33 +32,27 @@ import java.util.ResourceBundle;
 
 public class ControllerTelaControleSemestre implements Initializable {
     private String filepath;
-    @FXML
-    private TextField semestreInput;
-    @FXML
-    private Button btnLoadCsv;
-    @FXML
-    private Button btnSendToDataBase;
-    @FXML
-    private TableView<Trabalho> tableView;
-    @FXML
-    private TableColumn<Trabalho, String> col1;
-    @FXML
-    private TableColumn<Trabalho, String> col2;
-    @FXML
-    private TableColumn<Trabalho, String> col3;
-    @FXML
-    private TableColumn<Trabalho, String> col4;
-    @FXML
-    private TableColumn<Trabalho, String> col5;
-    @FXML
-    private TableColumn<Trabalho, String> col6;
-    @FXML
-    private TableColumn<Trabalho, String> col7;
-    @FXML
-    private TableColumn<Trabalho, String> col8;
-    @FXML
-    private TableColumn<Trabalho, String> col9;
+    @FXML private TextField semestreInput;
+    @FXML private Button btnLoadCsv;
+    @FXML private Button btnSendToDataBase;
+    @FXML private TableView<Trabalho> tableView;
+    @FXML private TableColumn<Trabalho, String> col1;
+    @FXML private TableColumn<Trabalho, String> col2;
+    @FXML private TableColumn<Trabalho, String> col3;
+    @FXML private TableColumn<Trabalho, String> col4;
+    @FXML private TableColumn<Trabalho, String> col5;
+    @FXML private TableColumn<Trabalho, String> col6;
+    @FXML private TableColumn<Trabalho, String> col7;
+    @FXML private TableColumn<Trabalho, String> col8;
+    @FXML private TableColumn<Trabalho, String> col9;
 
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aviso");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     @FXML
     public void btnLoad(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -67,11 +61,7 @@ public class ControllerTelaControleSemestre implements Initializable {
         if (file != null) {
             filepath = file.getAbsolutePath();
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aviso");
-            alert.setHeaderText(null);
-            alert.setContentText("Por favor, selecione um arquivo CSV.");
-            alert.showAndWait();
+            showAlert("Por favor, selecione um arquivo CSV.");
         }
         //Tabela
         col1.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailAlunoPessoal"));
@@ -167,6 +157,11 @@ public class ControllerTelaControleSemestre implements Initializable {
             MateriaDao materiaDao = new MateriaDao();
             ProfessorDao professorDao = new ProfessorDao();
             int aux = getTrabalho().stream().toList().size();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Confirmação");
+            alert.setHeaderText(null);
+            alert.setContentText("Semestre cadastrado com sucesso!");
+            alert.showAndWait();
 
             for (int i = 0; i < aux; i++) {
                 String bufferEmail = null;
@@ -198,11 +193,7 @@ public class ControllerTelaControleSemestre implements Initializable {
                 );
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aviso");
-            alert.setHeaderText(null);
-            alert.setContentText("Esse semestre já cadastrado");
-            alert.showAndWait();
+            showAlert("Esse semestre já cadastrado");
         }
     }
 
@@ -221,7 +212,5 @@ public class ControllerTelaControleSemestre implements Initializable {
         col7.setCellFactory(TextFieldTableCell.forTableColumn());
         col8.setCellFactory(TextFieldTableCell.forTableColumn());
         col9.setCellFactory(TextFieldTableCell.forTableColumn());
-
     }
-
 }
