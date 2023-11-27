@@ -42,5 +42,5 @@
             </font></Label>
         </children>
     </AnchorPane>
-    <fx:include source="homeScreen.fxml" />
+    <fx:include source="botoesFixos.fxml" />
 </AnchorPane>

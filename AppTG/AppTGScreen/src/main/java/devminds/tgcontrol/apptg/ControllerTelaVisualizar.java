@@ -4,6 +4,7 @@ package devminds.tgcontrol.apptg;
 import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOInterTela;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
+import devminds.tgcontrol.apptg.obj.csvimport.DTOInicial;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
@@ -44,19 +45,33 @@ public class ControllerTelaVisualizar {
     @FXML
     private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
         dtoInterTela.setTextoDaChoice(selectlist.getSelectionModel().getSelectedItem());
-        String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
-        if (selectlist.getSelectionModel().isEmpty()) {
-            btn_telaAtividade.setDisable(true);
+        if (selectlist.getSelectionModel().getSelectedItem() == null){
+            String[] vetString = dataIni.getSemestreMateria().split("-");
+            if (selectlist.getSelectionModel().isEmpty()) {
+                btn_telaAtividade.setDisable(true);
+            } else {
+                btn_telaAtividade.setDisable(false);
+            }
+            this.semestreSelecionado = vetString[0].trim();
+            if (vetString[1].trim().equals("TG1")) {
+                this.materiaSelecionada = "materia_tg1";
+            } else {
+                this.materiaSelecionada = "materia_tg2";
+            }
         } else {
-            btn_telaAtividade.setDisable(false);
+            String[] vetString = selectlist.getSelectionModel().getSelectedItem().split("-");
+            if (selectlist.getSelectionModel().isEmpty()) {
+                btn_telaAtividade.setDisable(true);
+            } else {
+                btn_telaAtividade.setDisable(false);
+            }
+            this.semestreSelecionado = vetString[0].trim();
+            if (vetString[1].trim().equals("TG1")) {
+                this.materiaSelecionada = "materia_tg1";
+            } else {
+                this.materiaSelecionada = "materia_tg2";
+            }
         }
-        this.semestreSelecionado = vetString[0].trim();
-        if (vetString[1].trim().equals("TG1")) {
-            this.materiaSelecionada = "materia_tg1";
-        } else {
-            this.materiaSelecionada = "materia_tg2";
-        }
-
         col1.setCellFactory(param -> new TableCell<ViewObjAtividadeXAvaliacao, ViewObjAtividadeXAvaliacao>() {
             private final Button button = new Button("Avaliar");
 
@@ -108,6 +123,7 @@ public class ControllerTelaVisualizar {
     public void setChoiceBox() throws SQLException, ClassNotFoundException,NullPointerException {
     }
     DTOSemestre data = DTOSemestre.getInstance();
+    DTOInicial dataIni = DTOInicial.getInstance();
     @FXML
     private void stageToTelaAtividade(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         data.setSemestre(semestreSelecionado);
@@ -122,12 +138,23 @@ public class ControllerTelaVisualizar {
     }
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
+        if (!dataIni.getSemestreMateria().isEmpty()){
+            MateriaDao materiaDao  = new MateriaDao();
+            List<String> lista = materiaDao.getSemestreEMateria();
+            ObservableList<String> obsList = FXCollections.observableList(lista);
+            btn_telaAtividade.setDisable(true);
+            selectlist.setItems(obsList);
+            selectlist.setValue(dataIni.getSemestreMateria());
+        } else {
+            MateriaDao materiaDao  = new MateriaDao();
+            List<String> lista = materiaDao.getSemestreEMateria();
+            ObservableList<String> obsList = FXCollections.observableList(lista);
+            btn_telaAtividade.setDisable(true);
+            selectlist.setItems(obsList);
+            selectlist.setValue(dataIni.getSemestreMateria());
 
-        MateriaDao materiaDao  = new MateriaDao();
-        List<String> lista = materiaDao.getSemestreEMateria();
-        ObservableList<String> obsList = FXCollections.observableList(lista);
-        btn_telaAtividade.setDisable(true);
-        selectlist.setItems(obsList);
+        }
+
     }
 }
 
