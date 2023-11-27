@@ -18,6 +18,7 @@ public class AvaliacaoXAtividadeDAO {
                     "(select tipo where aluno_email_pessoal = %s.aluno_email_pessoal) as tipo,\n" +
                     "matriculado_em " +
                     "from %s where semestre = %s",materiaSelecionada,materiaSelecionada,materiaSelecionada,semestreSelecionado);
+
             PreparedStatement pst;
             pst = con.prepareStatement(sql_select);
             ResultSet rs = pst.executeQuery();
