@@ -116,7 +116,7 @@ public class ControllerTelaAtividade {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText(null);
-                alert.setContentText("Feedback salvo com sucesso");
+                alert.setContentText("Atividade salva com sucesso");
                 alert.showAndWait();
 
                 ObservableList<ViewObjAtividadeXAvaliacao> lista = alunoDao.getNomeAluno(data.getMateria(), data.getSemestre(), tipo1.getValue());
@@ -132,9 +132,6 @@ public class ControllerTelaAtividade {
         } catch (NullPointerException e) {
             System.out.println("Atividades com campos em branco foram ignoradas..." + e);
         }
-        System.out.println(counter);
-        AvaliacaoDao avaliacaoDao  = new AvaliacaoDao();
-        AlunoDao alunoDao = new AlunoDao();
         ObservableList<ViewObjAtividadeXAvaliacao> lista  =  alunoDao.getNomeAluno(data.getMateria(),data.getSemestre(),tipo1.getSelectionModel().getSelectedItem());
         while (counter !=-1){
             for (int j = 0; j < lista.size(); j++) {
