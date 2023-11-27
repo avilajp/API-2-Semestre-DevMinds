@@ -77,7 +77,6 @@ public class ControllerTelaAvaliacao {
                     if (data.getNome().equals(objeto.getNome_aluno())) {
                         this.lista.add(objeto);
                     }
-
                 }
             }
         } else {
