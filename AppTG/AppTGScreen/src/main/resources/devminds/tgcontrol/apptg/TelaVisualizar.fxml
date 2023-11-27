@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="576" prefWidth="1024" style="-fx-background-color: #C2BAE6;" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaVisualizar">
+<AnchorPane prefHeight="576" prefWidth="1024" style="-fx-background-color: #C2BAE6;" styleClass="text" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaVisualizar">
     <children>
         <fx:include source="homeScreen.fxml" />
       <TableView fx:id="atividadeTableView" layoutX="73.0" layoutY="157.0" prefHeight="380.0" prefWidth="876.5">

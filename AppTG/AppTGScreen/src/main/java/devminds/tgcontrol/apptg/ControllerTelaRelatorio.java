@@ -1,5 +1,6 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.apptg.obj.DTOAptos;
 import devminds.tgcontrol.apptg.obj.DTOAptosDefesa;
 import devminds.tgcontrol.apptg.obj.DTORelatorioFechamento;
 import devminds.tgcontrol.dao.SemestreDao;
@@ -19,7 +20,7 @@ import java.sql.SQLException;
 
 public class ControllerTelaRelatorio {
     DTORelatorioFechamento data = DTORelatorioFechamento.getInstance();
-    DTOAptosDefesa dataAptos = DTOAptosDefesa.getInstance();
+    DTOAptos dataAptos = DTOAptos.getInstance();
 
     @FXML
     private ChoiceBox<String> choiceBox;

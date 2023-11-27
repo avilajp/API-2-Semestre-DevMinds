@@ -1,7 +1,6 @@
 package devminds.tgcontrol.apptg.obj;
 
 public class DTOAptosDefesa {
-    private static final DTOAptosDefesa instance = new DTOAptosDefesa();
     private String nomeAluno;
     private String tipo;
     private String orientador;
@@ -15,6 +14,8 @@ public class DTOAptosDefesa {
     private Double nota8;
     private String semestre;
     private String materia;
+
+    private static final DTOAptosDefesa instance = new DTOAptosDefesa();
 
     public static DTOAptosDefesa getInstance(){
         return instance;

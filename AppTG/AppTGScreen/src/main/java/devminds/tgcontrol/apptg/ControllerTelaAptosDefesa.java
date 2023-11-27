@@ -1,5 +1,6 @@
 package devminds.tgcontrol.apptg;
 
+import devminds.tgcontrol.apptg.obj.DTOAptos;
 import devminds.tgcontrol.apptg.obj.DTOAptosDefesa;
 import devminds.tgcontrol.dao.AptosDefesaDAO;
 import devminds.tgcontrol.objects.DTOFechamento;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class ControllerTelaAptosDefesa {
     ObservableList<ViewObjAlunosAptos> lista = FXCollections.observableArrayList();
-    DTOAptosDefesa dataApto = DTOAptosDefesa.getInstance();
+    DTOAptos dataApto = DTOAptos.getInstance();
     @FXML private TableView<ViewObjAlunosAptos> tableAptosDefesa;
     @FXML private Label labelSemestreAtivo;
     @FXML private TableColumn<ViewObjAlunosAptos,String> col1;
@@ -35,12 +36,23 @@ public class ControllerTelaAptosDefesa {
     @FXML private ChoiceBox<String> choiceMateria;
     @FXML private Button btn_voltar;
     @FXML private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String textoSelecionado = choiceMateria.getSelectionModel().getSelectedItem();
         AptosDefesaDAO AptosDefesaDAO = new AptosDefesaDAO();
-        ObservableList<ViewObjAlunosAptos> obsList = AptosDefesaDAO.getAlunosAptos(dataApto.getMateria(),dataApto.getSemestre());
-        for (ViewObjAlunosAptos objeto : obsList) {
-            if (objeto.getTipo().equals(textoSelecionado)){
-                lista.add(objeto);
+        if (choiceMateria.getSelectionModel().getSelectedItem().equals("TG1")){
+            ObservableList<ViewObjAlunosAptos> obsList = AptosDefesaDAO.getAlunosAptos("materia_tg1",dataApto.getSemestre(),"semestre_tg1");
+            lista.clear();
+            for (ViewObjAlunosAptos objeto : obsList) {
+                if (objeto.getTipo().equals("Relatório Técnico - Estágio") || objeto.getTipo().equals("Relatório Técnico - Disciplina") || objeto.getTipo().equals("Artigo Tecnológico ou Científico") ){
+                    lista.add(objeto);
+                }
+
+            }
+        } else {
+            ObservableList<ViewObjAlunosAptos> obsList = AptosDefesaDAO.getAlunosAptos("materia_tg2",dataApto.getSemestre(),"semestre_tg2");
+            lista.clear();
+            for (ViewObjAlunosAptos objeto : obsList) {
+                if (objeto.getTipo().equals("Relatório Técnico - Estágio") || objeto.getTipo().equals("Relatório Técnico - Disciplina") || objeto.getTipo().equals("Artigo Tecnológico ou Científico")|| objeto.getTipo().equals("Portfólio")){
+                    lista.add(objeto);
+                }
             }
         }
         setTableItems(lista);
@@ -54,8 +66,8 @@ public class ControllerTelaAptosDefesa {
     }
     @FXML private void initialize(){
         labelSemestreAtivo.setText(dataApto.getSemestre());
-        String texto = "Portfólio";
-        String texto1 = "Texto2";
+        String texto = "TG1";
+        String texto1 = "TG2";
         List<String> lista = new ArrayList<>();
         lista.add(texto);
         lista.add(texto1);

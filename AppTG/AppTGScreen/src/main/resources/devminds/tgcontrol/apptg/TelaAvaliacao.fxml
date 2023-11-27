@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="576" minWidth="1024" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAvaliacao">
+<AnchorPane minHeight="576" minWidth="1024" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaAvaliacao">
    <children>
       <TableView fx:id="avaliacaoTableView" layoutX="37.0" layoutY="88.0" prefHeight="325.0" prefWidth="613.0">
         <columns>
