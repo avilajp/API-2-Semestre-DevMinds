@@ -27,6 +27,7 @@ empresa varchar(64),
 disciplina varchar(64),
 aluno_email_pessoal varchar(128),
 email_professor varchar(128),
+matriculado_em varchar(12),
 
 CONSTRAINT fk_aluno_tg1 FOREIGN KEY (aluno_email_pessoal)
 	REFERENCES aluno(aluno_email_pessoal)
@@ -49,6 +50,7 @@ empresa varchar(64),
 disciplina varchar(64),
 aluno_email_pessoal varchar(128),
 email_professor varchar(128),
+matriculado_em varchar(12),
 
 CONSTRAINT fk_aluno_tg2 FOREIGN KEY (aluno_email_pessoal)
 	REFERENCES aluno(aluno_email_pessoal)

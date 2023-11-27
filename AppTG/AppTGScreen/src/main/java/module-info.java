@@ -1,7 +1,6 @@
 module devminds.tgcontrol.apptg {
     requires javafx.controls;
     requires javafx.fxml;
-    requires devminds.tgcontrol.importback;
     requires devminds.tgcontrol.dao;
     requires java.sql;
 

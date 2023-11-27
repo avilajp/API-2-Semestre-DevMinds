@@ -5,10 +5,24 @@ public class ViewObjAtividadeXAvaliacao {
     private String nome;
     private String feedback;
     private String tipo;
+    private String matriculado;
     private double nota1;
     private double nota2;
     private double nota3;
     private double nota4;
+    private double nota5;
+    private double nota6;
+    private double nota7;
+    private double nota8;
+
+    public String getMatriculado() {
+        return matriculado;
+    }
+
+    public void setMatriculado(String matriculado) {
+        this.matriculado = matriculado;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -63,6 +77,38 @@ public class ViewObjAtividadeXAvaliacao {
 
     public void setNota4(double nota4) {
         this.nota4 = nota4;
+    }
+
+    public double getNota5() {
+        return nota5;
+    }
+
+    public void setNota5(double nota5) {
+        this.nota5 = nota5;
+    }
+
+    public double getNota6() {
+        return nota6;
+    }
+
+    public void setNota6(double nota6) {
+        this.nota6 = nota6;
+    }
+
+    public double getNota7() {
+        return nota7;
+    }
+
+    public void setNota7(double nota7) {
+        this.nota7 = nota7;
+    }
+
+    public double getNota8() {
+        return nota8;
+    }
+
+    public void setNota8(double nota8) {
+        this.nota8 = nota8;
     }
 
     public int getId_atividade() {

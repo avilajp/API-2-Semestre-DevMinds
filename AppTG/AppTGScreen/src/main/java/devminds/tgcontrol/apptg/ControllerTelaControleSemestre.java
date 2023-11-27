@@ -4,8 +4,9 @@ import devminds.tgcontrol.dao.AlunoDao;
 import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.dao.ProfessorDao;
 import devminds.tgcontrol.dao.SemestreDao;
-import devminds.tgcontrol.importback.csvImport.CsvReader;
-import devminds.tgcontrol.importback.jsonObj.Trabalho;
+import devminds.tgcontrol.apptg.obj.csvimport.CsvReader;
+import devminds.tgcontrol.apptg.obj.Trabalho;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,11 +30,11 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 
-public class ControllerTelaControleSemestre implements Initializable{
+public class ControllerTelaControleSemestre implements Initializable {
     private String filepath;
     @FXML private TextField semestreInput;
-
-    @FXML private Label welcomeText;
+    @FXML private Button btnLoadCsv;
+    @FXML private Button btnSendToDataBase;
     @FXML private TableView<Trabalho> tableView;
     @FXML private TableColumn<Trabalho, String> col1;
     @FXML private TableColumn<Trabalho, String> col2;
@@ -44,13 +45,23 @@ public class ControllerTelaControleSemestre implements Initializable{
     @FXML private TableColumn<Trabalho, String> col7;
     @FXML private TableColumn<Trabalho, String> col8;
     @FXML private TableColumn<Trabalho, String> col9;
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aviso");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     @FXML
-    public void btnLoad(ActionEvent event){
+    public void btnLoad(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new javafx.stage.FileChooser.ExtensionFilter("Arquivos CSV", "*.csv"));
         File file = fileChooser.showOpenDialog(new Stage());
         if (file != null) {
             filepath = file.getAbsolutePath();
+        } else {
+            showAlert("Por favor, selecione um arquivo CSV.");
         }
         //Tabela
         col1.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("emailAlunoPessoal"));
@@ -64,59 +75,69 @@ public class ControllerTelaControleSemestre implements Initializable{
         col9.setCellValueFactory(new PropertyValueFactory<Trabalho, String>("matriculadoEm"));
         tableView.setItems(getTrabalho());
     }
-    public ObservableList<Trabalho> getTrabalho(){
+
+    public ObservableList<Trabalho> getTrabalho() {
         CsvReader csvReader = new CsvReader();
         Trabalho objTrabalho = csvReader.leitorCsv(filepath);
 
-    return csvReader.getListaDeObjetos();
+        return csvReader.getListaDeObjetos();
     }
 
     @FXML
-    public void changeEmailAlunoPessoalCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeEmailAlunoPessoalCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setEmailAlunoPessoal(edittedCell.getNewValue().toString());
 
     }
+
     @FXML
-    public void changeNomeOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeNomeOrientadorCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setNomeCompletoOrientador(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeEmailOrientadorCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeEmailOrientadorCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setEmailOrientador(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeTipoTGCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeTipoTGCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setTipoTG(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeDisciplinaCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeDisciplinaCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setDisciplina(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeNomeAlunoCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeNomeAlunoCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setNomeCompleto(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeEmailAlunoCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeEmailAlunoCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setEmailFatec(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeEmpresaCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeEmpresaCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setEmpresa(edittedCell.getNewValue().toString());
     }
+
     @FXML
-    public void changeMatriculadoEmCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void changeMatriculadoEmCellEvent(TableColumn.CellEditEvent edittedCell) {
         Trabalho trabalhoSelecionado = tableView.getSelectionModel().getSelectedItem();
         trabalhoSelecionado.setMatriculadoEm(edittedCell.getNewValue().toString());
     }
+
     @FXML
     private void stageToMainScree(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
@@ -126,15 +147,21 @@ public class ControllerTelaControleSemestre implements Initializable{
         window.setScene(tableViewScene);
         window.show();
     }
+
     @FXML
     private void sendToDataBase(ActionEvent event) throws ParseException, SQLException, ClassNotFoundException {
         SemestreDao semestreDao = new SemestreDao();
         String exist = semestreDao.existSemestre(semestreInput.getText());
-        if(!Objects.equals(exist, "sim")) {
+        if (!Objects.equals(exist, "sim")) {
             AlunoDao alunoDao = new AlunoDao();
             MateriaDao materiaDao = new MateriaDao();
             ProfessorDao professorDao = new ProfessorDao();
             int aux = getTrabalho().stream().toList().size();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Confirmação");
+            alert.setHeaderText(null);
+            alert.setContentText("Semestre cadastrado com sucesso!");
+            alert.showAndWait();
 
             for (int i = 0; i < aux; i++) {
                 String bufferEmail = null;
@@ -165,13 +192,17 @@ public class ControllerTelaControleSemestre implements Initializable{
                         tableView.getItems().get(i).getEmailOrientador()
                 );
             }
-        }else{
-            System.out.println("Esse semestre já está cadastrado!");
+        } else {
+            showAlert("Esse semestre já cadastrado");
         }
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tableView.setEditable(true);
+        btnLoadCsv.disableProperty().bind(
+                Bindings.isEmpty(semestreInput.textProperty()));
+        btnSendToDataBase.disableProperty().bind(
+                Bindings.isEmpty(semestreInput.textProperty()));
         col1.setCellFactory(TextFieldTableCell.forTableColumn());
         col2.setCellFactory(TextFieldTableCell.forTableColumn());
         col3.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -181,7 +212,5 @@ public class ControllerTelaControleSemestre implements Initializable{
         col7.setCellFactory(TextFieldTableCell.forTableColumn());
         col8.setCellFactory(TextFieldTableCell.forTableColumn());
         col9.setCellFactory(TextFieldTableCell.forTableColumn());
-
     }
-
 }

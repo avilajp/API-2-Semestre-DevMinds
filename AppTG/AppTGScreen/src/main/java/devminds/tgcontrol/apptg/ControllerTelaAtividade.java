@@ -9,56 +9,127 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class ControllerTelaAtividade {
     DTOSemestre data = DTOSemestre.getInstance();
 
-    @FXML private TextField nome1;
-    @FXML private TextArea descricao1;
-    @FXML private DatePicker dataEntrega1;
-    @FXML private ChoiceBox<String> tipo1;
-    @FXML private TextField nome2;
-    @FXML private TextArea descricao2;
-    @FXML private DatePicker dataEntrega2;
-    @FXML private Label showSemestre;
-    @FXML private TextField nome3;
-    @FXML private TextArea descricao3;
-    @FXML private DatePicker dataEntrega3;
-    @FXML private TextField nome4;
-    @FXML private TextArea descricao4;
-    @FXML private DatePicker dataEntrega4;
+    @FXML
+    private Button btn_voltar;
+    @FXML
+    private ChoiceBox<String> tipo1;
+    @FXML
+    private Label showSemestre;
+    @FXML
+    private TextField nome1;
+    @FXML
+    private TextField nome2;
+    @FXML
+    private TextField nome3;
+    @FXML
+    private TextField nome4;
+    @FXML
+    private TextArea descricao1;
+    @FXML
+    private TextArea descricao2;
+    @FXML
+    private TextArea descricao3;
+    @FXML
+    private TextArea descricao4;
+    @FXML
+    private DatePicker dataEntrega1;
+    @FXML
+    private DatePicker dataEntrega2;
+    @FXML
+    private DatePicker dataEntrega3;
+    @FXML
+    private DatePicker dataEntrega4;
 
+    private void disablePreviousDate(DatePicker datePicker) {
+        datePicker.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                if (date.isBefore(LocalDate.now())) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #868686;");
+                }
+            }
+        });
+    }
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aviso");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private boolean validarAtividade(String nome, String descricao, String tipo) {
+        if (nome.isEmpty()) {
+            showAlert("Dê um nome para a atividade");
+            return false;
+        } else if (descricao.isEmpty()) {
+            showAlert("É necessário ter uma descrição");
+            return false;
+        } else if (tipo == null) {
+            showAlert("Escolha um tipo de TG");
+            return false;
+        }
+        return true;
+    }
     @FXML
     public void sendToDatabase(ActionEvent event) throws SQLException, ClassNotFoundException {
         AtividadeDao atividadeDao = new AtividadeDao();
-        int counter = -1;
+        AvaliacaoDao avaliacaoDao = new AvaliacaoDao();
+        AlunoDao alunoDao = new AlunoDao();
+        int counter = 0;
+        boolean todasAtividadesValidas = true;
+
         try {
-            if (nome1.getText().isEmpty()){
-                System.out.println("O nome da atividade 1 precisa ser preenchido!");
-            }if(descricao1.getText().isEmpty()){
-                System.out.println("A descrição precisa conter texto");
-            }else{
-                atividadeDao.createAtividade(nome1.getText(), dataEntrega1.getValue().atTime(23, 59, 59), descricao1.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
-                counter +=1;
+            TextField[] nomes = {nome1, nome2, nome3, nome4};
+            TextArea[] descricoes = {descricao1, descricao2, descricao3, descricao4};
+            DatePicker[] datasEntrega = {dataEntrega1, dataEntrega2, dataEntrega3, dataEntrega4};
+
+            for (int i = 0; i < nomes.length; i++) {
+                if (!nomes[i].getText().isEmpty()) {
+                    if (descricoes[i].getText().isEmpty() || !validarAtividade(nomes[i].getText(), descricoes[i].getText(), tipo1.getValue()) || datasEntrega[i].getValue() == null) {
+                        todasAtividadesValidas = false;
+                        int counterAtividade = i+1;
+                        showAlert("Atividade " + counterAtividade + " inválida");
+                        break; // Sai do loop se encontrar uma atividade inválida
+                    } else {
+                        // Se o nome está preenchido e outros campos são válidos, cria a atividade
+                        atividadeDao.createAtividade(nomes[i].getText(), datasEntrega[i].getValue().atTime(23, 59, 59), descricoes[i].getText(), data.getMateria(), tipo1.getValue(), data.getSemestre());
+                        counter++;
+                    }
+                }
             }
 
-            atividadeDao.createAtividade(nome2.getText(), dataEntrega2.getValue().atTime(23, 59, 59), descricao2.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
-            counter +=1;
-            atividadeDao.createAtividade(nome3.getText(), dataEntrega3.getValue().atTime(23, 59, 59), descricao3.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
-            counter +=1;
-            atividadeDao.createAtividade(nome4.getText(), dataEntrega4.getValue().atTime(23, 59, 59), descricao4.getText(), data.getMateria(), tipo1.getSelectionModel().getSelectedItem(), data.getSemestre());
-            counter +=1;
+            if (todasAtividadesValidas && counter > 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sucesso");
+                alert.setHeaderText(null);
+                alert.setContentText("Feedback salvo com sucesso");
+                alert.showAndWait();
 
-        }catch (NullPointerException e){
+                ObservableList<ViewObjAtividadeXAvaliacao> lista = alunoDao.getNomeAluno(data.getMateria(), data.getSemestre(), tipo1.getValue());
+                for (ViewObjAtividadeXAvaliacao aluno : lista) {
+                    for (int i = 0; i < counter; i++) {
+                        avaliacaoDao.criarAvaliacaoDaAtividade(aluno.getNome(), i);
+                    }
+                }
+            } else {
+                showAlert("Nenhuma atividade válida foi criada.");
+            }
+
+        } catch (NullPointerException e) {
             System.out.println("Atividades com campos em branco foram ignoradas..." + e);
         }
         System.out.println(counter);
@@ -72,23 +143,28 @@ public class ControllerTelaAtividade {
             counter -=1;
         }
     }
-    @FXML
-    private void stageToTelaImportar(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("TelaVisualizar.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+    private boolean validarAtividadeIndividual(TextField nome, TextArea descricao, ChoiceBox<String> tipo, DatePicker dataEntrega) {
+        // Adicione suas verificações individuais aqui
+        return !nome.getText().isEmpty() && validarAtividade(nome.getText(), descricao.getText(), tipo.getValue()) && dataEntrega.getValue() != null;
     }
 
     @FXML
-    private void initialize(){
+    private void stageToTelaImportar(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btn_voltar.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void initialize() {
+        disablePreviousDate(dataEntrega1);
+        disablePreviousDate(dataEntrega2);
+        disablePreviousDate(dataEntrega3);
+        disablePreviousDate(dataEntrega4);
         ObservableList<String> listaChoiceBox = FXCollections.observableArrayList();
-        listaChoiceBox.add("Portfólio (Exige participação em todos os 6 APIs)");
+        listaChoiceBox.add("Portfólio");
         listaChoiceBox.add("Artigo Tecnológico ou Científico");
-        listaChoiceBox.add("Relatório Técnico - Estágio (Somente para quem não pode participar de 6 APIs. Autorizado pela empresa)");
-        listaChoiceBox.add("Relatório Técnico - Disciplina (Somente para quem não pode participar de 6 APIs)");
+        listaChoiceBox.add("Relatório Técnico - Estágio");
+        listaChoiceBox.add("Relatório Técnico - Disciplina");
         this.tipo1.setItems(listaChoiceBox);
         showSemestre.setText(data.getSemestre());
     }
