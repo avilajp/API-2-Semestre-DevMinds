@@ -1,4 +1,4 @@
-package devminds.tgcontrol.apptg.obj.csvimport;
+package devminds.tgcontrol.apptg.obj;
 
 
 public class DTOInicial {

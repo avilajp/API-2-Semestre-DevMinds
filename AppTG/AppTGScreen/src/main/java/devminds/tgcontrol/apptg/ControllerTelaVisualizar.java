@@ -4,7 +4,7 @@ package devminds.tgcontrol.apptg;
 import devminds.tgcontrol.apptg.obj.DTOAvaliacao;
 import devminds.tgcontrol.apptg.obj.DTOInterTela;
 import devminds.tgcontrol.apptg.obj.DTOSemestre;
-import devminds.tgcontrol.apptg.obj.csvimport.DTOInicial;
+import devminds.tgcontrol.apptg.obj.DTOInicial;
 import devminds.tgcontrol.dao.AvaliacaoXAtividadeDAO;
 import devminds.tgcontrol.dao.MateriaDao;
 import devminds.tgcontrol.objects.ViewObjAtividadeXAvaliacao;
@@ -138,7 +138,7 @@ public class ControllerTelaVisualizar {
     }
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
-        if (!dataIni.getSemestreMateria().isEmpty()){
+        if (dataIni.getSemestreMateria() == null){
             MateriaDao materiaDao  = new MateriaDao();
             List<String> lista = materiaDao.getSemestreEMateria();
             ObservableList<String> obsList = FXCollections.observableList(lista);

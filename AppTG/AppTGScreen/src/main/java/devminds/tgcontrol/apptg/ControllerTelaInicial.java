@@ -1,6 +1,6 @@
 package devminds.tgcontrol.apptg;
 
-import devminds.tgcontrol.apptg.obj.csvimport.DTOInicial;
+import devminds.tgcontrol.apptg.obj.DTOInicial;
 import devminds.tgcontrol.dao.SemestreDao;
 
 import javafx.event.ActionEvent;
