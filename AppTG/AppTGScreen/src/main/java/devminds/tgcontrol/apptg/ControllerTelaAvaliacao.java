@@ -62,12 +62,22 @@ public class ControllerTelaAvaliacao {
     ObservableList<ViewObjAtividadeXAluno> lista = FXCollections.observableArrayList();
 
     private void sincObservableList() throws SQLException, ClassNotFoundException {
-        AtividadeDao atividadeDao = new AtividadeDao();
-        if (!data.getTipo().equals("Portfólio")) {
-            ObservableList<ViewObjAtividadeXAluno> rs = atividadeDao.getAtividadeXAluno();
-            for (ViewObjAtividadeXAluno objeto : rs) {
-                if (data.getNome().equals(objeto.getNome_aluno())) {
-                    this.lista.add(objeto);
+        AtividadeDao atividadeDao =  new AtividadeDao();
+        if(!data.getTipo().equals("Portfólio")){
+            if (data.getMateria().equals("materia_tg1")){
+                ObservableList<ViewObjAtividadeXAluno> rs = atividadeDao.getAtividadeXAluno("semestre_tg1", data.getSemestre());
+                for (ViewObjAtividadeXAluno objeto : rs) {
+                    if (data.getNome().equals(objeto.getNome_aluno())) {
+                        this.lista.add(objeto);
+                    }
+                }
+            } else {
+                ObservableList<ViewObjAtividadeXAluno> rs = atividadeDao.getAtividadeXAluno("semestre_tg2", data.getSemestre());
+                for (ViewObjAtividadeXAluno objeto : rs) {
+                    if (data.getNome().equals(objeto.getNome_aluno())) {
+                        this.lista.add(objeto);
+                    }
+
                 }
             }
         } else {

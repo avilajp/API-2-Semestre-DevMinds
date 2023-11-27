@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AppTG:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff535385-8b94-4d61-8258-0e0f9b2a9d50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaVisualizar.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaVisualizar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaControleSemestre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaControleSemestre.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaInicial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaRelatorio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaRelatorio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaVisualizar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaVisualizar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/homeScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/botoesFixos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AppTG_jar/AppTG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AppTG_jar/AppTG.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2YjRmEDywQo5DbOv6lvFYthHiJY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;minor__fixies__spr4&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.39195403&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="devminds.tgcontrol.apptg.App" />
+      <module name="AppTGScreen" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTG.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/AppTG_jar/AppTG.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.AppTG.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff535385-8b94-4d61-8258-0e0f9b2a9d50" name="Changes" comment="" />
+      <created>1701037162252</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701037162252</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaVisualizar.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

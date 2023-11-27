@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.w3c.dom.ranges.Range;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,22 +38,26 @@ public class ControllerTelaFechamentoSemestre {
 
     ObservableList<DTOFechamento> lista = FXCollections.observableArrayList();
     @FXML private void selecionaChoiceBox(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String textoSelecionado = choiceMateria.getSelectionModel().getSelectedItem();
         FechamentoDAO fechamentoDAO = new FechamentoDAO();
-        ObservableList<DTOFechamento> obsList = fechamentoDAO.getAllSemestre();
-        for (DTOFechamento objeto : obsList) {
-            if (objeto.getTipo().equals(textoSelecionado)){
-                lista.add(objeto);
+        if (choiceMateria.getSelectionModel().getSelectedItem().equals("TG1")){
+            ObservableList<DTOFechamento> obsList = fechamentoDAO.getAllSemestre("materia_tg1",data.getSemestre(),"semestre_tg1");
+            lista.clear();
+            for (DTOFechamento objeto : obsList) {
+                    lista.add(objeto);
+           }
+        } else {
+            ObservableList<DTOFechamento> obsList = fechamentoDAO.getAllSemestre("materia_tg2",data.getSemestre(),"semestre_tg2");
+            lista.clear();
+            for (DTOFechamento objeto : obsList) {
+                    lista.add(objeto);
             }
         }
         setTableItems(lista);
 
     }
     private void setTableItems(ObservableList<DTOFechamento> list){
-        tableFechamento.setItems(list);
+       tableFechamento.setItems(list);
     }
-
-
     @FXML private void stageToTelaFechamento(ActionEvent event){
         Stage stage = (Stage) btn_voltar.getScene().getWindow();
         stage.close();
@@ -60,8 +65,8 @@ public class ControllerTelaFechamentoSemestre {
 
     @FXML private void initialize(){
         labelSemestreAtivo.setText(data.getSemestre());
-        String texto = "Portfólio";
-        String texto1 = "Texto2";
+        String texto = "TG1";
+        String texto1 = "TG2";
         List<String> lista = new ArrayList<>();
         lista.add(texto);
         lista.add(texto1);

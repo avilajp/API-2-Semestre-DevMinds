@@ -69,4 +69,19 @@ public class SemestreDao {
         return lista;
 
     }
+    public String getSemestreAtual() throws SQLException, ClassNotFoundException {
+        ObservableList<String> lista = FXCollections.observableArrayList();
+        String semestreAtual = null;
+        try(Connection con = SqlConnection.getConnection()) {
+            String sql_insert = "SELECT * from semestre order by nome desc limit 0,1";
+            PreparedStatement pst;
+            pst = con.prepareStatement(sql_insert);
+            ResultSet rs = pst.executeQuery();
+            lista = ResultSetToArrayList.convertSemestre(rs);
+            semestreAtual = lista.get(0);
+
+        }
+        return semestreAtual;
+
+    }
 }
