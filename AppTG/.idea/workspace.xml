@@ -11,7 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ff535385-8b94-4d61-8258-0e0f9b2a9d50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaAtividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AppTGScreen/src/main/resources/devminds/tgcontrol/apptg/TelaInicial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AppTG_jar/AppTG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AppTG_jar/AppTG.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
@@ -41,13 +50,13 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main-minorFixes",
+    "git-widget-placeholder": "main-minorfixes",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.39195403"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JAR Application.AppTG.jar">
     <configuration name="App" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -85,6 +94,16 @@
           <url>file://$PROJECT_DIR$/AppTGScreen/src/main/java/devminds/tgcontrol/apptg/ControllerTelaVisualizar.java</url>
           <line>120</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DBConnector/src/main/java/devminds/tgcontrol/dao/SemestreDao.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
