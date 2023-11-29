@@ -40,9 +40,46 @@ public class ControllerTelaAptosDefesa {
         if (choiceMateria.getSelectionModel().getSelectedItem().equals("TG1")){
             ObservableList<ViewObjAlunosAptos> obsList = AptosDefesaDAO.getAlunosAptos("materia_tg1",dataApto.getSemestre(),"semestre_tg1");
             lista.clear();
+
             for (ViewObjAlunosAptos objeto : obsList) {
-                if (objeto.getTipo().equals("Relatório Técnico - Estágio") || objeto.getTipo().equals("Relatório Técnico - Disciplina") || objeto.getTipo().equals("Artigo Tecnológico ou Científico") ){
-                    lista.add(objeto);
+                int notasNotNullCount = 0;
+                double somaNotasNotNull = 0.0;
+                if (objeto.getTipo().equals("Relatório Técnico - Estágio") || objeto.getTipo().equals("Relatório Técnico - Disciplina") || objeto.getTipo().equals("Artigo Tecnológico ou Científico")) {
+                    if (objeto.getNota1() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota1();
+                    }
+                    if (objeto.getNota2() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota2();
+                    }
+                    if (objeto.getNota3() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota3();
+                    }
+                    if (objeto.getNota4() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota4();
+                    }
+                    if (objeto.getNota5() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota5();
+                    }
+                    if (objeto.getNota6() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota6();
+                    }
+                    if (objeto.getNota7() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota7();
+                    }
+                    if (objeto.getNota8() >0) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota8();
+                    }
+                    if (somaNotasNotNull/notasNotNullCount >= 6) {
+                        lista.add(objeto);
+                    }
                 }
 
             }
@@ -50,8 +87,44 @@ public class ControllerTelaAptosDefesa {
             ObservableList<ViewObjAlunosAptos> obsList = AptosDefesaDAO.getAlunosAptos("materia_tg2",dataApto.getSemestre(),"semestre_tg2");
             lista.clear();
             for (ViewObjAlunosAptos objeto : obsList) {
+                int notasNotNullCount = 0;
+                double somaNotasNotNull = 0.0;
                 if (objeto.getTipo().equals("Relatório Técnico - Estágio") || objeto.getTipo().equals("Relatório Técnico - Disciplina") || objeto.getTipo().equals("Artigo Tecnológico ou Científico")|| objeto.getTipo().equals("Portfólio")){
-                    lista.add(objeto);
+                    if (objeto.getNota1() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota1();
+                    }
+                    if (objeto.getNota2() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota2();
+                    }
+                    if (objeto.getNota3() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota3();
+                    }
+                    if (objeto.getNota4() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota4();
+                    }
+                    if (objeto.getNota5() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota5();
+                    }
+                    if (objeto.getNota6() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota6();
+                    }
+                    if (objeto.getNota7() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota7();
+                    }
+                    if (objeto.getNota8() != null) {
+                        notasNotNullCount++;
+                        somaNotasNotNull += objeto.getNota8();
+                    }
+                    if (somaNotasNotNull/notasNotNullCount >= 6) {
+                        lista.add(objeto);
+                    }
                 }
             }
         }
