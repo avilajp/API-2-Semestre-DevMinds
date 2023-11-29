@@ -43,9 +43,14 @@ public class AtividadeDao {
         ResultSet rs  = null;
         ObservableList<ViewObjAtividadeXAluno> lista = FXCollections.observableArrayList();
         try(Connection con = SqlConnection.getConnection()){
-            String sql_select = String.format("select av.id_avaliacao AS id_avaliacao, av.feedback, al.nome AS nome, av.nota AS nota, at.atividade_nome AS atividade_nome" +
-                                " FROM avaliacao AS av INNER JOIN aluno AS al ON av.aluno_email_pessoal  = al.aluno_email_pessoal" +
-                                " INNER JOIN atividade AS at ON av.id_atividade = at.id_atividade WHERE %s = ?", semestreMateria);
+            String sql_select = String.format(
+                    "select av.id_avaliacao AS id_avaliacao," +
+                    "av.feedback," +
+                    "al.nome AS nome," +
+                    "av.nota AS nota," +
+                    "at.atividade_nome AS atividade_nome" +
+                    " FROM avaliacao AS av INNER JOIN aluno AS al ON av.aluno_email_pessoal  = al.aluno_email_pessoal" +
+                    " INNER JOIN atividade AS at ON av.id_atividade = at.id_atividade WHERE %s = ?", semestreMateria);
             PreparedStatement pst;
             pst = con.prepareStatement(sql_select);
             pst.setString(1, semestre);

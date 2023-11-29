@@ -132,13 +132,6 @@ public class ControllerTelaAtividade {
         } catch (NullPointerException e) {
             System.out.println("Atividades com campos em branco foram ignoradas..." + e);
         }
-        ObservableList<ViewObjAtividadeXAvaliacao> lista  =  alunoDao.getNomeAluno(data.getMateria(),data.getSemestre(),tipo1.getSelectionModel().getSelectedItem());
-        while (counter !=-1){
-            for (int j = 0; j < lista.size(); j++) {
-                avaliacaoDao.criarAvaliacaoDaAtividade(lista.get(j).getNome(),counter);
-            }
-            counter -=1;
-        }
     }
     private boolean validarAtividadeIndividual(TextField nome, TextArea descricao, ChoiceBox<String> tipo, DatePicker dataEntrega) {
         // Adicione suas verificações individuais aqui
