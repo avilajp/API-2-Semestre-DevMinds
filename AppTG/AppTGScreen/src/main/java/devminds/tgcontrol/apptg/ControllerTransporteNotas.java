@@ -33,6 +33,23 @@ public class ControllerTransporteNotas {
     private void setTableItems(ObservableList<DTOTransporteNotas> list){
         for (DTOTransporteNotas obj: list){
             if (obj.getTipo().equals("Relatório Técnico - Estágio") || obj.getTipo().equals("Relatório Técnico - Disciplina") || obj.getTipo().equals("Artigo Tecnológico ou Científico")){
+                if(obj.getNota1().equals(0.0)){
+                    obj.setNota1(null);
+                } if(obj.getNota2().equals(0.0)) {
+                    obj.setNota2(null);
+                } if(obj.getNota3().equals(0.0)) {
+                    obj.setNota3(null);
+                } if(obj.getNota4().equals(0.0)) {
+                    obj.setNota4(null);
+                } if(obj.getNota5().equals(0.0)) {
+                    obj.setNota5(null);
+                } if(obj.getNota6().equals(0.0)) {
+                    obj.setNota6(null);
+                } if(obj.getNota7().equals(0.0)) {
+                    obj.setNota7(null);
+                } if(obj.getNota8().equals(0.0)) {
+                    obj.setNota8(null);
+                }
                 listObj.add(obj);
             }
         }
