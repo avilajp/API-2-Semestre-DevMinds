@@ -77,6 +77,23 @@ public class ControllerTelaAptosDefesa {
                         notasNotNullCount++;
                         somaNotasNotNull += objeto.getNota8();
                     }
+                    if(objeto.getNota1().equals(0.0)){
+                        objeto.setNota1(null);
+                    } if(objeto.getNota2().equals(0.0)) {
+                        objeto.setNota2(null);
+                    } if(objeto.getNota3().equals(0.0)) {
+                        objeto.setNota3(null);
+                    } if(objeto.getNota4().equals(0.0)) {
+                        objeto.setNota4(null);
+                    } if(objeto.getNota5().equals(0.0)) {
+                        objeto.setNota5(null);
+                    } if(objeto.getNota6().equals(0.0)) {
+                        objeto.setNota6(null);
+                    } if(objeto.getNota7().equals(0.0)) {
+                        objeto.setNota7(null);
+                    } if(objeto.getNota8().equals(0.0)) {
+                        objeto.setNota8(null);
+                    }
                     if (somaNotasNotNull/notasNotNullCount >= 6) {
                         lista.add(objeto);
                     }
@@ -121,6 +138,23 @@ public class ControllerTelaAptosDefesa {
                     if (objeto.getNota8() != null) {
                         notasNotNullCount++;
                         somaNotasNotNull += objeto.getNota8();
+                    }
+                    if(objeto.getNota1().equals(0.0)){
+                        objeto.setNota1(null);
+                    } if(objeto.getNota2().equals(0.0)) {
+                        objeto.setNota2(null);
+                    } if(objeto.getNota3().equals(0.0)) {
+                        objeto.setNota3(null);
+                    } if(objeto.getNota4().equals(0.0)) {
+                        objeto.setNota4(null);
+                    } if(objeto.getNota5().equals(0.0)) {
+                        objeto.setNota5(null);
+                    } if(objeto.getNota6().equals(0.0)) {
+                        objeto.setNota6(null);
+                    } if(objeto.getNota7().equals(0.0)) {
+                        objeto.setNota7(null);
+                    } if(objeto.getNota8().equals(0.0)) {
+                        objeto.setNota8(null);
                     }
                     if (somaNotasNotNull/notasNotNullCount >= 6) {
                         lista.add(objeto);

@@ -1,0 +1,26 @@
+.table-row-cell:empty{
+    -fx-background-color: white;
+}
+.table-row-cell:empty .table-cell{
+    -fx-border-width: 0px;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #424874 0%);
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+.table-view:focused {
+-fx-background-color: transparent,
+-fx-box-border,
+-fx-control-inner-background;
+ }

@@ -7,10 +7,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaFechamentoSemestre">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #C2BAE6;" stylesheets="@ScreenDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="devminds.tgcontrol.apptg.ControllerTelaFechamentoSemestre">
    <children>
       <Label fx:id="labelSemestreAtivo" layoutX="159.0" layoutY="14.0" prefHeight="27.0" prefWidth="160.0" />
-      <TableView fx:id="tableFechamento" layoutX="14.0" layoutY="52.0" prefHeight="509.0" prefWidth="996.0">
+      <TableView fx:id="tableFechamento" layoutX="14.0" layoutY="52.0" prefHeight="509.0" prefWidth="996.0" stylesheets="@TableDesing.css">
         <columns>
           <TableColumn fx:id="col1" minWidth="0.0" prefWidth="341.0" text="Nome" />
           <TableColumn fx:id="col2" minWidth="0.0" prefWidth="265.0" text="Tipo de TG" />
